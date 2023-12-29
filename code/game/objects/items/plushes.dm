@@ -33,6 +33,7 @@
 	var/list/vowbroken_message
 	var/list/parent_message
 	var/normal_desc
+	var/content_overlays = FALSE // This is so the Captain Gondola plushie can store th nuke disk
 
 /obj/item/toy/plush/Initialize(mapload)
 	. = ..()
@@ -798,6 +799,21 @@
 			choice.image = plushie_icon
 			item_list[initial(I.name)] = choice
 	return item_list
+
+/obj/item/toy/plush/captaingondola
+	name = "Captain Gondola"
+	desc = "The Big Honcho of the station, in gondola plushie form. It can hold the nuclear authentication disk. Go Go Captain Gondola!."
+	icon_state = "captaingondola"
+	item_state = "captaingondoladisk"
+	content_overlays = TRUE
+
+/obj/item/toy/plush/captaingondola/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	var/static/list/can_hold = typecacheof(list(
+		/obj/item/disk/nuclear
+		))
+	STR.can_hold = can_hold
 
 /////////////////
 //DONATOR ITEMS//
