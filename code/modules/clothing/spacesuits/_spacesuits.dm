@@ -22,6 +22,24 @@
 	resistance_flags = NONE
 	dog_fashion = null
 
+/obj/item/clothing/head/helmet/space/examine(mob/user)
+	. = ..()
+	. += span_notice("You can start constructing a critter sized mecha with a [span_bold("cyborg leg")].")
+
+/obj/item/clothing/head/helmet/space/attackby(obj/item/attacked_with, mob/user, params)
+	. = ..()
+	if(.)
+		return
+	if(!istype(attacked_with, /obj/item/bodypart/l_leg/robot) && !istype(attacked_with, /obj/item/bodypart/r_leg/robot))
+		return
+	if(ismob(loc))
+		user.balloon_alert(user, "drop the helmet first!")
+		return
+	user.balloon_alert(user, "leg attached")
+	new /obj/item/bot_assembly/vim(loc)
+	qdel(attacked_with)
+	qdel(src)
+
 /obj/item/clothing/suit/space
 	name = "space suit"
 	desc = "A suit that protects against low pressure environments. Has a big 13 on the back."
