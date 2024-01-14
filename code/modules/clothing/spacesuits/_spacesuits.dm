@@ -24,7 +24,7 @@
 
 /obj/item/clothing/head/helmet/space/examine(mob/user)
 	. = ..()
-	. += span_notice("You can start constructing a critter sized mecha with a [span_bold("cyborg leg")].")
+	. += ("<span class='notice'(You can start constructing a critter sized mecha with a cyborg leg./<span>")
 
 /obj/item/clothing/head/helmet/space/attackby(obj/item/attacked_with, mob/user, params)
 	. = ..()
