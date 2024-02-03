@@ -279,3 +279,7 @@
 /turf/open/floor/plasteel/smart_checker
 	icon_state = "smart_checker"
 	base_icon_state = "smart_checker"
+
+/turf/open/floor/plasteel/custom_science
+	icon_state = "custom_science"
+	base_icon_state = "custom_science"
