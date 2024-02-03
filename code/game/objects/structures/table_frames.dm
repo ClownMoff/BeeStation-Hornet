@@ -145,3 +145,57 @@
 		color = "#960000"
 		animate(src, color = previouscolor, time = 8)
 		addtimer(CALLBACK(src, /atom/proc/update_atom_colour), 8)
+
+//circular table
+
+/obj/structure/circular_table_frame
+	name = "circular table frame"
+	desc = "A metal stick to put a rounded flat glass on it to make a table. Please don't fall on it"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "circular_table_frame"
+	density = FALSE
+	anchored = FALSE
+	layer = PROJECTILE_HIT_THRESHOLD_LAYER
+	max_integrity = 100
+	var/framestack = /obj/item/stack/rods
+	var/framestackamount = 2
+
+/obj/structure/circular_table_frame/wrench_act(mob/living/user, obj/item/I)
+	to_chat(user, "<span class='notice'>You start disassembling [src]...</span>")
+	I.play_tool_sound(src)
+	if(!I.use_tool(src, user, 3 SECONDS))
+		return
+	playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
+	deconstruct(TRUE)
+	return
+
+/obj/structure/circular_table_frame/attackby(obj/item/I, mob/user, params)
+	if(isstack(I))
+		var/obj/item/stack/material = I
+		if(material.tableVariant)
+			if(material.get_amount() < 1)
+				to_chat(user, "<span class='warning'>You need one [material.name] sheet to do this!</span>")
+				return
+			if(locate(/obj/structure/circular_table) in loc)
+				to_chat(user, "<span class='warning'>There's already a table built here!</span>")
+				return
+			to_chat(user, "<span class='notice'>You start adding [material] to [src]...</span>")
+			if(!do_after(user, 2 SECONDS, target = src) || !material.use(1) || (locate(/obj/structure/circular_table) in loc))
+				return
+			make_new_table(material.tableVariant)
+		else if(istype(material, /obj/item/stack/sheet))
+			if(material.get_amount() < 1)
+				to_chat(user, "<span class='warning'>You need one sheet to do this!</span>")
+				return
+			if(locate(/obj/structure/circular_table) in loc)
+				to_chat(user, "<span class='warning'>There's already a table built here!</span>")
+				return
+			to_chat(user, "<span class='notice'>You start adding [material] to [src]...</span>")
+			if(!do_after(user, 2 SECONDS, target = src) || !material.use(1) || (locate(/obj/structure/circular_table) in loc))
+				return
+			var/list/material_list = list()
+			if(material.material_type)
+				material_list[material.material_type] = MINERAL_MATERIAL_AMOUNT
+			make_new_table(/obj/structure/circular_table/greyscale, material_list)
+		return
+	return ..()
