@@ -201,3 +201,4 @@
 	name = "Research Department"
 	desc = "An electronic sign labelling where the research and development of new technologies takes place. It's not an experiment if you know what's going on."
 	icon_state = "minskyrd_animated"
+de

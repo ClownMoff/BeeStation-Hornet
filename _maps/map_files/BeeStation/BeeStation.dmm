@@ -1030,6 +1030,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/departments/minsky/research/animated_research{
+	pixel_x = -32
+	},
 /turf/open/floor/plasteel/custom_science{
 	dir = 8
 	},
@@ -1452,6 +1455,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/departments/minsky/research/animated_research{
+	pixel_x = -32
+	},
 /turf/open/floor/plasteel/custom_science{
 	dir = 8
 	},
@@ -1567,6 +1573,12 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/black,
+/area/space)
+"Im" = (
+/obj/structure/sign/departments/minsky/research/animated_research{
+	pixel_y = -32
+	},
+/turf/open/space/basic,
 /area/space)
 "Ip" = (
 /obj/item/paicard,
@@ -1731,7 +1743,9 @@
 /turf/open/space/basic,
 /area/space)
 "KG" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plasteel/custom_science{
 	dir = 4
 	},
@@ -12599,7 +12613,7 @@ cj
 cj
 cj
 jI
-fA
+Dx
 tr
 MS
 YU
@@ -13607,7 +13621,7 @@ cj
 cj
 cj
 cj
-cj
+Im
 jI
 Dx
 Bk
@@ -14415,7 +14429,7 @@ cj
 cj
 cj
 cj
-cj
+Im
 jI
 Dx
 Fj
