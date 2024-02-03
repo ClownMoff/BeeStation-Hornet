@@ -196,3 +196,8 @@
 	name = "Hydroponics Division"
 	desc = "A sign labelling the hydroponics division of the station. Don't mind the redeyes and giggles."
 	icon_state = "minskyhydrob"
+
+/obj/structure/sign/departments/minsky/research/animated_research
+	name = "Research Department"
+	desc = "An electronic sign labelling where the research and development of new technologies takes place. It's not an experiment if you know what's going on."
+	icon_state = "minskyrd_animated"
