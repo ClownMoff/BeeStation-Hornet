@@ -51,6 +51,8 @@
 #define TURF_WET_LUBE (1<<3)
 /// Turf has superlube on the floor and mobs will slip even if they are crawling
 #define TURF_WET_SUPERLUBE (1<<4)
+///Antag only lube that slips a lot but doesn't slip if you are crawling
+#define TURF_WET_ULTRALUBE (1<<5)
 
 /// Maximum amount of time, (in deciseconds) a tile can be wet for.
 #define MAXIMUM_WET_TIME 5 MINUTES

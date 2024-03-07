@@ -932,3 +932,10 @@
 	id = /datum/reagent/mutationtoxin/psyphoza
 	results = list(/datum/reagent/mutationtoxin/psyphoza = 5)
 	required_reagents  = list(/datum/reagent/aslimetoxin = 5, /datum/reagent/toxin/amatoxin = 5)
+
+/datum/chemical_reaction/ultralube
+	name = "Ultra Super Duper Mega Giga Extra Nano Maximun Lube"
+	id = /datum/reagent/lube/ultralube
+	results = list(/datum/reagent/lube/ultralube = 5)
+	required_reagents = list(/datum/reagent/lube = 1, /datum/reagent/colorful_reagent = 1)
+	required_catalysts = /datum/reagent/honkium

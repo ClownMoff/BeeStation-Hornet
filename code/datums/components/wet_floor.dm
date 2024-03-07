@@ -91,6 +91,9 @@
 		if(TURF_WET_SUPERLUBE)
 			intensity = 120
 			lube_flags = SLIDE | GALOSHES_DONT_HELP | SLIP_WHEN_CRAWLING
+		if(TURF_WET_ULTRALUBE)
+			intensity = 200
+			lube_flags = SLIDE | GALOSHES_DONT_HELP
 		else
 			qdel(parent.GetComponent(/datum/component/slippery))
 			return

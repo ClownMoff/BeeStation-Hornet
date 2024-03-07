@@ -377,9 +377,15 @@
 /datum/reagent/lube/superlube
 	name = "Super Duper Lube"
 	description = "This \[REDACTED\] has been outlawed after the incident on \[DATA EXPUNGED\]."
-	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_FUN | CHEMICAL_RNG_BOTANY
+	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_FUN
 	lube_kind = TURF_WET_SUPERLUBE
 
+/// TOT only lube. Applies TURF_WET_ULTRALUBE
+/datum/reagent/lube/ultralube
+	name = "Ultra Super Duper Mega Giga Extra Nano Maximun Lube"
+	description = "Highly illegal contraband only obtainable through the use of non Nanotrasen related means."
+	chem_flags = CHEMICAL_NOT_DEFINED
+	lube_kind = TURF_WET_ULTRALUBE
 
 /datum/reagent/spraytan
 	name = "Spray Tan"
@@ -2273,3 +2279,11 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	name = "Grasp of the Mansus"
 	description = "The Hand of the Mansus is at your neck."
 	metabolization_rate = 1 * REM
+
+/datum/reagent/honkium
+	name = "honkium"
+	description = "Hilarous illegal chem made out of processed bananium and deepfried stun batons. Heals clowns, makes non clown C.L.U.W.N.E.S for a short duration and can be used as a catalyst for the following recipes\n\
+	- Space lube + Honkium = Ultra Super Duper Mega Giga Extra Nano Maximun Lube.</i>."
+	color = "#FF4BFFFE"
+	chem_flags = CHEMICAL_NOT_DEFINED
+	taste_description = "fun"
