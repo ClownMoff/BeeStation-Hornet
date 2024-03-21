@@ -211,3 +211,36 @@
 	desc = "Just looking at this makes you want to giggle."
 	icon_state = "laughter"
 	list_reagents = list(/datum/reagent/consumable/laughter = 50)
+
+//clown balloons
+/obj/item/dballoon
+	name = "Deflated  balloon"
+	desc = "Better have good lungs."
+	icon_state = "dballoon"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/dballoon/attack_self(mob/living/user)
+	user.visible_message("<span class='notice'>[user] blows up a balloon.</span>", "<span class='notice'>You blow up a balloon!.</span>")
+	playsound(user, 'sound/items/ballooninflation.ogg', 50, 1)
+	var/obj/item/balloon/B = new
+	qdel(src)
+	user.put_in_hands(B)
+	return 1
+
+/obj/item/balloon/
+	name = "Balloon"
+	desc = "A piece of rubber filled with air."
+	icon_state = "balloon"
+	w_class = WEIGHT_CLASS_SMALL
+	var/list/balloon_radial_list = list(
+		"Balloon dog" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paperplane"),
+		"Balloon sword" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "papercrane"),
+		"Balloon hat" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paperfrog"),
+	)
+
+/obj/item/balloon/attack_self(mob/living/user/L)
+	if(L.mind.assigned_role == JOB_NAME_CLOWN)
+	return
+
+	else
+	user.visible_message("<span class='notice'>Only theatre personnel know how to handle ballons!.</span>")
