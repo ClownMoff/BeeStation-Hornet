@@ -234,40 +234,43 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/balloon/attack_self(mob/living/carbon/user, obj/item/I)
-	if(user.mind.assigned_role != JOB_NAME_CLOWN && user.mind.assigned_role != JOB_NAME_MIME)
-		return
+    if(user.mind.assigned_role != JOB_NAME_CLOWN && user.mind.assigned_role != JOB_NAME_MIME)
+        return
 
-	var/list/radial_list = list(
-		"Balloon dog" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "dog_balloon"),
-		"Balloon sword" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "sword_balloon"),
-	)
+    var/list/radial_list = list(
+        "Balloon dog" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "dog_balloon"),
+        "Balloon sword" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "sword_balloon"),
+    )
 
-	var/balloon_selected = show_radial_menu(user, src, radial_list, require_near = TRUE, tooltips = TRUE)
-	if(!balloon_selected || !user || user.stat)
-		return
+    var/balloon_selected = show_radial_menu(user, src, radial_list, require_near = TRUE, tooltips = TRUE)
+    if(!balloon_selected || !user || user.stat)
+        return
 
-	var/balloon_type = balloon_nametotype(balloon_selected)
-	if(balloon_type)
-		return
-	user.temporarilyRemoveItemFromInventory(src)
-	I = new balloon_type(user, src)
-	to_chat(user, "<span class='notice'>You shape [src] into the shape of a [I.name]!</span>")
-	user.put_in_hands(I)
+    var/balloon_type = balloon_nametotype(balloon_selected)
+    if (!balloon_type)
+        return
+
+    if (do_after(user, 5 SECONDS, target = user))
+        user.temporarilyRemoveItemFromInventory(src)
+        I = new balloon_type(user, src)
+        to_chat(user, "<span class='notice'>You shape [src] into the shape of a [I.name]!</span>")
+        user.put_in_hands(I)
 
 /proc/balloon_nametotype(name)
 	switch(name)
-		if("Dog Balloon") return /obj/item/balloon/inflated/dog
-		if("Sword balloon") return /obj/item/balloon/inflated/sword
+		if("Balloon Dog") return /obj/item/balloon/inflated/dog
+		if("Balloon Sword") return /obj/item/balloon/inflated/sword
 
 /obj/item/balloon/inflated/  //template inflated balloon
 	name = "inflated Balloon Template"
 	desc = "You shouldn't be seeing this. Please contact CentComm if this somehow ends up in your hands."
 	icon_state = "inflated_template"
+	hitsound = 'sound/items/balloonhit.ogg'
+
 /obj/item/balloon/inflated/dog
 	name = "Dog Balloon"
 	desc = "A piece of rubber filled with air shaped like a balloon."
 	icon_state = "balloon_dog"
-
 /obj/item/balloon/inflated/sword
 	name = "Sword balloon"
 	desc = "A piece of rubber filled with air shaped like a sword."
@@ -276,4 +279,3 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "balloon_sword"
-	hitsound = 'sound/weapons/bladeslice.ogg'
