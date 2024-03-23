@@ -256,19 +256,24 @@
 
 /proc/balloon_nametotype(name)
 	switch(name)
-		if("Dog Balloon") return /obj/item/balloon/dog
-		if("Sword balloon") return /obj/item/balloon/sword
+		if("Dog Balloon") return /obj/item/balloon/inflated/dog
+		if("Sword balloon") return /obj/item/balloon/inflated/sword
 
-/obj/item/balloon/dog
+/obj/item/balloon/inflated/  //template inflated balloon
+	name = "inflated Balloon Template"
+	desc = "You shouldn't be seeing this. Please contact CentComm if this somehow ends up in your hands."
+	icon_state = "inflated_template"
+/obj/item/balloon/inflated/dog
 	name = "Dog Balloon"
 	desc = "A piece of rubber filled with air shaped like a balloon."
-	icon_state = "dog_balloon"
+	icon_state = "balloon_dog"
 
-/obj/item/balloon/sword
+/obj/item/balloon/inflated/sword
 	name = "Sword balloon"
 	desc = "A piece of rubber filled with air shaped like a sword."
-	icon_state = "sword_balloon"
+	icon_state = "balloon_sword"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
+	worn_icon_state = "balloon_sword"
 	hitsound = 'sound/weapons/bladeslice.ogg'
