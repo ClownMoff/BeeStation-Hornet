@@ -232,15 +232,43 @@
 	desc = "A piece of rubber filled with air."
 	icon_state = "balloon"
 	w_class = WEIGHT_CLASS_SMALL
-	var/list/balloon_radial_list = list(
-		"Balloon dog" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paperplane"),
-		"Balloon sword" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "papercrane"),
-		"Balloon hat" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paperfrog"),
+
+/obj/item/balloon/attack_self(mob/living/carbon/user, obj/item/I)
+	if(user.mind.assigned_role != JOB_NAME_CLOWN && user.mind.assigned_role != JOB_NAME_MIME)
+		return
+
+	var/list/radial_list = list(
+		"Balloon dog" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "dog_balloon"),
+		"Balloon sword" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "sword_balloon"),
 	)
 
-/obj/item/balloon/attack_self(mob/living/user/L)
-	if(L.mind.assigned_role == JOB_NAME_CLOWN)
-	return
+	var/balloon_selected = show_radial_menu(user, src, radial_list, require_near = TRUE, tooltips = TRUE)
+	if(!balloon_selected || !user || user.stat)
+		return
 
-	else
-	user.visible_message("<span class='notice'>Only theatre personnel know how to handle ballons!.</span>")
+	var/balloon_type = balloon_nametotype(balloon_selected)
+	if(balloon_type)
+		return
+	user.temporarilyRemoveItemFromInventory(src)
+	I = new balloon_type(user, src)
+	to_chat(user, "<span class='notice'>You shape [src] into the shape of a [I.name]!</span>")
+	user.put_in_hands(I)
+
+/proc/balloon_nametotype(name)
+	switch(name)
+		if("Dog Balloon") return /obj/item/balloon/dog
+		if("Sword balloon") return /obj/item/balloon/sword
+
+/obj/item/balloon/dog
+	name = "Dog Balloon"
+	desc = "A piece of rubber filled with air shaped like a balloon."
+	icon_state = "dog_balloon"
+
+/obj/item/balloon/sword
+	name = "Sword balloon"
+	desc = "A piece of rubber filled with air shaped like a sword."
+	icon_state = "sword_balloon"
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	slot_flags = ITEM_SLOT_BELT
+	hitsound = 'sound/weapons/bladeslice.ogg'
