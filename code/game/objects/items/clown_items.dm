@@ -258,20 +258,20 @@
 
 /proc/balloon_nametotype(name)
 	switch(name)
-		if("Balloon Dog") return /obj/item/balloon/inflated/dog
-		if("Balloon Sword") return /obj/item/balloon/inflated/sword
+		if("Balloon Dog") return /obj/item/inflated_balloon/dog
+		if("Balloon Sword") return /obj/item/inflated_balloon/sword
 
-/obj/item/balloon/inflated/  //template inflated balloon
+/obj/item/inflated_balloon  //template inflated balloon
 	name = "inflated Balloon Template"
 	desc = "You shouldn't be seeing this. Please contact CentComm if this somehow ends up in your hands."
 	icon_state = "inflated_template"
 	hitsound = 'sound/items/balloonhit.ogg'
 
-/obj/item/balloon/inflated/dog
+/obj/item/inflated_balloon/dog
 	name = "Dog Balloon"
 	desc = "A piece of rubber filled with air shaped like a balloon."
 	icon_state = "balloon_dog"
-/obj/item/balloon/inflated/sword
+/obj/item/inflated_balloon/sword
 	name = "Sword balloon"
 	desc = "A piece of rubber filled with air shaped like a sword."
 	icon_state = "balloon_sword"
