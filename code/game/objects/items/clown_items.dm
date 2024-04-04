@@ -250,11 +250,10 @@
     if (!balloon_type)
         return
 
-    if (do_after(user, 5 SECONDS, target = user))
-        user.temporarilyRemoveItemFromInventory(src)
-        I = new balloon_type(user, src)
-        to_chat(user, "<span class='notice'>You shape [src] into the shape of a [I.name]!</span>")
-        user.put_in_hands(I)
+	 user.temporarilyRemoveItemFromInventory(src)
+	I = new balloon_type(user, src)
+	to_chat(user, "<span class='notice'>You shape [src] into the shape of a [I.name]!</span>")
+	user.put_in_hands(I)
 
 /proc/balloon_nametotype(name)
 	switch(name)
@@ -266,11 +265,13 @@
 	desc = "You shouldn't be seeing this. Please contact CentComm if this somehow ends up in your hands."
 	icon_state = "inflated_template"
 	hitsound = 'sound/items/balloonhit.ogg'
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/inflated_balloon/dog
 	name = "Dog Balloon"
 	desc = "A piece of rubber filled with air shaped like a balloon."
 	icon_state = "balloon_dog"
+
 /obj/item/inflated_balloon/sword
 	name = "Sword balloon"
 	desc = "A piece of rubber filled with air shaped like a sword."
