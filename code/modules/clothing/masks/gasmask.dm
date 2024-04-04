@@ -260,3 +260,12 @@
 /obj/item/clothing/mask/gas/old/modulator/AltClick(mob/user)
 	voice_change = !voice_change
 	to_chat(user, "<span class='notice'>The modulator is now [voice_change ? "on" : "off"]!</span>")
+
+/obj/item/clothing/mask/gas/pierrot
+	name = "Pierrot mask"
+	desc = "Pierrot mime mask, popularized by Jean-Gaspard Deburau in the XVII century."
+	clothing_flags = MASKINTERNALS
+	icon_state = "pierrot"
+	item_state = "pierrot"
+	flags_cover = MASKCOVERSEYES
+	resistance_flags = FLAMMABLE

@@ -249,8 +249,7 @@
     var/balloon_type = balloon_nametotype(balloon_selected)
     if (!balloon_type)
         return
-
-	 user.temporarilyRemoveItemFromInventory(src)
+	user.temporarilyRemoveItemFromInventory(src)
 	I = new balloon_type(user, src)
 	to_chat(user, "<span class='notice'>You shape [src] into the shape of a [I.name]!</span>")
 	user.put_in_hands(I)

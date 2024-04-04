@@ -1239,3 +1239,10 @@
 	desc = "A duratread hood attached to your hoodie, robust as."
 	armor = list(MELEE = 5, BULLET = 5, LASER = 5, FIRE = 20, ACID = 5, BOMB = 5, STAMINA = 15)
 	color = "#8291a1"
+
+/obj/item/clothing/suit/pierrot
+	name = "Pierrot robe"
+	desc = "Pierrot mime robe, popularized by Jean-Gaspard Deburau in the XVII century."
+	icon_state = "pierrot"
+	item_state = "pierrot"
+	body_parts_covered = CHEST|GROIN
