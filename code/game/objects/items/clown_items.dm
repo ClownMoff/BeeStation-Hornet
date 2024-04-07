@@ -234,19 +234,19 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/balloon/attack_self(mob/living/carbon/user, obj/item/I)
-    if(user.mind.assigned_role != JOB_NAME_CLOWN && user.mind.assigned_role != JOB_NAME_MIME)
-        return
+	if(user.mind.assigned_role != JOB_NAME_CLOWN && user.mind.assigned_role != JOB_NAME_MIME)
+		return
 
-    var/list/radial_list = list(
-        "Balloon dog" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "dog_balloon"),
-        "Balloon sword" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "sword_balloon"),
-    )
+	var/list/radial_list = list(
+		"Balloon dog" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "dog_balloon"),
+		"Balloon sword" = image(icon = 'icons/obj/items_and_weapons.dmi', icon_state = "sword_balloon"),
+	)
 
-    var/balloon_selected = show_radial_menu(user, src, radial_list, require_near = TRUE, tooltips = TRUE)
-    if(!balloon_selected || !user || user.stat)
-        return
+	var/balloon_selected = show_radial_menu(user, src, radial_list, require_near = TRUE, tooltips = TRUE)
+	if(!balloon_selected || !user || user.stat)
+		return
 
-	var/balloon_type = origami_nametotype(origami_selected)
+	var/balloon_type = balloon_nametotype(balloon_selected)
 	if(!balloon_type)
 		return
 	user.temporarilyRemoveItemFromInventory(src)
@@ -279,113 +279,3 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "balloon_sword"
-
-/obj/item/choice_beacon/radial/hero
-	name = "heroic beacon"
-	desc = "To summon heroes from the past to protect the future."
-
-/obj/item/choice_beacon/radial/hero/generate_options(mob/living/M)
-	var/list/item_list = generate_item_list()
-	if(!item_list.len)
-		return
-	var/choice = show_radial_menu(M, src, item_list, radius = 36, require_near = TRUE, tooltips = TRUE)
-	if(!QDELETED(src) && !(isnull(choice)) && !M.incapacitated() && in_range(M,src))
-		var/list/temp_list = typesof(/obj/item/storage/box/hero)
-		for(var/V in temp_list)
-			var/atom/A = V
-			if(initial(A.name) == choice)
-				spawn_option(A,M)
-				uses--
-				if(!uses)
-					qdel(src)
-				else
-					balloon_alert(M, "[uses] use[uses > 1 ? "s" : ""] remaining")
-					to_chat(M, "<span class='notice'>[uses] use[uses > 1 ? "s" : ""] remaining on the [src].</span>")
-				return
-
-/obj/item/choice_beacon/radial/hero/generate_item_list()
-	var/static/list/item_list
-	if(!item_list)
-		item_list = list()
-		var/list/templist = typesof(/obj/item/storage/box/hero)
-		for(var/V in templist)
-			var/obj/item/storage/box/hero/boxy = V
-			var/image/outfit_icon = image(initial(boxy.item_icon_file), initial(boxy.item_icon_state))
-			var/datum/radial_menu_choice/choice = new
-			choice.image = outfit_icon
-			var/info_text = "That's [icon2html(outfit_icon, usr)] "
-			info_text += initial(boxy.info_text)
-			choice.info = info_text
-			item_list[initial(boxy.name)] = choice
-	return item_list
-
-/obj/item/storage/box/hero
-	name = "Courageous Tomb Raider - 1940's."
-	var/icon/item_icon_file = 'icons/misc/premade_loadouts.dmi'
-	var/item_icon_state = "indiana"
-	var/info_text = "Courageous Tomb Raider - 1940's. \n<span class='notice'>Comes with a whip</span>"
-
-/obj/item/storage/box/hero/PopulateContents()
-	new /obj/item/clothing/head/fedora/curator(src)
-	new /obj/item/clothing/suit/curator(src)
-	new /obj/item/clothing/under/rank/civilian/curator/treasure_hunter(src)
-	new /obj/item/clothing/shoes/workboots/mining(src)
-	new /obj/item/melee/curator_whip(src)
-
-/obj/item/storage/box/hero/astronaut
-	name = "First Man on the Moon - 1960's."
-	item_icon_state = "voidsuit"
-	info_text = "First Man on the Moon - 1960's. \n<span class='notice'>Comes with an air tank and a GPS</span>"
-
-/obj/item/storage/box/hero/astronaut/PopulateContents()
-	new /obj/item/clothing/suit/space/nasavoid(src)
-	new /obj/item/clothing/head/helmet/space/nasavoid(src)
-	new /obj/item/tank/internals/oxygen(src)
-	new /obj/item/gps(src)
-
-/obj/item/storage/box/hero/scottish
-	name = "Braveheart, the Scottish rebel - 1300's."
-	item_icon_state = "scottsman"
-	info_text = "Braveheart, the Scottish rebel - 1300's. \n<span class='notice'>Comes with a claymore and a spraycan</span>"
-
-/obj/item/storage/box/hero/scottish/PopulateContents()
-	new /obj/item/clothing/under/costume/kilt(src)
-	new /obj/item/claymore/weak/ceremonial(src)
-	new /obj/item/toy/crayon/spraycan(src)
-	new /obj/item/clothing/shoes/sandal(src)
-
-/obj/item/storage/box/hero/ghostbuster
-	name = "Spectre Inspector - 1980's."
-	item_icon_state = "ghostbuster"
-	info_text = "Spectre Inspector - 1980's. \n<span class='notice'>Comes with some anti-spectre grenades</span>"
-
-/obj/item/storage/box/hero/ghostbuster/PopulateContents()
-	new /obj/item/clothing/glasses/welding/ghostbuster(src)
-	new /obj/item/storage/belt/fannypack/bustin(src)
-	new /obj/item/clothing/gloves/color/black(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/under/color/khaki/buster(src)
-	new /obj/item/grenade/chem_grenade/ghostbuster(src)
-	new /obj/item/grenade/chem_grenade/ghostbuster(src)
-	new /obj/item/grenade/chem_grenade/ghostbuster(src)
-
-/obj/item/storage/box/hero/carphunter
-	name = "Carp Hunter, Wildlife Expert - 2506."
-	item_icon_state = "carp"
-	info_text = "Carp Hunter, Wildlife Expert - 2506. \n<span class='notice'>Comes with a hunting knife</span>"
-
-/obj/item/storage/box/hero/carphunter/PopulateContents()
-	new /obj/item/clothing/suit/space/hardsuit/carp/old(src)
-	new /obj/item/clothing/mask/gas/carp(src)
-	new /obj/item/knife/hunting(src)
-
-/obj/item/storage/box/hero/ronin
-	name = "Sword Saint, Wandering Vagabond - 1600's."
-	item_icon_state = "samurai"
-	info_text = "Sword Saint, Wandering Vagabond - 1600's. \n<span class='notice'>Comes with a replica katana</span>"
-
-/obj/item/storage/box/hero/ronin/PopulateContents()
-    new /obj/item/clothing/under/costume/kamishimo(src)
-    new /obj/item/clothing/head/rice_hat(src)
-    new /obj/item/katana/weak/curator(src)
-    new /obj/item/clothing/shoes/sandal(src)
