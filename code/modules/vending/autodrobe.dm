@@ -119,7 +119,6 @@
 		              /obj/item/clothing/mask/muzzle = 2)
 	premium = list(/obj/item/clothing/suit/pirate/captain = 2,
 				   /obj/item/clothing/head/pirate/captain = 2,
-				   /obj/item/clothing/under/rank/civilian/clown/rainbow = 1,
 				   /obj/item/clothing/head/helmet/roman/fake = 1,
 				   /obj/item/clothing/head/helmet/roman/legionnaire/fake = 1,
 				   /obj/item/clothing/under/costume/roman = 1,

@@ -72,7 +72,7 @@
 	mask_designs["Green Clown"] = image(icon = src.icon, icon_state = "clown_green")
 	mask_designs["Blue Clown"] = image(icon = src.icon, icon_state = "clown_blue")
 	mask_designs["Rainbow Clown"] = image(icon = src.icon, icon_state = "rainbow")
-	mask_designs["Purple clown"] = image(icon = src.icon, icon_state = "clown_ourple")
+	mask_designs["Purple clown"] = image(icon = src.icon, icon_state = "clown_purple")
 	mask_designs["Yellow clown"] = image(icon = src.icon, icon_state = "clown_yellow")
 	mask_designs["Girl clown"] = image(icon = src.icon, icon_state = "sexyclown")
 
@@ -82,8 +82,8 @@
 	var/list/options = list()
 	options["True Form"] = "clown"
 	options["Green Clown"] = "clown_green"
-	options["Purple Clown"] = "clown_ourple"
-	options["Yellow Clown"] ="clown_yello" //Nepeta33Leijon is holding me captive and forced me to help with this please send help // IDK who you are Nepeta33Leijon but the Deltarune mask now works as a regular mask
+	options["Purple Clown"] = "clown_purple"
+	options["Yellow Clown"] ="clown_yellow" //Nepeta33Leijon is holding me captive and forced me to help with this please send help // IDK who you are Nepeta33Leijon but the Deltarune mask now works as a regular mask
 	options["Blue Clown"] = "clown_blue"
 	options["Rainbow Clown"] = "rainbow"
 	options["Girl Clown"] = "sexyclown"
@@ -100,6 +100,15 @@
 			A.UpdateButtonIcon()
 		to_chat(user, "<span class='notice'>Your Clown Mask has now morphed into [choice], all praise the Honkmother!</span>")
 		return 1
+
+/obj/item/clothing/mask/gas/sexyclown
+	name = "sexy-clown wig and mask"
+	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
+	clothing_flags = MASKINTERNALS
+	icon_state = "sexyclown"
+	item_state = "sexyclown"
+	flags_cover = MASKCOVERSEYES
+	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
@@ -262,18 +271,8 @@
 	item_state = "pierrot"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
-
-obj/item/clothing/mask/gas/lunatic
-	name = "Lunatic Comedian mask"
-	desc = "We truly live in a space society."
-	clothing_flags = MASKINTERNALS
-	icon_state = "lunatic"
-	item_state = "lunatic"
-	flags_cover = MASKCOVERSEYES
-	resistance_flags = FLAMMABLE
-
 obj/item/clothing/mask/gas/joker
-	name = "Lunatic Comedian mask"
+	name = "lunatic Comedian mask"
 	desc = "We truly live in a space society."
 	clothing_flags = MASKINTERNALS
 	icon_state = "joker"
