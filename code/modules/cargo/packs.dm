@@ -717,7 +717,7 @@
 					/obj/item/survivalcapsule/barricade)
 	cost = 2000
 	crate_name = "security barriers crate XL"
-	
+
 /datum/supply_pack/security/armory/capsule_checkpoints
 	name = "Security Checkpoint capsules"
 	desc = "A 3x3 checkpoint designed for allowing safely searching passing personnel. Requires Security access to open."
@@ -2441,7 +2441,7 @@
 	access = ACCESS_THEATRE
 	access_budget = ACCESS_THEATRE
 	contains = list(/obj/item/storage/backpack/duffelbag/clown/cream_pie)
-	crate_name = "party equipment crate"
+	crate_name = "cream pies crate"
 	contraband = TRUE
 	crate_type = /obj/structure/closet/crate/secure
 
@@ -3203,6 +3203,15 @@
 					/obj/item/vending_refill/wardrobe/det_wardrobe,
 					/obj/item/vending_refill/wardrobe/law_wardrobe)
 	crate_name = "security department supply crate"
+
+/datum/supply_pack/costumes_toys/wardrobes/theatre
+	name = "Theatre Wardrobe Supply Crate"
+	desc = "This crate contains refills for the SecDrobe, DetDrobe and LawDrobe."
+	cost = 1000
+	max_supply = 6
+	access_budget = ACCESS_THEATRE
+	contains = list(/obj/item/vending_refill/wardrobe/theatre_wardrobe)
+	crate_name = "theatre department supply crate"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Miscellaneous ///////////////////////////////////

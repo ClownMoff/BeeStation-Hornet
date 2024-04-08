@@ -69,22 +69,24 @@
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
 	.=..()
 	mask_designs["True Form"] = image(icon = src.icon, icon_state = "clown")
-	mask_designs["The Feminist"] = image(icon = src.icon, icon_state = "sexyclown")
-	mask_designs["The Madman"] = image(icon = src.icon, icon_state = "joker")
-	mask_designs["The Rainbow Color"] = image(icon = src.icon, icon_state = "rainbow")
-	mask_designs["The Jester"] = image(icon = src.icon, icon_state = "chaos")
-	mask_designs["The Lunatic"] = image(icon = src.icon, icon_state = "trickymask")
+	mask_designs["Green Clown"] = image(icon = src.icon, icon_state = "clown_green")
+	mask_designs["Blue Clown"] = image(icon = src.icon, icon_state = "clown_blue")
+	mask_designs["Rainbow Clown"] = image(icon = src.icon, icon_state = "rainbow")
+	mask_designs["Purple clown"] = image(icon = src.icon, icon_state = "clown_ourple")
+	mask_designs["Yellow clown"] = image(icon = src.icon, icon_state = "clown_yellow")
+	mask_designs["Girl clown"] = image(icon = src.icon, icon_state = "sexyclown")
 
 /obj/item/clothing/mask/gas/clown_hat/ui_action_click(mob/user)
 	if(!istype(user) || user.incapacitated())
 		return
 	var/list/options = list()
 	options["True Form"] = "clown"
-	options["The Feminist"] = "sexyclown"
-	options["The Madman"] = "joker"
-	options["The Rainbow Color"] ="rainbow"
-	options["The Jester"] ="chaos" //Nepeta33Leijon is holding me captive and forced me to help with this please send help
-	options["The Lunatic"] = "trickymask"
+	options["Green Clown"] = "clown_green"
+	options["Purple Clown"] = "clown_ourple"
+	options["Yellow Clown"] ="clown_yello" //Nepeta33Leijon is holding me captive and forced me to help with this please send help // IDK who you are Nepeta33Leijon but the Deltarune mask now works as a regular mask
+	options["Blue Clown"] = "clown_blue"
+	options["Rainbow Clown"] = "rainbow"
+	options["Girl Clown"] = "sexyclown"
 
 	var/choice = show_radial_menu(user, user, mask_designs, custom_check = FALSE, radius = 40)
 	if(!choice)
@@ -98,15 +100,6 @@
 			A.UpdateButtonIcon()
 		to_chat(user, "<span class='notice'>Your Clown Mask has now morphed into [choice], all praise the Honkmother!</span>")
 		return 1
-
-/obj/item/clothing/mask/gas/sexyclown
-	name = "sexy-clown wig and mask"
-	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
-	clothing_flags = MASKINTERNALS
-	icon_state = "sexyclown"
-	item_state = "sexyclown"
-	flags_cover = MASKCOVERSEYES
-	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
@@ -267,5 +260,41 @@
 	clothing_flags = MASKINTERNALS
 	icon_state = "pierrot"
 	item_state = "pierrot"
+	flags_cover = MASKCOVERSEYES
+	resistance_flags = FLAMMABLE
+
+obj/item/clothing/mask/gas/lunatic
+	name = "Lunatic Comedian mask"
+	desc = "We truly live in a space society."
+	clothing_flags = MASKINTERNALS
+	icon_state = "lunatic"
+	item_state = "lunatic"
+	flags_cover = MASKCOVERSEYES
+	resistance_flags = FLAMMABLE
+
+obj/item/clothing/mask/gas/joker
+	name = "Lunatic Comedian mask"
+	desc = "We truly live in a space society."
+	clothing_flags = MASKINTERNALS
+	icon_state = "joker"
+	item_state = "joker"
+	flags_cover = MASKCOVERSEYES
+	resistance_flags = FLAMMABLE
+
+obj/item/clothing/mask/gas/chaos
+	name = "Chaos Jester mask"
+	desc = "I CAN DO ANYTHING!!"
+	clothing_flags = MASKINTERNALS
+	icon_state = "chaos"
+	item_state = "chaos"
+	flags_cover = MASKCOVERSEYES
+	resistance_flags = FLAMMABLE
+
+obj/item/clothing/mask/gas/lunatic
+	name = "Mad Clown mask"
+	desc = "Looks like a lunatic."
+	clothing_flags = MASKINTERNALS
+	icon_state = "lunatic"
+	item_state = "lunatic"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
