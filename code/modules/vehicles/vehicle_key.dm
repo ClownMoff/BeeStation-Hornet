@@ -15,7 +15,7 @@
 
 /obj/item/key/mime
 	desc = "A keyring with a small steel key, and a rubber bagguete and a tiny France flag accessories."
-	icon_state = "keymime™"
+	icon_state = "keymime"
 
 /obj/item/key/clown
 	desc = "A keyring with a small steel key, and a rubber bike airhorn."
