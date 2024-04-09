@@ -271,7 +271,8 @@
 	item_state = "pierrot"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
-obj/item/clothing/mask/gas/joker
+
+/obj/item/clothing/mask/gas/joker
 	name = "lunatic Comedian mask"
 	desc = "We truly live in a space society."
 	clothing_flags = MASKINTERNALS
@@ -280,7 +281,7 @@ obj/item/clothing/mask/gas/joker
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 
-obj/item/clothing/mask/gas/chaos
+/obj/item/clothing/mask/gas/chaos
 	name = "Chaos Jester mask"
 	desc = "I CAN DO ANYTHING!!"
 	clothing_flags = MASKINTERNALS
@@ -289,7 +290,7 @@ obj/item/clothing/mask/gas/chaos
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 
-obj/item/clothing/mask/gas/lunatic
+/obj/item/clothing/mask/gas/lunatic
 	name = "Mad Clown mask"
 	desc = "Looks like a lunatic."
 	clothing_flags = MASKINTERNALS

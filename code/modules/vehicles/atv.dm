@@ -104,12 +104,10 @@
 	return ..()
 
 // clown and mime funny rides (non antag)
-
-/obj/vehicle/ridden/atv
+/obj/vehicle/ridden/atv/mime
 	name = "MimeMobile™"
 	desc = "An invisible car for the mime."
-	icon_state = "atv"
+	icon_state = "mimemobile"
 	armor = list(MELEE = 5,  BULLET = 5, LASER = 5, ENERGY = 0, BOMB = 5, BIO = 0, RAD = 0, FIRE = 0, ACID = 5, STAMINA = 0)
 	key_type = /obj/item/key/mime
 	integrity_failure = 0.5
-	var/static/mutable_appearance/atvcover
