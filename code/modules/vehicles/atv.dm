@@ -112,6 +112,14 @@
 	key_type = /obj/item/key/mime
 	integrity_failure = 0.5
 
+/obj/vehicle/ridden/atv/pets
+	name = "Clown's Insaely Fun Ride For All Pets"
+	desc = "A tiny vehicle for all the tiny critters of the station."
+	icon_state = "pets_honkride"
+	armor = list(MELEE = 5,  BULLET = 5, LASER = 5, ENERGY = 0, BOMB = 5, BIO = 0, RAD = 0, FIRE = 0, ACID = 5, STAMINA = 0)
+	key_type = /obj/item/key/clown
+	integrity_failure = 0.5
+
 /obj/vehicle/ridden/atv/clown
 	name = "Honk Ride"
 	desc = "Cash and bitches. All for the clown with the biggest SWAG. And that is you, rocking this insane ride. They see me honking, they hating..."
