@@ -355,3 +355,8 @@
 	name = "comedian coat"
 	desc = "I mean, don't you have to be funny to be a comedian?"
 	icon_state = "joker_coat"
+
+/obj/item/clothing/suit/costume/pierrot
+	name = "Pierrot suit"
+	desc = "suit for the pierrot mime costume"
+	icon_state = "pierrot"

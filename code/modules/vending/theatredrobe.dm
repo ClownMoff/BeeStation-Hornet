@@ -18,7 +18,7 @@
 					/obj/item/clothing/head/jester = 2,
 					/obj/item/clothing/mask/gas/joker = 2,
 					/obj/item/clothing/under/costume/joker = 2,
-					/obj/item/clothing/suit/joker = 2,
+					/obj/item/clothing/suit/costume/joker,
 					/obj/item/clothing/mask/gas/chaos = 2,
 					/obj/item/clothing/mask/gas/lunatic = 2,
 					/obj/item/clothing/mask/gas/mime = 3,
@@ -27,7 +27,7 @@
 					/obj/item/clothing/under/rank/civilian/mime/sexy = 2,
 					/obj/item/clothing/under/rank/civilian/mime/skirt = 2,
 					/obj/item/clothing/mask/gas/pierrot = 2,
-					/obj/item/clothing/suit/pierrot = 2,
+					/obj/item/clothing/suit/costume/pierrot = 2,
 					/obj/item/clothing/shoes/pierrot = 2)
 
 	refill_canister = /obj/item/vending_refill/wardrobe/theatredrobe
