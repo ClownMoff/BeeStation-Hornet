@@ -1,4 +1,4 @@
-/obj/machinery/vending/wardrobe/theatredrobe
+/obj/machinery/vending/theatredrobe
 	name = "TheatreDrobe"
 	desc = "A machine for all the honkers and the mimers."
 	icon_state = "theatredrobe"
@@ -30,9 +30,9 @@
 					/obj/item/clothing/suit/pierrot = 2,
 					/obj/item/clothing/shoes/pierrot = 2)
 
-	refill_canister = /obj/item/vending_refill/wardrobe/theatre_wardrobe
+	refill_canister = /obj/item/vending_refill/wardrobe/theatredrobe
 	extra_price = 350
 	dept_req_for_free = ACCOUNT_SRV_BITFLAG
 
-/obj/item/vending_refill/wardrobe/theatre_wardrobe
+/obj/item/vending_refill/wardrobe/theatredrobe
 	machine_name = "TheatreDrobe"
