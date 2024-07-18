@@ -6,24 +6,7 @@
 	req_access = list(ACCESS_THEATRE)
 	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
 	vend_reply = "Thank you for using AutoDrobe!"
-	products = list(/obj/item/clothing/mask/gas/clown_hat = 1,
-					/obj/item/clothing/mask/gas/sexyclown = 1,
-					/obj/item/clothing/under/rank/civilian/clown = 1,
-					/obj/item/clothing/shoes/clown_shoes = 1,
-					/obj/item/clothing/under/rank/civilian/clown/blue = 1,
-					/obj/item/clothing/under/rank/civilian/clown/green = 1,
-					/obj/item/clothing/under/rank/civilian/clown/yellow = 1,
-					/obj/item/clothing/under/rank/civilian/clown/orange = 1,
-					/obj/item/clothing/under/rank/civilian/clown/purple = 1,
-					/obj/item/clothing/under/rank/civilian/clown/sexy = 1,
-					/obj/item/clothing/mask/gas/mime = 1,
-					/obj/item/clothing/mask/gas/sexymime = 1,
-					/obj/item/clothing/under/rank/civilian/mime = 1,
-					/obj/item/clothing/under/rank/civilian/mime/sexy = 1,
-					/obj/item/clothing/under/rank/civilian/mime/skirt = 1,
-					/obj/item/clothing/suit/suspenders = 1,
-					/obj/item/clothing/suit/costume/chickensuit = 1,
-					/obj/item/clothing/head/costume/chicken = 1,
+	products = list(/obj/item/clothing/head/costume/chicken = 1,
 					/obj/item/clothing/under/costume/gladiator = 1,
 					/obj/item/clothing/head/helmet/gladiator = 1,
 					/obj/item/clothing/head/costume/pharaoh = 1,
@@ -139,7 +122,6 @@
 
 	premium = list(/obj/item/clothing/suit/costume/pirate/captain = 2,
 				   /obj/item/clothing/head/costume/pirate/captain = 2,
-				   /obj/item/clothing/under/rank/civilian/clown/rainbow = 1,
 				   /obj/item/clothing/head/helmet/roman/fake = 1,
 				   /obj/item/clothing/head/helmet/roman/legionnaire/fake = 1,
 				   /obj/item/clothing/under/costume/roman = 1,
