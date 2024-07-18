@@ -4,7 +4,12 @@
 	icon_state = "theatredrobe"
 	product_ads = "Put on a show!"
 	vend_reply = "Honk!"
-	products = list(/obj/item/clothing/mask/gas/clown_hat = 3,
+	products = list(
+			list(
+			"name" = "clown",
+			"icon" = "star",
+			"products" = list(
+			/obj/item/clothing/mask/gas/clown_hat = 3,
 					/obj/item/clothing/under/rank/civilian/clown = 2,
 					/obj/item/clothing/shoes/clown_shoes = 2,
 					/obj/item/clothing/under/rank/civilian/clown/blue = 2,
@@ -21,14 +26,26 @@
 					/obj/item/clothing/suit/costume/joker,
 					/obj/item/clothing/mask/gas/chaos = 2,
 					/obj/item/clothing/mask/gas/lunatic = 2,
-					/obj/item/clothing/mask/gas/mime = 3,
+			),
+		),
+
+		list(
+			"name" = "mime",
+			"icon" = "star",
+			"products" = list(
+				/obj/item/clothing/mask/gas/mime = 3,
 					/obj/item/clothing/under/rank/civilian/mime = 2,
 					/obj/item/clothing/suit/suspenders = 2,
 					/obj/item/clothing/under/rank/civilian/mime/sexy = 2,
 					/obj/item/clothing/under/rank/civilian/mime/skirt = 2,
 					/obj/item/clothing/mask/gas/pierrot = 2,
 					/obj/item/clothing/suit/costume/pierrot = 2,
-					/obj/item/clothing/shoes/pierrot = 2)
+					/obj/item/clothing/shoes/pierrot = 2
+			),
+		),
+	)
+
+
 
 	refill_canister = /obj/item/vending_refill/wardrobe/theatredrobe
 	extra_price = 350
