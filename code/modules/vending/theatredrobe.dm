@@ -1,5 +1,5 @@
-/obj/machinery/vending/wardrobe/theatre_wardrobe
-	name = "\improper TheatreDrobe"
+/obj/machinery/vending/wardrobe/theatredrobe
+	name = "TheatreDrobe"
 	desc = "A machine for all the honkers and the mimers."
 	icon_state = "theatredrobe"
 	product_ads = "Put on a show!"
