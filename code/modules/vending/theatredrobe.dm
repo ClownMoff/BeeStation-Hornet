@@ -15,7 +15,7 @@
 					/obj/item/clothing/under/rank/civilian/clown/rainbow = 2,
 					/obj/item/clothing/under/rank/civilian/clown/sexy = 2,
 					/obj/item/clothing/under/rank/civilian/clown/jester = 2,
-					/obj/item/clothing/head/jester = 2,
+					/obj/item/clothing/head/costume/jester = 2,
 					/obj/item/clothing/mask/gas/joker = 2,
 					/obj/item/clothing/under/costume/joker = 2,
 					/obj/item/clothing/suit/costume/joker,
