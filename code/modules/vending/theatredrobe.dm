@@ -45,8 +45,6 @@
 		),
 	)
 
-
-
 	refill_canister = /obj/item/vending_refill/wardrobe/theatredrobe
 	extra_price = 350
 	dept_req_for_free = ACCOUNT_SRV_BITFLAG
