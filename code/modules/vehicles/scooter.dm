@@ -309,3 +309,28 @@
 				H.updatehealth()
 		visible_message("<span class='danger'>[src] crashes into [A], sending [H] flying!</span>")
 		playsound(src, 'sound/effects/bang.ogg', 50, 1)
+
+
+/obj/vehicle/ridden/scooter/skateboard/onecycle
+	name = "Clown's Onecycle"
+	desc = "The honker's onecycle. Insanely unstable.."
+	icon_state = "onecycle"
+	density = FALSE
+	arms_required = 0
+	fall_off_if_missing_arms = FALSE
+	instability = 40
+
+/obj/vehicle/ridden/scooter/skateboard/onecycle/Bump(atom/B)
+	. = ..()
+	if(B.has_buckled_mobs())
+		var/mob/living/C = buckled_mobs[1]
+		var/atom/throw_target = get_edge_target_turf(B, pick(GLOB.cardinals))
+		unbuckle_mob(C)
+		C.throw_at(throw_target, 4, 3)
+		var/multiplier = 1
+		if(C.dna.check_mutation(CLOWNMUT))
+			multiplier = 0.5
+		C.Paralyze(multiplier * 30)
+		C.adjustStaminaLoss(multiplier * 10)
+		playsound(src, 'sound/effects/bang.ogg', 50, 1)
+		playsound(src, 'sound/misc/honk_echo_distant.ogg', 50, 1)
