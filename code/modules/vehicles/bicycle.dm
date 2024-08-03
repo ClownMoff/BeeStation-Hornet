@@ -18,6 +18,8 @@
 	can_buckle = FALSE
 	for(var/m in buckled_mobs)
 		unbuckle_mob(m,1)
+
+/obj/vehicle/ridden/bicycle/onecycle
 	name = "onecycle"
 	desc = "Keep away from electricity."
 	icon_state = "onecycle"
