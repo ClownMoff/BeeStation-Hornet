@@ -18,3 +18,7 @@
 	can_buckle = FALSE
 	for(var/m in buckled_mobs)
 		unbuckle_mob(m,1)
+	name = "onecycle"
+	desc = "Keep away from electricity."
+	icon_state = "onecycle"
+	fall_off_if_missing_arms = FALSE
