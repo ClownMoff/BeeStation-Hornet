@@ -67,7 +67,7 @@
 
 //meme gondolas, they don't use the randomized height and body, so they can't be a supbtype of the gondolas
 
-/mob/living/simple_animal/pet/gondola/subtype/
+/mob/living/simple_animal/pet/gondola_subtype/
 	name = "gondola template"
 	real_name = "gondola template"
 	desc = "You shouldnt be seeing this, ahelp inmediatly."
@@ -87,10 +87,10 @@
 	maxHealth = 200
 	health = 200
 
-/mob/living/simple_animal/pet/gondola_centcom/IsVocal()
+/mob/living/simple_animal/pet/gondola_subtype/IsVocal()
 	return FALSE
 
-/mob/living/simple_animal/pet/gondola/subtype/centcom
+/mob/living/simple_animal/pet/gondola_subtype/centcom
 	name = "Centcom Official Gondola"
 	real_name = "Centcom Official Gondola"
 	desc = "A high ranked official from Centcom.I would advice agaisnt making them angry."
@@ -100,7 +100,7 @@
 	icon_dead = "gondola_centcom_dead"
 	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/centcom_cap, /obj/item/card/id/ert)
 
-/mob/living/simple_animal/pet/gondola/subtype/mariachi
+/mob/living/simple_animal/pet/gondola_subtype/mariachi
 	name = "Mariachi Gondola"
 	real_name = "Mariachi Gondola"
 	desc = "¡No mames wey! ¡Una gondola bien chingona! Ask them to perform along their band ."
@@ -109,15 +109,13 @@
 	icon_living = "gondola_mariachi"
 	icon_dead = "gondola_centcom_dead"
 
-/mob/living/simple_animal/pet/gondola/subtype/mariachi/Initialize(mapload)
+/mob/living/simple_animal/pet/gondola_subtype/Initialize(mapload)
 	. = ..()
 	AddSpell(new /obj/effect/proc_holder/spell/self/mariachi)
 
 
-/mob/living/simple_animal/pet/gondola/subtype/mariachi/guitar
-	name = "Guitarist Mariachi Gondola"
-	real_name = "Mariachi Gondola"
-	desc = "¡No mames wey! ¡Una gondola bien chingona! Ask them to perform along their band ."
+/mob/living/simple_animal/pet/gondola_subtype/mariachi/guitar
+	name = "Guitarist Mariachi Gondola""
 	icon = 'icons/mob/gondolas.dmi'
 	icon_state = "gondola_mariachi_guitar"
 	icon_living = "gondola_mariachi_guitar"
