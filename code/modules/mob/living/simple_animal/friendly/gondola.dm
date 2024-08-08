@@ -105,10 +105,20 @@
 	real_name = "Mariachi Gondola"
 	desc = "¡No mames wey! ¡Una gondola bien chingona! Ask them to perform along their band ."
 	icon = 'icons/mob/gondolas.dmi'
-	icon_state = "gondola_centcom"
-	icon_living = "gondola_centcom"
+	icon_state = "gondola_mariachi"
+	icon_living = "gondola_mariachi"
 	icon_dead = "gondola_centcom_dead"
-	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/centcom_cap, /obj/item/card/id/ert)
 
 /mob/living/simple_animal/pet/gondola/subtype/mariachi/Initialize(mapload)
-	AddSpell(new /obj/effect/proc_holder/spell/targeted/mariachi(null))
+	. = ..()
+	AddSpell(new /obj/effect/proc_holder/spell/self/mariachi)
+
+
+/mob/living/simple_animal/pet/gondola/subtype/mariachi/guitar
+	name = "Guitarist Mariachi Gondola"
+	real_name = "Mariachi Gondola"
+	desc = "¡No mames wey! ¡Una gondola bien chingona! Ask them to perform along their band ."
+	icon = 'icons/mob/gondolas.dmi'
+	icon_state = "gondola_mariachi_guitar"
+	icon_living = "gondola_mariachi_guitar"
+	icon_dead = "gondola_centcom_dead"
