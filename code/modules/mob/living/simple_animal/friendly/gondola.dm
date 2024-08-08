@@ -17,14 +17,15 @@
 	icon = 'icons/mob/gondolas.dmi'
 	icon_state = "gondola"
 	icon_living = "gondola"
-	loot = list(/obj/effect/decal/cleanable/blood/gibs, /obj/item/stack/sheet/animalhide/gondola = 1, /obj/item/food/meat/slab/gondola = 1)
+	icon_dead = "gondola_2_dead"
+	loot = /obj/effect/decal/cleanable/blood/gibs
+	butcher_results = list(/obj/item/food/meat/slab = 3,/obj/item/stack/sheet/animalhide/gondola = 3)
 	//Gondolas aren't affected by cold.
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
 	maxHealth = 200
 	health = 200
-	del_on_death = TRUE
 
 	//Gondolas don't make footstep sounds
 
@@ -64,23 +65,22 @@
 #undef GONDOLA_MOUSTACHE
 #undef GONDOLA_EYES
 
-//meme gondolas, they don't use the randomized height and body.
+//meme gondolas, they don't use the randomized height and body, so they can't be a supbtype of the gondolas
 
-/mob/living/simple_animal/pet/gondola_centcom
-	name = "Centcom Official Gondola"
-	real_name = "Centcom Official Gondola"
-	desc = "A high ranked official from Centcom.I would advice agaisnt making them angry."
+/mob/living/simple_animal/pet/gondola/subtype/
+	name = "gondola template"
+	real_name = "gondola template"
+	desc = "You shouldnt be seeing this, ahelp inmediatly."
 	response_help = "pets"
 	response_disarm = "bops"
 	response_harm = "kicks"
 	faction = list("gondola")
 	turns_per_move = 10
 	icon = 'icons/mob/gondolas.dmi'
-	icon_state = "gondola_centcom"
-	icon_living = "gondola_centcom"
-	icon_dead = "gondola_centcom_dead"
-	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/centcom_cap, /obj/item/card/id/ert)
-	butcher_results = list(/obj/item/food/meat/slab = 3,/obj/item/food/meat/slab/gondola = 1,/obj/item/stack/sheet/animalhide/gondola = 1)
+	icon_state = "gondola_body_medium"
+	icon_living = "gondola_body_medium"
+	icon_dead = "gondola_2_dead"
+	butcher_results = list(/obj/item/food/meat/slab = 3,/obj/item/stack/sheet/animalhide/gondola = 3)
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
@@ -89,3 +89,26 @@
 
 /mob/living/simple_animal/pet/gondola_centcom/IsVocal()
 	return FALSE
+
+/mob/living/simple_animal/pet/gondola/subtype/centcom
+	name = "Centcom Official Gondola"
+	real_name = "Centcom Official Gondola"
+	desc = "A high ranked official from Centcom.I would advice agaisnt making them angry."
+	icon = 'icons/mob/gondolas.dmi'
+	icon_state = "gondola_centcom"
+	icon_living = "gondola_centcom"
+	icon_dead = "gondola_centcom_dead"
+	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/centcom_cap, /obj/item/card/id/ert)
+
+/mob/living/simple_animal/pet/gondola/subtype/mariachi
+	name = "Mariachi Gondola"
+	real_name = "Mariachi Gondola"
+	desc = "¡No mames wey! ¡Una gondola bien chingona! Ask them to perform along their band ."
+	icon = 'icons/mob/gondolas.dmi'
+	icon_state = "gondola_centcom"
+	icon_living = "gondola_centcom"
+	icon_dead = "gondola_centcom_dead"
+	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/centcom_cap, /obj/item/card/id/ert)
+
+/mob/living/simple_animal/pet/gondola/subtype/mariachi/Initialize(mapload)
+	AddSpell(new /obj/effect/proc_holder/spell/targeted/mariachi(null))
