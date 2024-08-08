@@ -63,3 +63,29 @@
 #undef GONDOLA_COLOR
 #undef GONDOLA_MOUSTACHE
 #undef GONDOLA_EYES
+
+//meme gondolas, they don't use the randomized height and body.
+
+/mob/living/simple_animal/pet/gondola_centcom
+	name = "Centcom Official Gondola"
+	real_name = "Centcom Official Gondola"
+	desc = "A high ranked official from Centcom.I would advice agaisnt making them angry."
+	response_help = "pets"
+	response_disarm = "bops"
+	response_harm = "kicks"
+	faction = list("gondola")
+	turns_per_move = 10
+	icon = 'icons/mob/gondolas.dmi'
+	icon_state = "gondola_centcom"
+	icon_living = "gondola_centcom"
+	icon_dead = "gondola_centcom_dead"
+	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/centcom_cap, /obj/item/card/id/ert)
+	butcher_results = list(/obj/item/food/meat/slab = 3,/obj/item/food/meat/slab/gondola = 1,/obj/item/stack/sheet/animalhide/gondola = 1)
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minbodytemp = 0
+	maxbodytemp = 1500
+	maxHealth = 200
+	health = 200
+
+/mob/living/simple_animal/pet/gondola_centcom/IsVocal()
+	return FALSE
