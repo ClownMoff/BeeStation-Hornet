@@ -123,3 +123,9 @@
 	desc = "A white suit and jacket with a blue shirt. You wanna play rough? OKAY!"
 	icon_state = "white_suit"
 	item_state = "white_suit"
+
+/obj/item/clothing/under/suit/mariachi
+	name = "Mariachi costume"
+	desc = "A mariachi outfit"
+	icon_state = "mariachi"
+	item_state = "mariachi"

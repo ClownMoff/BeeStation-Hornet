@@ -107,7 +107,9 @@
 	icon = 'icons/mob/gondolas.dmi'
 	icon_state = "gondola_mariachi"
 	icon_living = "gondola_mariachi"
-	icon_dead = "gondola_centcom_dead"
+	icon_dead = "gondola_mariachi_dead"
+	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/mariachi)
+
 
 /mob/living/simple_animal/pet/gondola_subtype/Initialize(mapload)
 	. = ..()
@@ -115,8 +117,17 @@
 
 
 /mob/living/simple_animal/pet/gondola_subtype/mariachi/guitar
-	name = "Guitarist Mariachi Gondola""
+	name = "Guitarist Mariachi Gondola"
 	icon = 'icons/mob/gondolas.dmi'
 	icon_state = "gondola_mariachi_guitar"
 	icon_living = "gondola_mariachi_guitar"
-	icon_dead = "gondola_centcom_dead"
+	icon_dead = "gondola_mariachi_dead"
+	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/mariachi,/obj/item/instrument/guitar)
+
+/mob/living/simple_animal/pet/gondola_subtype/mariachi/trumpet
+	name = "Trumpet Mariachi Gondola"
+	icon = 'icons/mob/gondolas.dmi'
+	icon_state = "gondola_mariachi_trumpet"
+	icon_living = "gondola_mariachi_trumpet"
+	icon_dead = "gondola_mariachi_dead"
+	loot = list(/obj/effect/decal/cleanable/blood/gibs,/obj/item/clothing/head/hats/mariachi,/obj/item/instrument/trumpet)

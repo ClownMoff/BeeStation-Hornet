@@ -226,6 +226,12 @@
 		else
 			to_chat(user, "<span class='warning'>You must be holding [src] in order to untie it!")
 
+/obj/item/clothing/neck/mariachi
+	name = "Mariachi bowtie"
+	desc = "A la verga."
+	icon = 'icons/obj/clothing/neck.dmi'
+	icon_state = "mariachi"
+
 /////////////////
 //DONATOR ITEMS//
 /////////////////

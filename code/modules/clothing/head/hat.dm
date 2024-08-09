@@ -152,3 +152,8 @@
 		item_state = initial(item_state)
 		earflaps_down = TRUE
 		to_chat(user, "<span class='notice'>You lower the ear flaps on the ushanka.</span>")
+
+/obj/item/clothing/head/hats/mariachi
+	name = "Mariachi hat"
+	desc = "BIEN CHINGÓN."
+	icon_state = "mariachi"

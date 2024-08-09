@@ -108,3 +108,9 @@
 	desc = "A fancy coat made of silk. This one is blue."
 	icon_state = "aristo_blue"
 	item_state = "aristo_blue"
+
+/obj/item/clothing/suit/jacket/mariachi
+	name = "Mariachi Jacket"
+	desc = "A real Mariachi black jacket! Decorated with beautiful ornaments."
+	icon_state = "mariachi"
+	item_state = "mariachi"

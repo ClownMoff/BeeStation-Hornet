@@ -896,3 +896,14 @@
 /obj/item/storage/belt/sabre/mime/PopulateContents()
 	new /obj/item/melee/sabre/mime(src)
 	update_icon()
+
+/obj/item/storage/belt/mariachi
+	name = "Fajín de Mariachi"
+	icon_state = "mariachi"
+	worn_icon_state = "mariachi"
+
+/obj/item/storage/belt/mariachi/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 2
+	STR.max_w_class = WEIGHT_CLASS_SMALL
