@@ -1,5 +1,5 @@
 /obj/machinery/pdapainter
-	name = "\improper color manipulator"
+	name = "\improper Color Manipulator"
 	desc = "A machine able to color PDAs and IDs with ease. Insert an ID card or PDA and pick a color scheme."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "coloriser"
@@ -247,3 +247,8 @@
 	if(emagged)
 		return valid_jobs+emagged_jobs
 	return valid_jobs
+
+/obj/machinery/pdapainter/detective
+	name = "Detective Color Manipulator."
+	desc = "A machine able to color PDAs and IDs with ease for the detective. Insert an ID card or PDA and pick a color scheme."
+	icon_state = "coloriser_det"
