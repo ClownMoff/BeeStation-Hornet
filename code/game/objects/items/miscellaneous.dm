@@ -487,3 +487,117 @@
 
 /obj/item/choice_beacon/janicart/generate_display_names()
 	return list("janitor cart" = /obj/vehicle/ridden/janicart/upgraded/keyless)
+
+
+/obj/item/choice_beacon/radial/detective
+	name = "Detective Undercover Beacon"
+	desc = "Use this to infiltrate and investigate crimes without being noticed."
+
+/obj/item/choice_beacon/radial/detective/generate_options(mob/living/M)
+	var/list/item_list = generate_item_list()
+	if(!item_list.len)
+		return
+	var/choice = show_radial_menu(M, src, item_list, radius = 36, require_near = TRUE, tooltips = TRUE)
+	if(!QDELETED(src) && !(isnull(choice)) && !M.incapacitated() && in_range(M,src))
+		var/list/temp_list = typesof(/obj/item/storage/box/detective)
+		for(var/V in temp_list)
+			var/atom/A = V
+			if(initial(A.name) == choice)
+				spawn_option(A,M)
+				uses--
+				if(!uses)
+					qdel(src)
+				else
+					balloon_alert(M, "[uses] use[uses > 1 ? "s" : ""] remaining")
+					to_chat(M, "<span class='notice'>[uses] use[uses > 1 ? "s" : ""] remaining on the [src].</span>")
+				return
+
+/obj/item/choice_beacon/radial/detective/generate_item_list()
+	var/static/list/item_list
+	if(!item_list)
+		item_list = list()
+		var/list/templist = typesof(/obj/item/storage/box/detective)
+		for(var/V in templist)
+			var/obj/item/storage/box/detective/boxy = V
+			var/image/outfit_icon = image(initial(boxy.item_icon_file), initial(boxy.item_icon_state))
+			var/datum/radial_menu_choice/choice = new
+			choice.image = outfit_icon
+			var/info_text = "That's [icon2html(outfit_icon, usr)] "
+			info_text += initial(boxy.info_text)
+			choice.info = info_text
+			item_list[initial(boxy.name)] = choice
+	return item_list
+
+/obj/item/storage/box/detective
+	name = "Assistant"
+	var/icon/item_icon_file = 'icons/misc/premade_loadouts.dmi'
+	var/item_icon_state = "assistant"
+	var/info_text = "Full assistant outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/PopulateContents()
+	new /obj/item/clothing/under/color/grey
+	new /obj/item/storage/belt
+
+/obj/item/storage/box/detective/cargotechnician
+	name = "Cargo Technician."
+	item_icon_state = "cargotechnician"
+	info_text = "Full cargo technician outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/cargotechnician/PopulateContents()
+	new /obj/item/clothing/under/rank/cargo/tech
+	new /obj/item/export_scanner
+
+/obj/item/storage/box/detective/shaftminer
+	name = "Shaft Miner."
+	item_icon_state = "shaftminer"
+	info_text = "Full Shaft Miner outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/bartender/PopulateContents()
+	new /obj/item/clothing/shoes/workboots/mining
+	new /obj/item/clothing/gloves/color/black
+	new /obj/item/clothing/under/rank/cargo/miner/lavaland
+
+/obj/item/storage/box/detective/bartender
+	name = "Bartender."
+	item_icon_state = "bartender"
+	info_text = "Full bartemder outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/bartender/PopulateContents()
+	new /obj/item/clothing/glasses/sunglasses/advanced/reagent
+	new /obj/item/clothing/under/rank/civilian/bartender
+	new /obj/item/clothing/suit/apron/purple_bartender
+	new /obj/item/clothing/shoes/laceup
+	new /obj/item/clothing/head/hats/tophat
+
+/obj/item/storage/box/detective/cook
+	name = "Cook."
+	item_icon_state = "cook"
+	info_text = "Full cook outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/cook/PopulateContents()
+	new /obj/item/clothing/under/rank/civilian/chef
+	new /obj/item/clothing/suit/toggle/chef
+	new /obj/item/clothing/head/utility/chefhat
+	new /obj/item/clothing/mask/fakemoustache/italian
+
+/obj/item/storage/box/detective/botanist
+	name = "Botanist."
+	item_icon_state = "botanist"
+	info_text = "Full botanist outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/botanist/PopulateContents()
+	new /obj/item/clothing/under/rank/civilian/hydroponics
+	new /obj/item/clothing/suit/apron
+	new /obj/item/clothing/gloves/botanic_leather
+	new /obj/item/storage/backpack/botany
+
+/obj/item/storage/box/detective/botanist
+	name = "Botanist."
+	item_icon_state = "botanist"
+	info_text = "Full botanist outfit for undercover.</span>"
+
+/obj/item/storage/box/detective/botanist/PopulateContents()
+	new /obj/item/clothing/under/rank/civilian/janitor
+	new /obj/item/clothing/suit/apron
+	new /obj/item/clothing/gloves/botanic_leather
+	new /obj/item/storage/backpack/botany
