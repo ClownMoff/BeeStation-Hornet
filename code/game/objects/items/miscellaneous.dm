@@ -523,7 +523,6 @@
 			var/datum/radial_menu_choice/choice = new
 			choice.image = outfit_icon
 			var/info_text = "That's [icon2html(outfit_icon, usr)] "
-			info_text += initial(boxy.info_text)
 			choice.info = info_text
 			item_list[initial(boxy.name)] = choice
 	return item_list
@@ -532,72 +531,84 @@
 	name = "Assistant"
 	var/icon/item_icon_file = 'icons/misc/premade_loadouts.dmi'
 	var/item_icon_state = "assistant"
-	var/info_text = "Full assistant outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/PopulateContents()
-	new /obj/item/clothing/under/color/grey
-	new /obj/item/storage/belt
+	new /obj/item/clothing/under/color/grey(src)
+	new /obj/item/storage/belt(src)
+	new /obj/item/clothing/head/wig/(src)
 
 /obj/item/storage/box/detective/cargotechnician
 	name = "Cargo Technician."
 	item_icon_state = "cargotechnician"
-	info_text = "Full cargo technician outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/cargotechnician/PopulateContents()
-	new /obj/item/clothing/under/rank/cargo/tech
-	new /obj/item/export_scanner
+	new /obj/item/clothing/under/rank/cargo/tech(src)
+	new /obj/item/export_scanner(src)
+	new /obj/item/clothing/head/wig/(src)
 
 /obj/item/storage/box/detective/shaftminer
 	name = "Shaft Miner."
 	item_icon_state = "shaftminer"
-	info_text = "Full Shaft Miner outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/bartender/PopulateContents()
-	new /obj/item/clothing/shoes/workboots/mining
-	new /obj/item/clothing/gloves/color/black
-	new /obj/item/clothing/under/rank/cargo/miner/lavaland
+	new /obj/item/clothing/shoes/workboots/mining(src)
+	new /obj/item/clothing/gloves/color/black(src)
+	new /obj/item/clothing/under/rank/cargo/miner/lavaland(src)
+	new /obj/item/clothing/head/wig/(src)
 
 /obj/item/storage/box/detective/bartender
 	name = "Bartender."
 	item_icon_state = "bartender"
-	info_text = "Full bartemder outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/bartender/PopulateContents()
-	new /obj/item/clothing/glasses/sunglasses/advanced/reagent
-	new /obj/item/clothing/under/rank/civilian/bartender
-	new /obj/item/clothing/suit/apron/purple_bartender
-	new /obj/item/clothing/shoes/laceup
-	new /obj/item/clothing/head/hats/tophat
+	new /obj/item/clothing/glasses/sunglasses/advanced/reagent(src)
+	new /obj/item/clothing/under/rank/civilian/bartender(src)
+	new /obj/item/clothing/suit/apron/purple_bartender(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/head/hats/tophat(src)
+	new /obj/item/clothing/head/wig/(src)
 
 /obj/item/storage/box/detective/cook
 	name = "Cook."
 	item_icon_state = "cook"
-	info_text = "Full cook outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/cook/PopulateContents()
-	new /obj/item/clothing/under/rank/civilian/chef
-	new /obj/item/clothing/suit/toggle/chef
-	new /obj/item/clothing/head/utility/chefhat
-	new /obj/item/clothing/mask/fakemoustache/italian
+	new /obj/item/clothing/under/rank/civilian/chef(src)
+	new /obj/item/clothing/suit/toggle/chef(src)
+	new /obj/item/clothing/head/utility/chefhat(src)
+	new /obj/item/clothing/mask/fakemoustache/italian(src)
+	new /obj/item/clothing/head/wig/(src)
 
 /obj/item/storage/box/detective/botanist
 	name = "Botanist."
 	item_icon_state = "botanist"
-	info_text = "Full botanist outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/botanist/PopulateContents()
-	new /obj/item/clothing/under/rank/civilian/hydroponics
-	new /obj/item/clothing/suit/apron
-	new /obj/item/clothing/gloves/botanic_leather
-	new /obj/item/storage/backpack/botany
+	new /obj/item/clothing/under/rank/civilian/hydroponics(src)
+	new /obj/item/clothing/suit/apron(src)
+	new /obj/item/clothing/gloves/botanic_leather(src)
+	new /obj/item/storage/backpack/botany(src)
+	new /obj/item/clothing/head/wig/(src)
+
 
 /obj/item/storage/box/detective/botanist
 	name = "Botanist."
 	item_icon_state = "botanist"
-	info_text = "Full botanist outfit for undercover.</span>"
 
 /obj/item/storage/box/detective/botanist/PopulateContents()
-	new /obj/item/clothing/under/rank/civilian/janitor
-	new /obj/item/clothing/suit/apron
-	new /obj/item/clothing/gloves/botanic_leather
-	new /obj/item/storage/backpack/botany
+	new /obj/item/clothing/under/rank/civilian/janitor(src)
+	new /obj/item/clothing/suit/apron(src)
+	new /obj/item/clothing/gloves/botanic_leather(src)
+	new /obj/item/storage/backpack/botany(src)
+	new /obj/item/clothing/head/wig/(src)
+
+
+/obj/item/storage/box/detective/janitor
+	name = "Janitor."
+	item_icon_state = "janitor"
+
+/obj/item/storage/box/detective/janitor/PopulateContents()
+	new /obj/item/clothing/under/rank/civilian/janitor(src)
+	new /obj/item/mop(src)
+	new /obj/item/reagent_containers/glass/bucket(src)
+	new /obj/item/clothing/head/wig/(src)
