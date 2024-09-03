@@ -522,8 +522,6 @@
 			var/image/outfit_icon = image(initial(boxy.item_icon_file), initial(boxy.item_icon_state))
 			var/datum/radial_menu_choice/choice = new
 			choice.image = outfit_icon
-			var/info_text = "That's [icon2html(outfit_icon, usr)] "
-			choice.info = info_text
 			item_list[initial(boxy.name)] = choice
 	return item_list
 
@@ -612,3 +610,63 @@
 	new /obj/item/mop(src)
 	new /obj/item/reagent_containers/glass/bucket(src)
 	new /obj/item/clothing/head/wig/(src)
+
+/obj/item/storage/box/detective/clown
+	name = "Clown."
+	item_icon_state = "clown"
+
+/obj/item/storage/box/detective/clown/PopulateContents()
+	new /obj/item/clothing/under/rank/civilian/clown(src)
+	new /obj/item/clothing/shoes/clown_shoes(src)
+	new /obj/item/clothing/mask/gas/clown_hat(src)
+	new /obj/item/bikehorn(src)
+	new /obj/item/clothing/head/wig/(src)
+
+/obj/item/storage/box/detective/mime
+	name = "Mime."
+	item_icon_state = "mime"
+
+/obj/item/storage/box/detective/mime/PopulateContents()
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/mask/gas/mime(src)
+	new /obj/item/clothing/head/frenchberet(src)
+	new /obj/item/clothing/suit/suspenders(src)
+	new /obj/item/clothing/head/wig/(src)
+
+	/obj/item/storage/box/detective/curator
+	name = "Curator."
+	item_icon_state = "curator"
+
+/obj/item/storage/box/detective/curator/PopulateContents()
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/under/rank/civilian/curator(src)
+	new /obj/item/storage/bag/books(src)
+	new /obj/item/laser_pointer(src)
+	new /obj/item/clothing/accessory/pocketprotector/full(src)
+	new /obj/item/clothing/head/wig/(src)
+
+/obj/item/storage/box/detective/lawyer/PopulateContents()
+	name = "Lawyer."
+	item_icon_state = "lawyer"
+
+/obj/item/storage/box/detective/lawyer/PopulateContents()
+	new /obj/item/clothing/under/rank/civilian/lawyer/bluesuit(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/storage/briefcase/lawyer(src)
+	new /obj/item/laser_pointer(src)
+	new /obj/item/clothing/head/wig/(src)
+
+/obj/item/storage/box/detective/stationengineer/PopulateContents()
+	name = "Station Engineer."
+	item_icon_state = "stationengineer"
+
+/obj/item/storage/box/detective/stationengineer/PopulateContents()
+	new /obj/item/clothing/under/rank/engineering/engineer(src)
+	new /obj/item/clothing/shoes/workboots(src)
+	new /obj/item/clothing/head/utility/hardhat(src)
+	new /obj/item/storage/backpack/industrial(src)
+	new /obj/item/storage/belt(src)
+	new /obj/item/clothing/head/wig/(src)
+
+
+
