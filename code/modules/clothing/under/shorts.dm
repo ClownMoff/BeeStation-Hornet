@@ -32,3 +32,23 @@
 /obj/item/clothing/under/shorts/purple
 	name = "purple athletic shorts"
 	icon_state = "purpleshorts"
+
+/obj/item/clothing/under/shorts/mma_shorts_champion
+	name = "mma_shorts_champion"
+	icon_state = "mma_shorts_champion"
+
+/obj/item/clothing/under/shorts/mma_shorts_brazil
+	name = "mma_shorts_brazil"
+	icon_state = "mma_shorts_brazil"
+
+/obj/item/clothing/under/shorts/mma_shorts_red
+	name = "mma_shorts_red"
+	icon_state = "mma_shorts_red"
+
+/obj/item/clothing/under/shorts/mma_shorts_blue
+	name = "mma_shorts_blue"
+	icon_state = "mma_shorts_blue"
+
+/obj/item/clothing/under/shorts/mma_shorts_green
+	name = "mma_shorts_green"
+	icon_state = "mma_shorts_green"

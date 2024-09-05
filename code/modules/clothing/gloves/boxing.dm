@@ -33,3 +33,23 @@
 /obj/item/clothing/gloves/boxing/yellow/insulated/Initialize(mapload)
 	. = ..()
 	siemens_coefficient = pick(0,0,0,0,0.25,2)
+
+/obj/item/clothing/gloves/boxing/mmagloves_red
+	icon_state = "mmagloves_red"
+	item_state = "mmagloves_red"
+	worn_icon_state = "mmagloves_red"
+
+/obj/item/clothing/gloves/boxing/mmagloves_blue
+	icon_state = "mmagloves_blue"
+	item_state = "mmagloves_blue"
+	worn_icon_state = "mmagloves_blue"
+
+/obj/item/clothing/gloves/boxing/mmagloves_red_championship
+	icon_state = "mmagloves_red_championship"
+	item_state = "mmagloves_red_championship"
+	worn_icon_state = "mmagloves_red_championship"
+
+/obj/item/clothing/gloves/boxing/mmagloves_blue_championship
+	icon_state = "mmagloves_blue_championship"
+	item_state = "mmagloves_blue_championship"
+	worn_icon_state = "mmagloves_blue_championship"
