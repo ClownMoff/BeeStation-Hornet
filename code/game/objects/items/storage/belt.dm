@@ -901,3 +901,10 @@
 /obj/item/storage/belt/sabre/mime/PopulateContents()
 	new /obj/item/melee/sabre/mime(src)
 	update_icon()
+
+/obj/item/storage/belt/mmachampion
+	name = "championship belt"
+	desc = "A belt for the REIGNING, UNDISPUTED CHAMPION"
+	icon_state = "mmachampionbelt"
+	item_state = "mmachampionbelt"
+	worn_icon_state = "mmachampionbelt"
