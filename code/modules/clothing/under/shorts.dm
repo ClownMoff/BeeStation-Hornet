@@ -36,23 +36,24 @@
 /obj/item/clothing/under/shorts/mma_shorts_champion
 	name = "mma_shorts_champion"
 	icon_state = "mma_shorts_champion"
-	desc = 'These belonged to a great champion. On the label you can see the nickname "THE GREAT".'
+	desc = "These belonged to a great champion. On the label you can see the nickname \"THE GREAT\"."
 
 /obj/item/clothing/under/shorts/mma_shorts_brazil
 	name = "mma_shorts_brazil"
 	icon_state = "mma_shorts_brazil"
-	desc = 'These belonged to a great fighter. On the label you can see the nickname "POATAN".'
+	desc = "These belonged to a great fighter. On the label you can see the nickname \"POATAN\"."
 
 /obj/item/clothing/under/shorts/mma_shorts_red
 	name = "mma_shorts_red"
 	icon_state = "mma_shorts_red"
-	desc = 'These belonged to a great fighter. On the label you can see the nickname "THE DIAMOND".'
+	desc = "These belonged to a great fighter. On the label you can see the nickname \"THE DIAMOND\"."
 
 /obj/item/clothing/under/shorts/mma_shorts_blue
 	name = "mma_shorts_blue"
 	icon_state = "mma_shorts_blue"
-	desc = 'These belonged to a great fighter. On the label you can see the nickname "THUG".'
+	desc = "These belonged to a great fighter. On the label you can see the nickname \"THUG\"."
 
 /obj/item/clothing/under/shorts/mma_shorts_green
 	name = "mma_shorts_green"
-	icon_state = "mma_shorts_green" 'These belonged to a great fighter. On the label you can see the nickname "STILLKNOCKS".'
+	icon_state = "mma_shorts_green"
+	desc = "These belonged to a great fighter. On the label you can see the nickname \"STILLKNOCKS\"."
