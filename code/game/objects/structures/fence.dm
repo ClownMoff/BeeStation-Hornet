@@ -149,3 +149,25 @@
 #undef MEDIUM_HOLE
 #undef LARGE_HOLE
 #undef MAX_HOLE_SIZE
+
+/obj/structure/fence/mma
+	name = "fence"
+	desc = "A fence used in MMA rings."
+	density = TRUE
+	anchored = TRUE
+	icon_state = "straight_mma"
+
+/obj/structure/fence/corner/mma
+	icon_state = "corner_mma"
+	cuttable = FALSE
+
+/obj/structure/fence/door/mma
+	name = "fence door"
+	desc = "Not very useful without a real lock."
+	icon_state = "door_closed_mma"
+	cuttable = FALSE
+
+/obj/structure/fence/door/opened/mma
+	icon_state = "door_opened_mma"
+	open = TRUE
+	density = FALSE

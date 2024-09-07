@@ -113,6 +113,13 @@
 	template_id = "meeting"
 	mappath = "_maps/holodeck/meeting.dmm"
 
+
+/datum/map_template/holodeck/recreation/mma
+	name = "Holodeck - MMA Ring"
+	template_id = "mma"
+	mappath = "_maps/holodeck/mma.dmm"
+
+
 //bad evil no good programs
 
 /datum/map_template/holodeck/recreation/medicalsim
