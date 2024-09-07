@@ -22,7 +22,9 @@
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 8
 	},
-dir = 4},
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
+	dir = 4
+	},
 /obj/item/storage/belt/mmachampion,
 /turf/open/floor/iron/white/side{
 	dir = 1
@@ -101,7 +103,7 @@ dir = 4},
 "v" = (
 /obj/structure/table/reinforced,
 /obj/item/radio/intercom{
-	pixel_y = 8
+	pixel_y = 6
 	},
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 8
@@ -148,12 +150,23 @@ dir = 4},
 /area/template_noop)
 "E" = (
 /obj/structure/table/reinforced,
-/obj/structure/desk_bell,
+/obj/structure/desk_bell{
+	pixel_x = 11;
+	pixel_y = 10
+	},
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 4
+	},
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/obj/item/pen{
+	pixel_x = -6;
+	pixel_y = 5
 	},
 /turf/open/floor/iron/white/side{
 	dir = 1
@@ -218,6 +231,9 @@ dir = 4},
 	dir = 1
 	},
 /turf/open/floor/iron/techmaint,
+/area/template_noop)
+"L" = (
+/turf/open/floor/iron/dark/textured,
 /area/template_noop)
 "M" = (
 /obj/structure/chair/fancy/sofa/corp/right{
@@ -319,8 +335,8 @@ l
 l
 l
 l
-l
 i
+L
 k
 a
 "}
@@ -415,8 +431,8 @@ n
 n
 n
 n
-n
 Q
+L
 k
 O
 "}
