@@ -27,7 +27,6 @@ map boxstation
 endmap
 
 map metastation
-	default
 	votable
 endmap
 
@@ -53,6 +52,12 @@ endmap
 
 map echostation
 	maxplayers 28
+	votable
+endmap
+
+map novemberstation
+default
+	minplayers 25
 	votable
 endmap
 

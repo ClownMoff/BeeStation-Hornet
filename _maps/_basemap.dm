@@ -9,6 +9,7 @@
 // #define FORCE_MAP "flandstation"
 // #define FORCE_MAP "radstation"
 // #define FORCE_MAP "echostation"
+// #define FORCE_MAP "novemberstation"
 // #define FORCE_MAP "runtimestation"
 // #define FORCE_MAP "multiz_debug"
 
@@ -26,6 +27,7 @@
 		#include "map_files\flandstation\flandstation.dmm"
 		#include "map_files\RadStation\RadStation.dmm"
 		#include "map_files\EchoStation\EchoStation.dmm"
+		#include "map_files\NovemberStation\NovemberStation.dmm"
 
 		#ifdef CIBUILDING
 			#include "templates.dm"

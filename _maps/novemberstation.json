@@ -1,0 +1,12 @@
+{
+	"map_name": "November Station",
+	"map_link": "Novemberstation",
+	"map_path": "map_files/NovemberStation",
+	"map_file": "NovemberStation.dmm",
+	"shuttles": {
+		"emergency": "emergency_kilo",
+		"ferry": "ferry_kilo",
+		"cargo": "cargo_kilo",
+		"whiteship": "whiteship_meta"
+	}
+}
