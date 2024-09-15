@@ -13669,10 +13669,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/medical/medbay/lobby)
-"Nw" = (
-/turf/open/floor/carpet/green,
-/turf/closed/wall,
-/area/library)
 "Nx" = (
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 9
@@ -55182,8 +55178,8 @@ GA
 Hy
 Hy
 Hy
-Nw
-Nw
+Hy
+Hy
 Hy
 kA
 kA
