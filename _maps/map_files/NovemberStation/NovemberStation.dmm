@@ -67,7 +67,7 @@
 "ag" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/wood,
-/area/quartermaster/qm_bedroom)
+/area/quartermaster/qm)
 "ah" = (
 /obj/machinery/door/window/northright{
 	dir = 8;
@@ -48174,8 +48174,8 @@ kA
 kA
 kA
 kA
-Zg
 kA
+Zg
 kA
 kA
 kA
@@ -48476,9 +48476,9 @@ kA
 kA
 kA
 kA
+kA
 VS
 xS
-kA
 kA
 kA
 kA
@@ -48778,10 +48778,10 @@ kA
 kA
 kA
 kA
+kA
 VS
 Nh
 xS
-kA
 kA
 kA
 kA
@@ -49080,6 +49080,7 @@ kA
 kA
 kA
 kA
+kA
 Zg
 Em
 Em
@@ -49087,7 +49088,6 @@ Em
 Em
 Em
 yJ
-kA
 kA
 kA
 kA
@@ -49382,6 +49382,7 @@ kA
 kA
 kA
 kA
+kA
 JA
 Nh
 Nh
@@ -49389,7 +49390,6 @@ Nh
 Av
 XB
 kU
-kA
 kA
 kA
 kA
@@ -49685,12 +49685,12 @@ kA
 kA
 kA
 kA
+kA
 JA
 Nh
 Nh
 Nh
 yJ
-kA
 kA
 kA
 kA
@@ -49986,6 +49986,7 @@ kA
 kA
 kA
 kA
+kA
 Zg
 Em
 Bu
@@ -49993,7 +49994,6 @@ Nh
 Nh
 Nh
 yJ
-kA
 kA
 kA
 kA
@@ -50594,10 +50594,10 @@ kA
 kA
 kA
 kA
+kA
 JX
 Nh
 Mh
-kA
 kA
 kA
 kA
@@ -50897,9 +50897,9 @@ kA
 kA
 kA
 kA
+kA
 JX
 Mh
-kA
 kA
 kA
 kA
@@ -51200,8 +51200,8 @@ kA
 kA
 kA
 kA
-kU
 kA
+kU
 kA
 kA
 kA
@@ -58335,6 +58335,7 @@ kA
 kA
 kA
 kA
+kA
 Be
 MT
 MT
@@ -58342,7 +58343,6 @@ MT
 MT
 MT
 MT
-kA
 kA
 kA
 kA
@@ -61959,6 +61959,7 @@ kA
 kA
 kA
 kA
+kA
 CD
 MT
 MT
@@ -61966,7 +61967,6 @@ MT
 MT
 MT
 zR
-kA
 kA
 kA
 kA
