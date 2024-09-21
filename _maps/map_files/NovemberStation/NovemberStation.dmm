@@ -981,7 +981,7 @@
 	pixel_x = 16;
 	pixel_y = -16
 	},
-/turf/open/floor/light/colour_cycle/dancefloor_b,
+/turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/crew_quarters/cafeteria)
 "aca" = (
 /obj/effect/landmark/start/cyborg,
@@ -23125,6 +23125,9 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/prison)
+"fge" = (
+/turf/open/floor/light/colour_cycle/dancefloor_a,
+/area/crew_quarters/cafeteria)
 "fnp" = (
 /obj/machinery/hydroponics/constructable,
 /obj/structure/cable/yellow{
@@ -58204,10 +58207,10 @@ auv
 azs
 azs
 aMl
+fge
 aXy
 aXy
-aXy
-aXy
+fge
 aqp
 alw
 aqp
@@ -58508,7 +58511,7 @@ alw
 alw
 aXy
 abZ
-aXy
+fge
 aXy
 alw
 alw
@@ -58809,8 +58812,8 @@ alw
 alw
 alw
 aXy
-aXy
-aXy
+fge
+fge
 aXy
 alw
 amx
@@ -59110,10 +59113,10 @@ aOm
 aYL
 aZx
 aZx
+fge
 aXy
 aXy
-aXy
-aXy
+fge
 aZN
 aNq
 act
