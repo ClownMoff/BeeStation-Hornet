@@ -622,9 +622,6 @@
 /obj/structure/cable/yellow,
 /obj/structure/closet/secure_closet/security/cargo,
 /obj/effect/turf_decal/box,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /turf/open/floor/iron/techmaint,
 /area/security/checkpoint/supply)
 "abn" = (
@@ -1227,7 +1224,6 @@
 "acK" = (
 /obj/structure/filingcabinet/medical,
 /obj/machinery/digital_clock/directional/north,
-/obj/machinery/camera/autoname/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing{
 	dir = 4
@@ -1943,7 +1939,6 @@
 /area/security/prison)
 "aes" = (
 /obj/machinery/digital_clock/directional/north,
-/obj/machinery/camera/autoname/directional/north,
 /obj/structure/table/glass,
 /obj/item/book/manual/wiki/grenades,
 /obj/item/book/manual/wiki/chemistry{
@@ -2705,7 +2700,6 @@
 /obj/effect/turf_decal/tile/dark_red/opposingcorners{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/directional/south,
 /obj/structure/sign/barsign{
 	pixel_y = -32
 	},
@@ -3154,7 +3148,6 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/newscaster/directional/west,
-/obj/machinery/camera/autoname/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -4136,9 +4129,6 @@
 /area/security/execution/transfer)
 "ajw" = (
 /obj/structure/closet/secure_closet/miner,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/techmaint,
 /area/quartermaster/miningdock)
@@ -4241,15 +4231,6 @@
 /obj/effect/landmark/start/mime,
 /turf/open/floor/carpet/red,
 /area/crew_quarters/theatre/backstage)
-"ajE" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden,
-/obj/machinery/camera/autoname/directional/west{
-	network = list("ss13","medbay")
-	},
-/turf/open/floor/iron/grid/steel,
-/area/medical/virology)
 "ajF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4433,7 +4414,6 @@
 /turf/open/floor/iron/grid/steel,
 /area/medical/virology)
 "aka" = (
-/obj/machinery/camera/autoname/directional/north,
 /obj/effect/turf_decal/tile/dark_blue,
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/dark,
@@ -6414,7 +6394,6 @@
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark,
 /area/crew_quarters/kitchen)
 "aoD" = (
@@ -7233,9 +7212,6 @@
 	pixel_y = 1
 	},
 /obj/item/kirbyplants/random,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("aiupload")
-	},
 /turf/open/floor/engine,
 /area/space)
 "aqA" = (
@@ -7711,16 +7687,8 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/light/directional/north,
-/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/grass,
 /area/crew_quarters/park)
-"arJ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
-/turf/open/floor/iron/techmaint,
-/area/quartermaster/office)
 "arK" = (
 /obj/effect/decal/cleanable/plasma,
 /obj/effect/decal/cleanable/dirt,
@@ -7852,7 +7820,6 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/firealarm/directional/north,
 /obj/structure/reagent_dispensers/beerkeg,
-/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/wood/big,
 /area/crew_quarters/bar/atrium)
 "asb" = (
@@ -8953,9 +8920,6 @@
 /obj/machinery/porta_turret/ai{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/west{
-	network = list("aiupload")
-	},
 /obj/item/radio/intercom{
 	dir = 8;
 	freerange = 1;
@@ -9872,15 +9836,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/blue,
 /area/crew_quarters/dorms)
-"awv" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
-/turf/open/floor/iron/sepia,
-/area/quartermaster/warehouse)
 "aww" = (
 /obj/effect/turf_decal/tile/dark_blue/corner_ramp,
 /obj/effect/turf_decal/tile/dark_blue/corner_ramp{
@@ -9901,7 +9856,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/machinery/computer/libraryconsole/bookmanagement,
-/obj/machinery/camera/autoname/directional/west,
 /obj/machinery/digital_clock/directional/west,
 /turf/open/floor/wood/big,
 /area/library)
@@ -10157,7 +10111,6 @@
 /obj/item/storage/secure/briefcase,
 /obj/machinery/airalarm/directional/north,
 /obj/item/radio/intercom/directional/west,
-/obj/machinery/camera/autoname/directional/west,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/techmaint,
 /area/security/checkpoint/customs)
@@ -10308,9 +10261,6 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/landmark/start/cargo_technician,
 /turf/open/floor/iron/techmaint,
@@ -11533,9 +11483,6 @@
 /turf/open/floor/iron/tech/grid,
 /area/security/checkpoint/medical)
 "aAa" = (
-/obj/machinery/camera/autoname/directional/north{
-	dir = 10
-	},
 /obj/structure/table/glass,
 /obj/item/storage/box/monkeycubes{
 	pixel_x = 8;
@@ -12281,9 +12228,6 @@
 /area/space)
 "aBF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /mob/living/simple_animal/bot/mulebot{
 	beacon_freq = 1400;
 	home_destination = "QM #1";
@@ -13131,9 +13075,6 @@
 /obj/structure/reagent_dispensers/peppertank/directional/south,
 /obj/structure/closet/secure_closet/security/cargo,
 /obj/effect/turf_decal/box,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /turf/open/floor/iron/techmaint,
 /area/security/checkpoint/medical)
 "aDI" = (
@@ -13439,7 +13380,6 @@
 /area/space)
 "aEp" = (
 /obj/structure/flora/grass/both,
-/obj/machinery/camera/autoname/directional/south,
 /obj/item/toy/snowball,
 /turf/open/floor/plating/asteroid/snow,
 /area/crew_quarters/park)
@@ -13581,9 +13521,6 @@
 /area/library)
 "aEE" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners/contrasted,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","medbay")
-	},
 /obj/structure/table,
 /obj/item/hand_labeler,
 /obj/item/clothing/gloves/color/latex,
@@ -14601,9 +14538,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/east{
-	network = list("aiupload")
-	},
 /obj/machinery/status_display/evac{
 	pixel_x = 32
 	},
@@ -15132,7 +15066,6 @@
 "aHY" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light/directional/north,
 /turf/open/floor/grass,
 /area/crew_quarters/park)
@@ -15737,9 +15670,6 @@
 /turf/open/floor/carpet/purple,
 /area/crew_quarters/dorms)
 "aJs" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
 /obj/machinery/mech_bay_recharge_port{
 	dir = 1
 	},
@@ -16277,9 +16207,6 @@
 	},
 /obj/structure/sign/poster/official/do_not_question{
 	pixel_x = -32
-	},
-/obj/machinery/camera/autoname/directional/west{
-	network = list("ss13, security")
 	},
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/effect/turf_decal/tile/red/opposingcorners{
@@ -17237,9 +17164,6 @@
 /area/quartermaster/storage)
 "aMQ" = (
 /obj/machinery/airalarm/directional/east,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /turf/open/floor/iron/techmaint,
 /area/quartermaster/sorting)
 "aMR" = (
@@ -18072,9 +17996,6 @@
 	},
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/newscaster/directional/north,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
 /obj/item/flashlight/lamp/bananalamp{
 	pixel_y = 3
 	},
@@ -18375,7 +18296,6 @@
 "aPp" = (
 /obj/machinery/computer/bounty,
 /obj/effect/turf_decal/bot,
-/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/techmaint,
 /area/quartermaster/office)
 "aPq" = (
@@ -19135,13 +19055,6 @@
 "aRd" = (
 /turf/closed/wall,
 /area/quartermaster/qm_bedroom)
-"aRe" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Cargo"
-	},
-/turf/open/floor/iron/techmaint,
-/area/quartermaster/storage)
 "aRf" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 6
@@ -19360,13 +19273,6 @@
 /obj/item/toy/plush/flushed,
 /turf/open/floor/plating/asteroid/snow,
 /area/space)
-"aRz" = (
-/obj/machinery/camera/autoname/directional/west,
-/obj/effect/turf_decal/arrows{
-	dir = 1
-	},
-/turf/open/floor/plating/snowed,
-/area/space)
 "aRA" = (
 /obj/structure/rack,
 /obj/item/storage/box/teargas{
@@ -19432,9 +19338,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("aiupload")
-	},
 /turf/open/floor/engine,
 /area/space)
 "aRF" = (
@@ -19451,7 +19354,6 @@
 /obj/effect/turf_decal/trimline/white/warning{
 	dir = 5
 	},
-/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/vending/medical,
 /turf/open/floor/iron/white,
@@ -20154,9 +20056,6 @@
 /area/crew_quarters/heads/hop)
 "aTk" = (
 /obj/machinery/light/small/directional/west,
-/obj/machinery/camera/autoname/directional/south{
-	pixel_x = 12
-	},
 /obj/structure/flora/grass/both,
 /turf/open/floor/plating/asteroid/snow,
 /area/quartermaster/storage)
@@ -20287,7 +20186,6 @@
 /turf/open/floor/pod/dark,
 /area/space)
 "aTA" = (
-/obj/machinery/camera/autoname/directional/west,
 /obj/item/storage/backpack/duffelbag/med/surgery{
 	pixel_y = 4
 	},
@@ -22045,9 +21943,6 @@
 /obj/item/radio,
 /obj/machinery/airalarm/directional/north,
 /obj/item/radio/intercom/directional/east,
-/obj/machinery/camera/autoname/directional/east{
-	c_tag = "Security Post - Arrivals"
-	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/techmaint,
 /area/security/checkpoint/customs)
@@ -22131,9 +22026,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
-	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("aiupload")
 	},
 /turf/open/floor/iron/tech/grid,
 /area/space)
@@ -39763,7 +39655,7 @@ akA
 aVd
 aje
 abJ
-ajE
+aJb
 awf
 apk
 aVd
@@ -44311,7 +44203,7 @@ aDj
 aUr
 aIE
 aBD
-awv
+aIE
 aGz
 aOp
 avC
@@ -44321,7 +44213,7 @@ anV
 abp
 aaC
 abK
-aRe
+anV
 aBz
 anV
 aaC
@@ -49461,7 +49353,7 @@ aLm
 aZP
 abF
 aLm
-arJ
+aLm
 apI
 amp
 ams
@@ -52490,7 +52382,7 @@ akA
 akA
 aHA
 aQC
-aRz
+azJ
 aQE
 aQE
 abQ
