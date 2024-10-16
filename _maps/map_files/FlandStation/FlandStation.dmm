@@ -72896,6 +72896,12 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/techmaint,
 /area/security/prison)
+"sLN" = (
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/oven,
+/turf/open/floor/iron/cafeteria,
+/area/crew_quarters/kitchen)
 "sMk" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
@@ -119702,7 +119708,7 @@ mib
 dam
 czD
 mib
-iyS
+sLN
 wRF
 hvk
 vmw
