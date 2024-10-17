@@ -316,3 +316,151 @@
 	icon = "empty"
 	desc = "This sign doesn't seem to be on."
 	rename_area = FALSE
+
+//kitchen sign
+/obj/structure/sign/kitchensign // All Signs are 64 by 32 pixels, they take two tiles
+	name = "kitchen sign"
+	desc = "A kitchen sign used to display what's on the menu"
+	icon = 'icons/obj/kitchensign.dmi'
+	icon_state = "empty"
+	req_access = list(ACCESS_BAR)
+	max_integrity = 500
+	integrity_failure = 0.5
+	armor = list(MELEE = 20,  BULLET = 20, LASER = 20, ENERGY = 100, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, STAMINA = 0, BLEED = 0)
+	buildable_sign = 0
+
+	var/panel_open = FALSE
+	var/datum/kitchensign/chosen_sign
+
+/obj/structure/sign/kitchensign/Initialize(mapload)
+	. = ..()
+	set_sign(new /datum/kitchensign/hiddensigns/signoff)
+
+/obj/structure/sign/kitchensign/proc/set_sign(datum/kitchensign/sign)
+	if(!istype(sign))
+		return
+
+	icon_state = sign.icon
+
+	if(sign.name)
+		name = "[initial(name)] ([sign.name])"
+	else
+		name = "[initial(name)]"
+
+	if(sign.desc)
+		desc = sign.desc
+
+	if(sign.rename_area && sign.name)
+		rename_area(src, sign.name)
+
+	return sign
+
+/obj/structure/sign/kitchensign/proc/set_sign_by_name(sign_name)
+	for(var/d in subtypesof(/datum/kitchensign))
+		var/datum/kitchensign/D = d
+		if(initial(D.name) == sign_name)
+			var/new_sign = new D
+			return set_sign(new_sign)
+
+/obj/structure/sign/kitchensign/obj_break(damage_flag)
+	. = ..()
+	if(!broken && !(flags_1 & NODECONSTRUCT_1))
+		broken = TRUE
+
+/obj/structure/sign/kitchensign/deconstruct(disassembled = TRUE)
+	new /obj/item/stack/sheet/iron(drop_location(), 2)
+	new /obj/item/stack/cable_coil(drop_location(), 2)
+	qdel(src)
+
+/obj/structure/sign/kitchensign/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
+	switch(damage_type)
+		if(BRUTE)
+			playsound(src.loc, 'sound/effects/glasshit.ogg', 75, 1)
+		if(BURN)
+			playsound(src.loc, 'sound/items/welder.ogg', 100, 1)
+
+/obj/structure/sign/kitchensign/attack_silicon(mob/user)
+	return attack_hand(user)
+
+/obj/structure/sign/kitchensign/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	if(!allowed(user))
+		to_chat(user, "<span class='info'>Access denied.</span>")
+		return
+	if(broken)
+		to_chat(user, "<span class ='danger'>The controls seem unresponsive.</span>")
+		return
+	pick_sign(user)
+
+/obj/structure/sign/kitchensign/attackby(obj/item/I, mob/user)
+	if(I.tool_behaviour == TOOL_SCREWDRIVER)
+		if(!panel_open)
+			to_chat(user, "<span class='notice'>You open the maintenance panel.</span>")
+			set_sign(new /datum/kitchensign/hiddensigns/signoff)
+			panel_open = TRUE
+		else
+			to_chat(user, "<span class='notice'>You close the maintenance panel.</span>")
+			if(!broken)
+				if(!chosen_sign)
+					set_sign(new /datum/kitchensign/hiddensigns/signoff)
+				else
+					set_sign(chosen_sign)
+			else
+				set_sign(new /datum/kitchensign/hiddensigns/empkitchensign)
+			panel_open = FALSE
+
+	else if(istype(I, /obj/item/stack/cable_coil) && panel_open)
+		var/obj/item/stack/cable_coil/C = I
+		if(!broken)
+			to_chat(user, "<span class='warning'>This sign is functioning properly!</span>")
+			return
+
+		if(C.use(2))
+			to_chat(user, "<span class='notice'>You replace the burnt wiring.</span>")
+			broken = FALSE
+		else
+			to_chat(user, "<span class='warning'>You need at least two lengths of cable!</span>")
+	else
+		return ..()
+
+
+/obj/structure/sign/kitchensign/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	set_sign(new /datum/kitchensign/hiddensigns/empkitchensign)
+	broken = TRUE
+
+
+/obj/structure/sign/kitchensign/proc/pick_sign(mob/user)
+	var/picked_name = input(user, "Available Signage", "Kitchen Sign", name) as null|anything in sort_list(get_bar_names())
+	if(!picked_name)
+		return
+	chosen_sign = set_sign_by_name(picked_name)
+	SSblackbox.record_feedback("tally", "kitchensign_picked", 1, chosen_sign.type)
+
+/proc/get_bar_names()
+	var/list/names = list()
+	for(var/d in subtypesof(/datum/kitchensign))
+		var/datum/kitchensign/D = d
+		if(initial(D.name) && !initial(D.hidden))
+			names += initial(D.name)
+	. = names
+
+/datum/kitchensign
+	var/name = "Name"
+	var/icon = "Icon"
+	var/desc = "desc"
+	var/hidden = FALSE
+	var/rename_area = TRUE
+
+/datum/kitchensign/New()
+	if(!desc)
+		desc = "It displays \"[name]\"."
+
+/datum/kitchensign/pizza
+	name = "Pizza"
+	icon = "pizza"
+	desc = "We are now serving pizzas. Ask for yours!"
