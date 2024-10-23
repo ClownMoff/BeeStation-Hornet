@@ -1055,9 +1055,6 @@
 	pixel_x = 7;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = -7
-	},
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 8
 	},
@@ -3404,7 +3401,6 @@
 	pixel_y = 8
 	},
 /obj/structure/table,
-/obj/item/reagent_containers/glass/bucket,
 /obj/effect/turf_decal/siding/green,
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/tech,
@@ -3540,11 +3536,6 @@
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/wood,
 /area/crew_quarters/theatre/backstage)
-"aii" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/beer,
-/turf/open/floor/grass,
-/area/crew_quarters/park)
 "aij" = (
 /turf/open/floor/wood/big,
 /area/medical/patients_rooms)
@@ -4876,16 +4867,6 @@
 	pixel_x = -1;
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -8
-	},
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -4
-	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = 4
-	},
 /obj/item/shovel/spade{
 	pixel_x = -5;
 	pixel_y = -4
@@ -5856,7 +5837,6 @@
 	pixel_x = 7;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/glass/bucket,
 /obj/effect/turf_decal/siding/green{
 	dir = 1
 	},
@@ -6530,18 +6510,6 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/bottle/absinthe{
-	pixel_x = -10;
-	pixel_y = 15
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
-	pixel_x = 3;
-	pixel_y = 15
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
-	pixel_x = 9;
-	pixel_y = 10
-	},
 /obj/item/candle/infinite{
 	pixel_x = 8
 	},
@@ -6904,10 +6872,6 @@
 "apQ" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable/yellow,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -2;
-	pixel_y = 10
-	},
 /turf/open/floor/iron/techmaint,
 /area/security/execution/transfer)
 "apR" = (
@@ -6938,10 +6902,6 @@
 /obj/item/assembly/signaler{
 	pixel_x = -3;
 	pixel_y = 2
-	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 4;
-	pixel_y = 3
 	},
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/techmaint,
@@ -9295,83 +9255,6 @@
 /turf/open/floor/wood,
 /area/bridge/meeting_room)
 "avo" = (
-/obj/item/reagent_containers/glass/bottle/bromine{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/aluminium{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/chlorine{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/carbon{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/ethanol{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/copper{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/hydrogen{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/fluorine{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/water{
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/bottle/lithium{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/iron{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/iodine{
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/bottle/oxygen{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/phosphorus{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/nitrogen{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/bottle/mercury{
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/bottle/radium{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/potassium{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/welding_fuel{
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/bottle/sacid{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/silicon{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/silver{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/sodium{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/sugar{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/glass/bottle/sulfur{
-	pixel_x = -6
-	},
 /obj/structure/closet/crate/medical,
 /obj/effect/turf_decal/box,
 /obj/item/circuitboard/machine/chem_heater,
@@ -10213,17 +10096,9 @@
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 9;
-	pixel_y = 10
-	},
 /obj/item/reagent_containers/dropper{
 	pixel_x = -3;
 	pixel_y = -4
-	},
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = 8;
-	pixel_y = 1
 	},
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/purple/diagonal_edge,
@@ -10595,14 +10470,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/space)
-"axX" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/grass,
-/area/hydroponics/garden)
 "axY" = (
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 6
@@ -11516,9 +11383,6 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
-/obj/item/reagent_containers/food/drinks/flask/det{
-	pixel_x = -15
-	},
 /turf/open/floor/carpet,
 /area/security/detectives_office)
 "aAd" = (
@@ -11650,11 +11514,6 @@
 /obj/machinery/airalarm/directional/north,
 /obj/structure/table,
 /obj/item/book/manual/wiki/cooking_to_serve_man,
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/condiment/sugar,
-/obj/item/reagent_containers/food/condiment/saltshaker,
 /obj/machinery/camera/directional/north,
 /turf/open/floor/iron/white,
 /area/crew_quarters/kitchen)
@@ -11869,12 +11728,7 @@
 /area/bridge)
 "aAO" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/book/manual/wiki/cooking_to_serve_man,
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/condiment/saltshaker,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/crew_quarters/kitchen)
@@ -11909,14 +11763,6 @@
 "aAT" = (
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck,
-/obj/item/reagent_containers/food/drinks/beer{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/food/drinks/beer{
-	pixel_x = 11;
-	pixel_y = 9
-	},
 /turf/open/floor/wood/big,
 /area/medical/patients_rooms)
 "aAU" = (
@@ -13996,13 +13842,6 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/condiment/peppermill{
-	pixel_x = -9
-	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
-	pixel_x = -9;
-	pixel_y = 5
-	},
 /obj/item/storage/box/papersack{
 	pixel_x = 4;
 	pixel_y = 3
@@ -15099,7 +14938,6 @@
 	pixel_x = 33
 	},
 /obj/effect/turf_decal/trimline/dark_red/filled/warning,
-/obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/space)
 "aIc" = (
@@ -16931,7 +16769,6 @@
 /turf/open/floor/iron/tech,
 /area/security/prison/shielded)
 "aMq" = (
-/obj/machinery/space_heater,
 /obj/machinery/atmospherics/components/unary/outlet_injector/on,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light/small{
@@ -17343,10 +17180,6 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/glass/rag{
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/shaker,
 /turf/open/floor/iron/tech,
 /area/crew_quarters/bar)
 "aNp" = (
@@ -18019,23 +17852,7 @@
 /area/medical/patients_rooms)
 "aOM" = (
 /obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 6;
-	pixel_y = 6
-	},
 /obj/item/storage/pill_bottle/mannitol,
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -2;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 5;
-	pixel_y = 9
-	},
 /obj/item/wrench/medical,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/turf_decal/stripes/corner,
@@ -19597,7 +19414,6 @@
 	dir = 1
 	},
 /obj/structure/reagent_dispensers/watertank/high,
-/obj/item/reagent_containers/glass/bucket,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/sepia,
 /area/hydroponics)
@@ -20531,13 +20347,6 @@
 /area/crew_quarters/heads/cmo)
 "aUm" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/drinks/beer{
-	pixel_x = -1;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/food/drinks/beer{
-	pixel_x = -8
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
@@ -21430,10 +21239,6 @@
 /obj/machinery/reagentgrinder{
 	pixel_x = -1;
 	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_x = 13;
-	pixel_y = 17
 	},
 /turf/open/floor/iron/dark,
 /area/crew_quarters/kitchen)
@@ -53830,7 +53635,7 @@ alb
 aGj
 aBl
 aMV
-aii
+afZ
 aLu
 azz
 aOJ
@@ -54133,7 +53938,7 @@ akm
 aGj
 avG
 aPa
-aii
+afZ
 aoK
 avi
 adA
@@ -58672,7 +58477,7 @@ avs
 ayp
 ayp
 agp
-axX
+aSs
 aST
 afF
 aQV
