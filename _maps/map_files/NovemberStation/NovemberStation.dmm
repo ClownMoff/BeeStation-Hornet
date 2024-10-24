@@ -1067,14 +1067,6 @@
 	},
 /turf/open/floor/iron/tech,
 /area/ai_monitored/security/armory)
-"acm" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "aco" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -1151,13 +1143,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/sepia,
 /area/quartermaster/warehouse)
-"acz" = (
-/obj/machinery/light/directional/south,
-/obj/machinery/computer/arcade/battle{
-	dir = 4
-	},
-/turf/open/floor/carpet/blue,
-/area/space)
 "acA" = (
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/effect/turf_decal/tile/red/opposingcorners{
@@ -1337,10 +1322,6 @@
 /obj/effect/landmark/start/chief_medical_officer,
 /turf/open/floor/iron/dark,
 /area/crew_quarters/heads/cmo)
-"acZ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet,
-/area/space)
 "adb" = (
 /obj/machinery/shower{
 	dir = 4;
@@ -2861,9 +2842,6 @@
 	},
 /turf/open/floor/wood,
 /area/lawoffice)
-"agO" = (
-/turf/open/floor/carpet/black,
-/area/space)
 "agP" = (
 /obj/structure/chair/fancy/bench/pew/right{
 	dir = 8
@@ -3172,14 +3150,6 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/wood,
 /area/crew_quarters/theatre)
-"ahw" = (
-/obj/structure/chair/fancy/sofa/old/left{
-	color = "#596479";
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet/black,
-/area/space)
 "ahx" = (
 /obj/structure/sign/departments/security{
 	pixel_y = 32
@@ -3225,14 +3195,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/quartermaster/office)
-"ahC" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "ahD" = (
 /turf/closed/wall/r_wall,
 /area/security/detectives_office)
@@ -3678,10 +3640,6 @@
 "aiF" = (
 /turf/closed/wall,
 /area/medical/medbay/lobby)
-"aiG" = (
-/obj/structure/noticeboard/directional/south,
-/turf/open/floor/carpet/blue,
-/area/space)
 "aiH" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -3967,12 +3925,6 @@
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /turf/open/floor/iron/tech,
 /area/security/main)
-"ajg" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/wood/big,
-/area/space)
 "ajh" = (
 /obj/structure/sign/departments/medbay/alt2{
 	pixel_x = -32
@@ -4789,12 +4741,6 @@
 "akV" = (
 /turf/closed/wall/r_wall,
 /area/security/brig)
-"akW" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood/big,
-/area/space)
 "akX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -5218,9 +5164,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/quartermaster/qm)
-"alX" = (
-/turf/open/floor/light/colour_cycle/dancefloor_b,
-/area/space)
 "alY" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
@@ -5257,14 +5200,6 @@
 	},
 /turf/open/floor/wood/big,
 /area/crew_quarters/dorms)
-"amd" = (
-/obj/effect/turf_decal/siding/wood/corner,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "ame" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Control";
@@ -5732,14 +5667,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/detectives_office)
-"ane" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood/big,
-/area/space)
 "anf" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/structure/railing{
@@ -6467,13 +6394,6 @@
 	},
 /turf/open/floor/carpet/black,
 /area/library)
-"aoS" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood/big,
-/area/space)
 "aoT" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
@@ -8314,10 +8234,6 @@
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/grass,
 /area/crew_quarters/park)
-"ato" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/carpet,
-/area/space)
 "atp" = (
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark,
@@ -8619,13 +8535,6 @@
 	},
 /turf/open/floor/iron/tech,
 /area/security/checkpoint/medical)
-"atW" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "atX" = (
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /obj/effect/turf_decal/siding/dark_green{
@@ -9263,12 +9172,6 @@
 "avt" = (
 /turf/open/floor/iron/techmaint,
 /area/security/processing)
-"avu" = (
-/obj/machinery/computer/arcade/orion_trail{
-	dir = 4
-	},
-/turf/open/floor/carpet/blue,
-/area/space)
 "avv" = (
 /turf/closed/mineral/random/snowmountain/cavern,
 /area/space)
@@ -9346,13 +9249,6 @@
 /obj/structure/dresser,
 /turf/open/floor/wood,
 /area/quartermaster/qm_bedroom)
-"avB" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood/corner,
-/turf/open/floor/wood/big,
-/area/space)
 "avC" = (
 /obj/effect/decal/cleanable/molten_object/large,
 /obj/effect/decal/cleanable/dirt,
@@ -9481,14 +9377,6 @@
 	},
 /turf/open/floor/iron/white/textured_half,
 /area/medical/chemistry)
-"avV" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood/big,
-/area/space)
 "avW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9927,13 +9815,6 @@
 "awS" = (
 /turf/open/floor/plating/dirt,
 /area/crew_quarters/park)
-"awT" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "awU" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -10548,9 +10429,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/asteroid/snow,
 /area/hydroponics/garden)
-"ayj" = (
-/turf/open/floor/carpet,
-/area/space)
 "ayk" = (
 /turf/closed/wall,
 /area/quartermaster/qm)
@@ -10603,13 +10481,6 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/security/prison)
-"ayt" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 4
-	},
-/turf/open/floor/wood/big,
-/area/space)
 "ayu" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/iron/tech,
@@ -13154,16 +13025,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/wood,
 /area/quartermaster/qm)
-"aEk" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "aEl" = (
 /obj/effect/turf_decal/arrows{
 	dir = 1
@@ -13408,14 +13269,6 @@
 	dir = 8
 	},
 /turf/open/floor/pod/dark,
-/area/space)
-"aEN" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood/big,
 /area/space)
 "aEO" = (
 /obj/structure/table/wood,
@@ -13985,10 +13838,6 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/tech,
 /area/crew_quarters/dorms)
-"aFV" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/light/colour_cycle/dancefloor_b,
-/area/space)
 "aFW" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/big,
@@ -14413,16 +14262,6 @@
 /obj/effect/mapping_helpers/simple_pipes/supply_scrubber/hidden,
 /turf/open/floor/iron/techmaint,
 /area/security/brig)
-"aGW" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/big,
-/area/space)
 "aGX" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white,
@@ -15008,13 +14847,6 @@
 /obj/effect/turf_decal/stripes/closeup,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/tech/grid,
-/area/space)
-"aIl" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/big,
 /area/space)
 "aIm" = (
 /obj/effect/turf_decal/tile/dark_blue/corner_ramp,
@@ -15741,9 +15573,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/techmaint,
 /area/crew_quarters/toilet)
-"aJW" = (
-/turf/open/space/basic,
-/area/space)
 "aJX" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 8
@@ -16610,10 +16439,6 @@
 	},
 /turf/open/floor/iron/tech,
 /area/space)
-"aLW" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/carpet/black,
-/area/space)
 "aLX" = (
 /obj/effect/turf_decal/siding/red{
 	dir = 4
@@ -17056,13 +16881,6 @@
 	},
 /turf/open/floor/iron/sepia,
 /area/hydroponics)
-"aNc" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/turf/open/floor/wood/big,
-/area/space)
 "aNd" = (
 /obj/effect/mapping_helpers/simple_pipes/supply_scrubber/hidden,
 /obj/structure/cable/yellow{
@@ -17239,9 +17057,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/medical/medbay/lobby)
-"aNw" = (
-/turf/open/floor/carpet/blue,
-/area/space)
 "aNx" = (
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 9
@@ -17566,13 +17381,6 @@
 /obj/structure/bodycontainer/morgue,
 /turf/open/floor/iron/dark/smooth_large,
 /area/medical/morgue)
-"aOd" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/big,
-/area/space)
 "aOe" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	alpha = 140;
@@ -17629,10 +17437,6 @@
 	},
 /turf/open/floor/iron/techmaint,
 /area/quartermaster/storage)
-"aOl" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/light/colour_cycle/dancefloor_a,
-/area/space)
 "aOm" = (
 /turf/closed/wall,
 /area/crew_quarters/locker)
@@ -18801,10 +18605,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/space)
-"aQU" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/carpet/black,
-/area/space)
 "aQV" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/grass,
@@ -18883,10 +18683,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/quartermaster/office)
-"aRj" = (
-/obj/structure/chair/stool/bar/directional/west,
-/turf/open/floor/carpet/blue,
-/area/space)
 "aRk" = (
 /obj/structure/dresser,
 /obj/machinery/light/directional/north,
@@ -20216,16 +20012,6 @@
 	},
 /turf/open/floor/iron/techmaint,
 /area/security/checkpoint/customs)
-"aUb" = (
-/obj/structure/sign/painting/library{
-	pixel_y = -32
-	},
-/obj/structure/chair/fancy/sofa/old/corner/concave{
-	color = "#596479";
-	dir = 1
-	},
-/turf/open/floor/carpet/black,
-/area/space)
 "aUd" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -21197,13 +20983,6 @@
 /obj/structure/closet/secure_closet/genpop,
 /turf/open/floor/iron/techmaint,
 /area/security/processing)
-"aWu" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood/big,
-/area/space)
 "aWv" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder{
@@ -21541,9 +21320,6 @@
 "aXd" = (
 /turf/closed/wall/r_wall,
 /area/medical/genetics/cloning)
-"aXe" = (
-/turf/open/floor/light/colour_cycle/dancefloor_a,
-/area/space)
 "aXf" = (
 /obj/structure/flora/grass/both,
 /obj/effect/turf_decal/weather/snow,
@@ -21832,13 +21608,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/crew_quarters/theatre/backstage)
-"aXS" = (
-/obj/structure/sign/painting/library{
-	pixel_y = -32
-	},
-/obj/structure/chair/stool/bar/directional/west,
-/turf/open/floor/carpet/blue,
-/area/space)
 "aXT" = (
 /obj/effect/turf_decal/tile/brown/opposingcorners{
 	dir = 1
@@ -63337,15 +63106,15 @@ akA
 akA
 akA
 akA
-aFV
-aXe
-alX
-aXe
-avB
-akW
-ayt
-avu
-acz
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -63639,15 +63408,15 @@ akA
 akA
 akA
 akA
-aXe
-alX
-aXe
-alX
-ahC
-ato
-aOd
-aRj
-aXS
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -63941,15 +63710,15 @@ akA
 akA
 akA
 akA
-alX
-aXe
-alX
-aOl
-ahC
-ayj
-aOd
-aNw
-aiG
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -64243,15 +64012,15 @@ akA
 akA
 akA
 akA
-aoS
-aoS
-awT
-awT
-aEN
-ayj
-aGW
-ajg
-awT
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -64545,15 +64314,15 @@ akA
 akA
 akA
 akA
-atW
-aWu
-aWu
-aWu
-ane
-acZ
-amd
-akW
-akW
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -64847,15 +64616,15 @@ akA
 akA
 akA
 akA
-aJW
-aJW
-aJW
-aJW
-aIl
-acZ
-aOd
-aLW
-aLW
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -65149,15 +64918,15 @@ akA
 akA
 akA
 akA
-aJW
-aJW
-aJW
-aJW
-avV
-acZ
-aOd
-ahw
-aUb
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -65451,15 +65220,15 @@ akA
 akA
 akA
 akA
-aJW
-aJW
-aJW
-aJW
-avV
-acZ
-acm
-agO
-agO
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -65753,15 +65522,15 @@ akA
 akA
 akA
 akA
-aJW
-aJW
-aJW
-aJW
-avV
-acZ
-acm
-agO
-agO
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
@@ -66055,15 +65824,15 @@ akA
 akA
 akA
 akA
-aJW
-aJW
-aJW
-aJW
-aEk
-ajg
-aNc
-agO
-aQU
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
+akA
 akA
 akA
 akA
