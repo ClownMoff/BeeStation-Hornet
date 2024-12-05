@@ -3220,6 +3220,7 @@
 #include "code\modules\mob\living\simple_animal\friendly\mouse.dm"
 #include "code\modules\mob\living\simple_animal\friendly\penguin.dm"
 #include "code\modules\mob\living\simple_animal\friendly\pet.dm"
+#include "code\modules\mob\living\simple_animal\friendly\sentient_disk.dm"
 #include "code\modules\mob\living\simple_animal\friendly\sloth.dm"
 #include "code\modules\mob\living\simple_animal\friendly\snake.dm"
 #include "code\modules\mob\living\simple_animal\friendly\turtle.dm"
