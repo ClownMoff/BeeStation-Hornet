@@ -128,6 +128,7 @@ GLOBAL_LIST_INIT(forced_bannable_roles, list(
 #define ROLE_ANCIENT_CREW		"Ancient Crew"
 #define ROLE_SKELETAL_REMAINS	"Skeletal Remains"
 #define ROLE_SENTIENT_ANIMAL	"Sentient Animal"
+#define ROLE_SENTIENT_NUCLEAR_DISK	"Sentient Nuclear Disk"
 #define ROLE_HOLY_SUMMONED		"Holy Summoned"
 #define ROLE_SURVIVALIST		"Exploration Survivalist"
 #define ROLE_EXPLORATION_VIP	"Exploration VIP"
