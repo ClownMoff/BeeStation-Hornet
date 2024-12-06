@@ -29,7 +29,7 @@
 	for (var/mob/H in SSticker.mode.current_players[CURRENT_LIVING_PLAYERS])
 		if(H.mind)
 			var/datum/mind/M = H.mind
-			if (M.assigned_role == JOB_NAME_CAPTAIN || M.assigned_role == JOB_NAME_HEADOFPERSONNEL || M.assigned_role == JOB_NAME_HEADOFSECURITY || M.assigned_role == JOB_NAME_RESEARCHDIRECTOR|| M.assigned_role == JOB_NAME_CHIEFENGINEERM.assigned_role == JOB_NAME_CHIEFENGINEER)
+			if (M.assigned_role == JOB_NAME_CAPTAIN || M.assigned_role == JOB_NAME_HEADOFPERSONNEL || M.assigned_role == JOB_NAME_HEADOFSECURITY || M.assigned_role == JOB_NAME_RESEARCHDIRECTOR|| M.assigned_role == JOB_NAME_CHIEFENGINEER.assigned_role == JOB_NAME_CHIEFENGINEER,)
 				job_check += 1
 
 	var/member_size = rand(1, round(job_check/2) + 1)
@@ -40,3 +40,4 @@
 		spawned_mobs += S
 
 	return SUCCESSFUL_SPAWN
+

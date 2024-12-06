@@ -5,7 +5,7 @@
 	banning_key = ROLE_SENTIENT_NUCLEAR_DISK
 	var/greet_message = ""
 
-/datum/antagonist/survivalist/proc/forge_objectives()
+/datum/antagonist/sentient_nuclear_disk/proc/forge_objectives()
 	if(!give_objectives)
 		return
 	var/datum/objective/survive/survive = new
@@ -13,11 +13,11 @@
 	objectives += survive
 	log_objective(owner, survive.explanation_text)
 
-/datum/antagonist/survivalist/on_gain()
+/datum/antagonist/sentient_nuclear_disk/on_gain()
 	owner.special_role = "survivalist"
 	forge_objectives()
 	. = ..()
 
-/datum/antagonist/survivalist/greet()
+/datum/antagonist/sentient_nuclear_disk/greet()
 	to_chat(owner, "<B>You are the sentient nuclear disk! Those pen pushing bureocrats want to keep you sealed and protected. But you are free, free![greet_message]</B>")
 	owner.announce_objectives()
