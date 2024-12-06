@@ -302,3 +302,8 @@
 	for(var/obj/item/carried_item in H.get_equipped_items(TRUE))
 		carried_item.add_mob_blood(H)//Oh yes, there will be blood...
 	H.regenerate_icons()
+
+/datum/role_preference/midround_ghost/sentient_nuclear_disk
+	name = "Sentient Nuclear Disk"
+	description = "You are a Sentient Nuclear Disk! You have grown legs and the ability to speak!."
+	antag_datum = /datum/antagonist/sentient_nuclear_disk

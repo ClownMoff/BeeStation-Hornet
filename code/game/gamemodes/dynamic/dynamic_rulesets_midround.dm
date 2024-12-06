@@ -15,6 +15,7 @@
 	var/list/living_antags = list()
 	var/list/dead_players = list()
 	var/list/list_observers = list()
+	var/list/possible_spawns = list()
 
 	/// The minimum round time before this ruleset will show up
 	var/minimum_round_time = 0
@@ -908,7 +909,7 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/fugitives/review_applications()
 	var/turf/landing_turf = pick(spawn_locs)
-	var/result = spawn_fugitives(landing_turf, candidates, list())
+	var/result = s(spawn_fugitivelanding_turf, candidates, list())
 	if(result == NOT_ENOUGH_PLAYERS)
 		message_admins("Not enough players volunteered for the ruleset [name] - [candidates.len] out of [required_candidates].")
 		log_game("DYNAMIC: Not enough players volunteered for the ruleset [name] - [candidates.len] out of [required_candidates].")
@@ -970,3 +971,47 @@
 	. = ..()
 	// Set their job in addition to their antag role to be a space ninja for logging purposes
 	new_character.mind.assigned_role = ROLE_NINJA
+
+
+//////////////////////////////////////////////
+//                                          //
+//       SENTIENT NUCLEAR DISK (GHOST)      //
+//                                          //
+//////////////////////////////////////////////
+
+/datum/dynamic_ruleset/midround/from_ghosts/sentient_nuclear_disk
+	name = "Sentient Nuclear Round"
+	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
+	role_preference = /datum/role_preference/midround_ghost/sentient_nuclear_disk
+	required_type = /mob/dead/observer
+	enemy_roles = list(JOB_NAME_CAPTAIN, JOB_NAME_HEADOFPERSONNEL, JOB_NAME_HEADOFSECURITY,JOB_NAME_CHIEFENGINEER, JOB_NAME_CHIEFMEDICALOFFICER, JOB_NAME_RESEARCHDIRECTOR)
+	required_enemies = list(1,1,1,1,1,1,1,1,1,1)
+	required_candidates = 1
+	weight = 2
+	cost = 5
+	minimum_players = 20
+	repeatable = FALSE
+	var/list/spawn_locs
+
+/datum/dynamic_ruleset/midround/from_ghosts/sentient_nuclear_disk/acceptable(population=0, threat=0)
+	if (!SSmapping.empty_space)
+		return FALSE
+	return ..()
+
+/datum/dynamic_ruleset/midround/from_ghosts/sentient_nuclear_disk/ready(forced = FALSE)
+	if(!..())
+		return FALSE
+	spawn_locs = list()
+	var/obj/item/disk/nuclear/disk_spawn = locate()
+	for(disk_spawn in GLOB.poi_list)
+		possible_spawns += disk_spawn
+	return TRUE
+
+/datum/dynamic_ruleset/midround/from_ghosts/sentient_nuclear_disk/review_applications()
+	var/turf/landing_turf = pick(spawn_locs)
+	var/result = spawn_sentient_nuclear_disk(landing_turf, candidates, list())
+	if(result == NOT_ENOUGH_PLAYERS)
+		message_admins("Not enough players volunteered for the ruleset [name] - [candidates.len] out of [required_candidates].")
+		log_game("DYNAMIC: Not enough players volunteered for the ruleset [name] - [candidates.len] out of [required_candidates].")
+		return FALSE
+	return TRUE
