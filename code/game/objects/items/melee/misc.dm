@@ -1002,3 +1002,33 @@
 			target.apply_damage(stamina_force, STAMINA, target_zone, armour_level)
 
 	return ..()
+
+/obj/item/melee/steelchair // OH, WHAT'S THAT?... OH! OOOOH! HERE COMES THE CLOWN WITH A STEEL CHAIR!!!
+	name = "Wrestling Steel Chair"
+	desc = "THE GREAT EQUALIZER INSIDE THE RING."
+	icon = 'icons/obj/beds_chairs/chairs.dmi'
+	icon_state = "chair_foldable_toppled"
+	item_state = "chair_foldable_toppled"
+	worn_icon_state = "wrestlingsteelchair"
+	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	force = 20
+	throwforce = 20
+	w_class = WEIGHT_CLASS_BULKY
+	hitsound = 'sound/items/trayhit1.ogg'
+	block_sound ='sound/weapons/parry.ogg'
+
+/obj/item/melee/steelchair/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, quickstart = TRUE)
+	if(iscarbon(thrower))
+		var/mob/living/carbon/C = thrower
+		C.throw_mode_on(THROW_MODE_TOGGLE) //so they can catch it on the return.
+	return ..()
+
+/obj/item/melee/steelchair/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	var/caught = hit_atom.hitby(src, FALSE, FALSE, throwingdatum=throwingdatum)
+	if(iscarbon(hit_atom) && !caught)
+		var/mob/thrown_by = thrownby?.resolve()
+		if(thrown_by && !caught)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, throw_at), thrown_by, throw_range+2, throw_speed, null, TRUE), 1)
+		else
+			return ..()
