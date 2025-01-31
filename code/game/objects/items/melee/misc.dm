@@ -1006,10 +1006,10 @@
 /obj/item/melee/steelchair // OH, WHAT'S THAT?... OH! OOOOH! HERE COMES THE CLOWN WITH A STEEL CHAIR!!!
 	name = "Wrestling Steel Chair"
 	desc = "THE GREAT EQUALIZER INSIDE THE RING."
-	icon = 'icons/obj/beds_chairs/chairs.dmi'
-	icon_state = "chair_foldable_toppled"
-	item_state = "chair_foldable_toppled"
-	worn_icon_state = "wrestlingsteelchair"
+	icon = 'icons/obj/items_and_weapons.dmi.dmi'
+	icon_state = "wrestlingchair"
+	item_state = "wrestlingchair"
+	worn_icon_state = "wrestlingchair"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	force = 20
