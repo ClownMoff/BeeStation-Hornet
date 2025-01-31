@@ -47,3 +47,11 @@ GLOBAL_LIST_EMPTY(soundtrack_this_round) // A running list of soundtrack songs t
 	url = "https://www.youtube.com/watch?v=NqNHKfTAvcw"
 	file = 'sound/soundtrack/tearofveil.ogg'
 	length = (2 MINUTES) + (52 SECONDS)
+
+/datum/soundtrack_song/
+	title = ""
+	artist = ""
+	album = ""
+	url = ""
+	file = ''
+	length = (2 MINUTES) + (52 SECONDS)
