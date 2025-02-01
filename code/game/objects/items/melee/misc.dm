@@ -1004,78 +1004,77 @@
 	return ..()
 
 /obj/item/melee/steelchair // OH, WHAT'S THAT?... OH! OOOOH! HERE COMES THE CLOWN WITH A STEEL CHAIR!!!
-    name = "Wrestling Steel Chair"
-    desc = "THE GREAT EQUALIZER INSIDE THE RING."
-    icon = 'icons/obj/items_and_weapons.dmi'
-    icon_state = "wrestlingchair"
-    item_state = "wrestlingchair"
-    worn_icon_state = "wrestlingchair"
-    lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
-    righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
-    force = 27
-    throwforce = 27
-    block_level = 1
-    block_upgrade_walk = 0
-    block_power = 100
-    block_flags = BLOCKING_ACTIVE
-    w_class = WEIGHT_CLASS_BULKY
-    hitsound = 'sound/items/trayhit1.ogg'
-    block_sound ='sound/weapons/parry.ogg'
+	name = "Wrestling Steel Chair"
+	desc = "THE GREAT EQUALIZER INSIDE THE RING."
+	icon = 'icons/obj/items_and_weapons.dmi'
+	icon_state = "wrestlingchair"
+	item_state = "wrestlingchair"
+	worn_icon_state = "wrestlingchair"
+	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
+	force = 27
+	throwforce = 27
+	block_level = 1
+	block_upgrade_walk = 0
+	block_power = 100
+	block_flags = BLOCKING_ACTIVE
+	w_class = WEIGHT_CLASS_BULKY
+	hitsound = 'sound/items/trayhit1.ogg'
+	block_sound ='sound/weapons/parry.ogg'
+	uses_integrity = TRUE
 
 /obj/item/melee/steelchair/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, quickstart = TRUE)
-    if(iscarbon(thrower))
-        var/mob/living/carbon/C = thrower
-        C.throw_mode_on(THROW_MODE_TOGGLE) //so they can catch it on the return.
-    return ..()
+	if(iscarbon(thrower))
+		var/mob/living/carbon/C = thrower
+		C.throw_mode_on(THROW_MODE_TOGGLE) //so they can catch it on the return.
+	return ..()
 
 /obj/item/melee/steelchair/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-    var/caught = hit_atom.hitby(src, FALSE, FALSE, throwingdatum=throwingdatum)
-    var/mob/thrown_by = thrownby?.resolve()
-    if(thrown_by && !caught)
-        if(hit_atom != thrown_by) // Check if the hit atom is not the thrower
-            addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, throw_at), thrown_by, throw_range+2, throw_speed, null, TRUE), 1)
-    else
-        return ..()
+	var/caught = hit_atom.hitby(src, FALSE, FALSE, throwingdatum=throwingdatum)
+	var/mob/thrown_by = thrownby?.resolve()
+	if(thrown_by && !caught)
+		if(hit_atom != thrown_by) // Check if the hit atom is not the thrower
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, throw_at), thrown_by, throw_range+2, throw_speed, null, TRUE), 1)
+	else
+		return ..()
 
 /obj/item/melee/steelchair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
-    if(isprojectile(hitby))
-        var/obj/projectile/projectile = hitby
-        if(projectile.reflectable)
-            projectile.firer = src
-            projectile.set_angle(get_dir(owner, hitby))
-            return 1
-    return ..()
+	if(isprojectile(hitby))
+    	var/obj/projectile/projectile = hitby
+    	if(projectile.reflectable)
+			projectile.firer = src
+			projectile.set_angle(get_dir(owner, hitby))
+			return 1
+	return ..()
 
 /obj/item/melee/steelchair/attack(mob/living/target, mob/living/user, params)
-    var/total_damage = force
-
+	var/total_damage = force
     // Check if the target is facing away from the user
-    if(turn(target.dir, 180) == user.dir)
-        total_damage *= 2
+	if(turn(target.dir, 180) == user.dir)
+		total_damage *= 2
 
-    if(target != user) // Ensure the thrower does not take damage
-        target.take_damage(total_damage, "brute", user)
-    return ..()
+	if(target != user) // Ensure the thrower does not take damage
+		target.take_damage(total_damage, "brute", user)
+	return ..()
 
 /obj/item/steelchairwrapped
-    name = "Wrapped Gift"
-    desc = "It's the most wonderful time of the year!"
-    icon = 'icons/obj/items_and_weapons.dmi'
-    icon_state = "wrestlingchairwrapped"
-    item_state = "wrestlingchairwrapped"
-    worn_icon_state = "wrestlingchairwrapped"
-    lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-    righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
-    force = 0
-    throwforce = 0
-    w_class = WEIGHT_CLASS_BULKY
+	name = "Wrapped Gift"
+	desc = "It's the most wonderful time of the year!"
+	icon = 'icons/obj/items_and_weapons.dmi'
+	icon_state = "wrestlingchairwrapped"
+	item_state = "wrestlingchairwrapped"
+	worn_icon_state = "wrestlingchairwrapped"
+	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	force = 0
+	throwforce = 0
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/steelchairwrapped/attack_self(mob/living/user)   // https://www.youtube.com/shorts/yZBDQsHOTNQ  IT'S THE MOST WONDERFUL TIME OF THE YEAR
 	var/obj/item/melee/steelchair/new_chair = new /obj/item/melee/steelchair(user.loc)
 	user.put_in_hands(new_chair)
 	qdel(src)
 	playsound(user.loc, "/sound/items/poster_ripped.ogg", 50, 1)
-	sound_to_playing_players("/sound/items/dump_it.ogg", 20)
 	priority_announce("We are LIVE at Wrestling SpaceMania 13 and- WAIT, WHAT'S THIS?! It's [user] with a steel chair!", ANNOUNCEMENT_TYPE_SYNDICATE, has_important_message = TRUE, title = "WRESTLING SPACEMANIA 13 ANNOUNCER")
 	deadchat_broadcast(span_deadsay("Someone has ENTERED THE RING"), turf_target = get_turf(src))
 	return ..()
