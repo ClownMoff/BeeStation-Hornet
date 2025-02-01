@@ -2495,8 +2495,8 @@ GLOBAL_LIST_INIT(illegal_tech_blacklist, typecacheof(list(
 	desc = "The BEST purchase for when you need to put a mask, some tight pants and step up to the ring. \
 			Blocks melee weapons, hits like a truck, blocks laser guns and can be thrown and comes back like a boomerang (but it can be grabbed by the other person). \
 			Comes inside a wrappde gift box Given the epicness of this item, upon removing the gift wrap this chair it will announce everyone on the station you have entered the RING with BAD INTENTIONS"
-	item = /obj/item/melee/steelchair
-	cost = 2O
+	item = /obj/item/steelchairwrapped
+	cost = 20
 	restricted_roles = list(JOB_NAME_ASSISTANT, JOB_NAME_COOK, JOB_NAME_CLOWN, JOB_NAME_MIME, JOB_NAME_BOTANIST, JOB_NAME_LAWYER, JOB_NAME_CURATOR, JOB_NAME_BARTENDER, JOB_NAME_JANITOR, JOB_NAME_GIMMICK)
 
 // Pointless

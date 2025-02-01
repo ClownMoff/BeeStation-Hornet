@@ -1010,8 +1010,8 @@
     icon_state = "wrestlingchair"
     item_state = "wrestlingchair"
     worn_icon_state = "wrestlingchair"
-    lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-    righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+    lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
+    righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
     force = 27
     throwforce = 27
     block_level = 1
@@ -1021,9 +1021,6 @@
     w_class = WEIGHT_CLASS_BULKY
     hitsound = 'sound/items/trayhit1.ogg'
     block_sound ='sound/weapons/parry.ogg'
-
-    var/last_hit_time = 0
-    var/consecutive_hits = 0
 
 /obj/item/melee/steelchair/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, quickstart = TRUE)
     if(iscarbon(thrower))
@@ -1049,19 +1046,15 @@
             return 1
     return ..()
 
-/obj/item/melee/steelchair/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, quickstart = TRUE)
-    if(iscarbon(thrower))
-        var/mob/living/carbon/wrestler = thrower
-        wrestler.throw_mode_on(THROW_MODE_TOGGLE) //so they can catch it on the return.
-    return ..()
+/obj/item/melee/steelchair/attack(mob/living/target, mob/living/user, params)
+    var/total_damage = force
 
-/obj/item/melee/steelchair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
-    if(isprojectile(hitby))
-        var/obj/projectile/projectile = hitby
-        if(projectile.reflectable)
-            projectile.firer = src
-            projectile.set_angle(get_dir(owner, hitby))
-            return 1
+    // Check if the target is facing away from the user
+    if(turn(target.dir, 180) == user.dir)
+        total_damage *= 2
+
+    if(target != user) // Ensure the thrower does not take damage
+        target.take_damage(total_damage, "brute", user)
     return ..()
 
 /obj/item/steelchairwrapped
@@ -1075,23 +1068,14 @@
     righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
     force = 0
     throwforce = 0
-    block_level = 0
-    block_upgrade_walk = 0
-    block_power = 0
-    block_flags = BLOCKING_ACTIVE
     w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/steelchairwrapped/attack_self(mob/living/user)   // https://www.youtube.com/shorts/yZBDQsHOTNQ  IT'S THE MOST WONDERFUL TIME OF THE YEAR
-    var/obj/item/melee/steelchair/new_chair = new /obj/item/melee/steelchair(user.loc)
-    user.put_in_hands(new_chair)
-    qdel(src)
-    play_sound(user, 'sound/items/wrapping.ogg', 100, 1)
-
-    return ..()
-
-//obj/effect/dumpeetTarget/Initialize(mapload, user)
-	//. = ..()
-	//bogdanoff = user
-	//addtimer(CALLBACK(src, PROC_REF(startLaunch)), 100)
-	//sound_to_playing_players('sound/items/dump_it.ogg', 20)
-	//deadchat_broadcast(span_deadsay("Protocol CRAB-17 has been activated. A space-coin market has been launched at the station!"), turf_target = get_turf(src))
+	var/obj/item/melee/steelchair/new_chair = new /obj/item/melee/steelchair(user.loc)
+	user.put_in_hands(new_chair)
+	qdel(src)
+	playsound(user.loc, "/sound/items/poster_ripped.ogg", 50, 1)
+	sound_to_playing_players("/sound/items/dump_it.ogg", 20)
+	priority_announce("We are LIVE at Wrestling SpaceMania 13 and- WAIT, WHAT'S THIS?! It's [user] with a steel chair!", ANNOUNCEMENT_TYPE_SYNDICATE, has_important_message = TRUE, title = "WRESTLING SPACEMANIA 13 ANNOUNCER")
+	deadchat_broadcast(span_deadsay("Someone has ENTERED THE RING"), turf_target = get_turf(src))
+	return ..()
