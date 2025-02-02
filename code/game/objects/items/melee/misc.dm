@@ -1040,27 +1040,17 @@
 
 /obj/item/melee/steelchair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(isprojectile(hitby))
-    	var/obj/projectile/projectile = hitby
-    	if(projectile.reflectable)
+		var/obj/projectile/projectile = hitby
+		if(projectile.reflectable)
 			projectile.firer = src
 			projectile.set_angle(get_dir(owner, hitby))
 			return 1
 	return ..()
 
-/obj/item/melee/steelchair/attack(mob/living/target, mob/living/user, params)
-	var/total_damage = force
-    // Check if the target is facing away from the user
-	if(turn(target.dir, 180) == user.dir)
-		total_damage *= 2
-
-	if(target != user) // Ensure the thrower does not take damage
-		target.take_damage(total_damage, "brute", user)
-	return ..()
-
 /obj/item/steelchairwrapped
 	name = "Wrapped Gift"
 	desc = "It's the most wonderful time of the year!"
-	icon = 'icons/obj/items_and_weapons.dmi'
+	icon = 'icon/storage/wrapping.dmi'
 	icon_state = "wrestlingchairwrapped"
 	item_state = "wrestlingchairwrapped"
 	worn_icon_state = "wrestlingchairwrapped"
