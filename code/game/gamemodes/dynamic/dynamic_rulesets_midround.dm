@@ -909,7 +909,7 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/fugitives/review_applications()
 	var/turf/landing_turf = pick(spawn_locs)
-	var/result = s(spawn_fugitivelanding_turf, candidates, list())
+	var/result = spawn_fugitives(landing_turf, candidates, list())
 	if(result == NOT_ENOUGH_PLAYERS)
 		message_admins("Not enough players volunteered for the ruleset [name] - [candidates.len] out of [required_candidates].")
 		log_game("DYNAMIC: Not enough players volunteered for the ruleset [name] - [candidates.len] out of [required_candidates].")

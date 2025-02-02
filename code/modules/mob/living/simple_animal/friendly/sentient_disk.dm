@@ -25,6 +25,7 @@
 	can_be_held = TRUE
 	mob_biotypes = list(MOB_INORGANIC)
 	ventcrawler = VENTCRAWLER_NONE
+	spacewalk = TRUE
 
 /mob/living/simple_animal/sentient_disk/Initialize(mapload)
 	. = ..()
