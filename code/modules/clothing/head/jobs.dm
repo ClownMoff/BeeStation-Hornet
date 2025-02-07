@@ -57,6 +57,14 @@
 
 	dog_fashion = null
 
+/obj/item/clothing/head/hats/captain_sleepy
+	name = "Captain's Sleepy Hat"
+	desc = "A royal hat for the best of royal dreams"
+	icon_state = "captain_eepy"
+
+	dog_fashion = null
+
+
 //Head of Personnel
 /obj/item/clothing/head/hats/hopcap
 	name = "head of personnel's cap"

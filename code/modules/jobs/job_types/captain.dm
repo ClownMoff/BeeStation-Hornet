@@ -54,6 +54,25 @@
 
 	id = /obj/item/card/id/job/captain
 	belt = /obj/item/modular_computer/tablet/pda/heads/captain
+	ears = /obj/item/radio/headset/heads/captain/alt
+	uniform =  /obj/item/clothing/under/rank/captain/pyjamas
+	suit = /obj/item/clothing/suit/toggle/caprobe
+	shoes = /obj/item/clothing/shoes/captain_slippers
+	head = /obj/item/clothing/head/hats/captain_sleepy
+	backpack_contents = list(/obj/item/melee/classic_baton/police/telescopic=1, /obj/item/station_charter=1)
+
+	backpack = /obj/item/storage/backpack/captain
+	satchel = /obj/item/storage/backpack/satchel/cap
+	duffelbag = /obj/item/storage/backpack/duffelbag/captain
+
+	implants = list(/obj/item/implant/mindshield)
+	accessory = /obj/item/clothing/accessory/medal/gold/captain
+
+	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/captain)
+
+/datum/outfit/job/captain/dressed
+	id = /obj/item/card/id/job/captain
+	belt = /obj/item/modular_computer/tablet/pda/heads/captain
 	glasses = /obj/item/clothing/glasses/sunglasses/advanced
 	ears = /obj/item/radio/headset/heads/captain/alt
 	gloves = /obj/item/clothing/gloves/color/captain

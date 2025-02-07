@@ -386,3 +386,9 @@
 	desc = "They got me for my foams!"
 	icon_state = "SwagShoes"
 	item_state = "SwagShoes"
+
+/obj/item/clothing/shoes/captain_slippers
+	name = "Captain's Slippers"
+	desc = "Royal slippers for royal shoes."
+	icon_state = "captain_slippers"
+	item_state = "captain_slippers"

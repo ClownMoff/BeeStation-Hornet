@@ -42,3 +42,10 @@
 	icon_state = "captain_parade"
 	item_state = "by_suit"
 	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/captain/pyjamas
+	name = "Captain's Pyjamas"
+	desc = "A captain's luxury clothes for tight sleeps."
+	icon_state = "captain_pyjamas"
+	item_state = "by_suit"
+	can_adjust = FALSE
