@@ -57,12 +57,16 @@ GLOBAL_VAR_INIT(glide_size_multiplier, 1.0)
 
 /// Classic bluespace teleportation, requires a sender but no receiver
 #define TELEPORT_CHANNEL_BLUESPACE "bluespace"
+/// /// Snowflakey gateway teleportation from Stargate... Gateway...? (idk) it uses old technology
+#define TELEPORT_CHANNEL_GATEWAY "gateway"
 /// Quantum-based teleportation, requires both sender and receiver, but is free from normal disruption
 #define TELEPORT_CHANNEL_QUANTUM "quantum"
 /// Wormhole teleportation, is not disrupted by bluespace fluctuations but tends to be very random or unsafe
 #define TELEPORT_CHANNEL_WORMHOLE "wormhole"
 /// Magic teleportation, does whatever it wants (unless there's antimagic)
 #define TELEPORT_CHANNEL_MAGIC "magic"
+/// Magic teleportation cast by the user
+#define TELEPORT_CHANNEL_MAGIC_SELF "magic_self"
 /// Cult teleportation, does whatever it wants (unless there's holiness)
 #define TELEPORT_CHANNEL_CULT "cult"
 /// Teleportation with only a sender, but not disrupted by the BOH
