@@ -112,3 +112,13 @@
 /obj/vehicle/ridden/atv/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	return ..()
+
+/obj/vehicle/ridden/atv/choochoo
+	name = "all-terrain vehicle"
+	desc = "Get on the train ride!."
+	icon_state = "choochoo"
+	max_integrity = 150
+	armor_type = /datum/armor/ridden_atv
+	key_type = /obj/item/key
+	integrity_failure = 0.5
+
