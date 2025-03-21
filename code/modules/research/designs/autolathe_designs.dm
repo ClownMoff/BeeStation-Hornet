@@ -542,6 +542,24 @@
 	category = list("initial", "Medical", "Medical Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
 
+/datum/design/reinforced_beaker
+    name = "Beaker"
+    id = "reinforced_beaker"
+    build_type = AUTOLATHE | PROTOLATHE
+    materials = list(/datum/material/glass = 500, /datum/material/iron=250)
+    build_path = /obj/item/reagent_containers/cup/beaker/reinforced
+    category = list("initial", "Medical", "Medical Designs")
+    departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/reinforced_large_beaker
+    name = "Reinforced Large Beaker"
+    id = "reinforced_large_beaker"
+    build_type = AUTOLATHE | PROTOLATHE
+    materials = list(/datum/material/glass = 2500, /datum/material/iron=1500)
+    build_path = /obj/item/reagent_containers/cup/beaker/large/reinforced
+    category = list("initial", "Medical", "Medical Designs")
+    departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
+
 /datum/design/healthanalyzer
 	name = "Health Analyzer"
 	id = "healthanalyzer"
@@ -1108,3 +1126,29 @@
 	category = list("initial", "Construction")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
 
+/datum/design/potion
+	name = "Potion Bottle"
+	id = "potion"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/glass = 500)
+	build_path = /obj/item/reagent_containers/cup/beaker/potion
+	category = list("Medical")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/small_potion
+	name = "Small Potion Bottle"
+	id = "small_potion"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/glass = 450)
+	build_path = /obj/item/reagent_containers/cup/beaker/small_potion
+	category = list("Medical")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/vial
+	name = "Vial Bottle"
+	id = "vial"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/glass = 400)
+	build_path = /obj/item/reagent_containers/cup/beaker/vial
+	category = list("Medical")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_MEDICAL
