@@ -56,6 +56,8 @@
 #define CASTING_CLOTHES (1<<15)
 /// Headgear/helmet allows internals
 #define HEADINTERNALS (1<<18)
+// MMA gloves
+#define MMA_GLOVES (1<<19)
 
 /// Integrity defines for clothing (not flags but close enough)
 #define CLOTHING_PRISTINE 0 // We have no damage on the clothing

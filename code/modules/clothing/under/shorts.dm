@@ -51,7 +51,7 @@
 /obj/item/clothing/under/shorts/mma_shorts_blue
 	name = "mma_shorts_blue"
 	icon_state = "mma_shorts_blue"
-	desc = "These belonged to a great fighter. On the label you can see the nickname \"THUG\"."
+	desc = "These belonged to a great fighter. On the label you can see the nickname \"THE LAST STYLEBENDER\"."
 
 /obj/item/clothing/under/shorts/mma_shorts_green
 	name = "mma_shorts_green"
