@@ -10,3 +10,6 @@
 #define MARTIALART_PLASMAFIST "plasma fist"
 #define MARTIALART_KARATE "karate"
 #define MARTIALART_TRIBALCLAW "tribal claw"
+#define MARTIALART_JIUJITSU "jiu-jitsu" //these next 3 are part of MMA gloves, are not meant to be used separately
+#define MARTIALART_GRAPPLING "grappling"
+#define MARTIALART_KICKBOXING "kickboxing"
