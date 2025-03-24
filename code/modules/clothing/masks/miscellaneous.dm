@@ -298,3 +298,81 @@ GLOBAL_LIST_INIT(cursed_animal_masks, list(
 		/obj/item/clothing/mask/cowmask/cursed,
 		/obj/item/clothing/mask/horsehead/cursed,
 	))
+
+/obj/item/clothing/mask/fakebeard
+	name = "wig"
+	desc = "A bunch of hair without a head attached."
+	icon = 'icons/mob/human_face.dmi'	  // default icon for all hairs
+	icon_state = "hair_vlong"
+	item_state = "pwig"
+	flags_inv = HIDEFACIALHAIR	//Instead of being handled as a clothing item, it overrides the hair values in /datum/species/proc/handle_hair
+	slot_flags = ITEM_SLOT_HEAD
+	worn_icon = 'icons/mob/human_face.dmi'
+	worn_icon_state = "bald"
+	var/hair_style = "Very Long Hair"
+	var/hair_color = "#000"
+	var/gradient_style = "None"
+	var/gradient_color = "000"
+	var/adjustablecolor = TRUE //can color be changed manually?
+	strip_delay = 10 //It's fake hair, can't be too hard to just grab and pull it off
+	var/obj/item/clothing/head/hat_attached_to = null
+
+/obj/item/clothing/head/wig/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/head/wig/Destroy()
+	. = ..()
+	if(hat_attached_to)
+		hat_attached_to.attached_wig = null
+
+/obj/item/clothing/head/wig/dropped(mob/user)
+	..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.head == src)
+			H.update_inv_head()
+
+/obj/item/clothing/head/wig/update_icon()
+	cut_overlays()
+	var/datum/sprite_accessory/S = GLOB.hair_styles_list[hair_style]
+	if(!S)
+		icon_state = "pwig"
+	else
+		var/mutable_appearance/M = mutable_appearance(S.icon,S.icon_state)
+		M.appearance_flags |= RESET_COLOR
+		M.color = hair_color
+		add_overlay(M)
+
+/obj/item/clothing/head/wig/attack_self(mob/user)
+	var/new_style = input(user, "Select a hair style", "Wig Styling")  as null|anything in (GLOB.hair_styles_list - "Bald")
+	if(!user.canUseTopic(src, BE_CLOSE))
+		return
+	if(new_style && new_style != hair_style)
+		hair_style = new_style
+		user.visible_message(span_notice("[user] changes \the [src]'s hairstyle to [new_style]."), span_notice("You change \the [src]'s hairstyle to [new_style]."))
+	if(adjustablecolor)
+		hair_color = tgui_color_picker(usr,"","Choose Color",hair_color)
+		var/picked_gradient_style
+		picked_gradient_style = input(usr, "", "Choose Gradient")  as null|anything in GLOB.hair_gradients_list
+		if(picked_gradient_style)
+			gradient_style = picked_gradient_style
+			if(gradient_style != "None")
+				var/picked_hair_gradient = tgui_color_picker(user, "", "Choose Gradient Color", "#" + gradient_color)
+				if(picked_hair_gradient)
+					gradient_color = sanitize_hexcolor(picked_hair_gradient)
+				else
+					gradient_color = "000"
+			else
+				gradient_color = "000"
+		else
+			gradient_style = "None"
+			gradient_color = "000"
+
+	update_icon()
+
+/obj/item/clothing/head/wig/random/Initialize(mapload)
+	. = ..()
+
+	hair_style = pick(GLOB.hair_styles_list - "Bald") //Don't want invisible wig
+	hair_color = "#[random_short_color()]"
