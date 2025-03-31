@@ -1074,6 +1074,6 @@
 	user.put_in_hands(new_chair)
 	qdel(src)
 	playsound(user.loc, "/sound/items/poster_ripped.ogg", 50, 1)
-	priority_announce("We are LIVE at Wrestling SpaceMania 13 and- WAIT, WHAT'S THIS?! It's [user] with a steel chair!", ANNOUNCEMENT_TYPE_SYNDICATE, has_important_message = TRUE, title = "WRESTLING SPACEMANIA 13 ANNOUNCER")
+	priority_announce("We are LIVE at Wrestling SpaceMania 13 and- WAIT, WHAT'S THIS?! OH OH!! OH!!! IT'S [user] WITH A STEEL CHAIR!", ANNOUNCEMENT_TYPE_SYNDICATE, has_important_message = TRUE, title = "WRESTLING SPACEMANIA 13 ANNOUNCER")
 	deadchat_broadcast(span_deadsay("Someone has ENTERED THE RING"), turf_target = get_turf(src))
 	return ..()
