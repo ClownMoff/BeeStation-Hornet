@@ -179,3 +179,33 @@
 		item_state = initial(item_state)
 		earflaps_down = TRUE
 		to_chat(user, span_notice("You lower the ear flaps on the ushanka."))
+
+/obj/item/clothing/head/hats/suffering
+	name = "The Hat of Anguish and Suffering"
+	desc = "An ancient hat. Wonder what it does"
+	icon_state = "suffering"
+	item_state = "suffering"
+	w_class = WEIGHT_CLASS_SMALL
+	var/modifies_speech = TRUE
+	var/obj/item/organ/tongue/chosen_tongue = null
+
+/obj/item/clothing/head/hats/suffering/equipped(mob/M, slot)
+	. = ..()
+	if (slot == ITEM_SLOT_HEAD && modifies_speech)
+		RegisterSignal(M, COMSIG_MOB_EMOTE, PROC_REF(handle_speech))
+	else
+		UnregisterSignal(M, COMSIG_MOB_EMOTE)
+
+/obj/item/clothing/head/hats/suffering/dropped(mob/M)
+	..()
+	UnregisterSignal(M, COMSIG_MOB_EMOTE)
+
+/obj/item/clothing/head/hats/suffering/Destroy()
+	chosen_tongue = null
+	. = ..()
+
+/obj/item/clothing/head/hats/suffering/proc/handle_speech()
+	SIGNAL_HANDLER
+
+/obj/item/clothing/head/hats/suffering/handle_speech(datum/source, speech_args)
+	speech_args = /datum/emote/living/scream
