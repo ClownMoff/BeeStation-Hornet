@@ -513,3 +513,18 @@
 	acid = 40
 	stamina = 25
 	bleed = 15
+
+/obj/item/clothing/head/costume/sunlightwarrior
+	name = "Iron Helm"
+	desc = "This helm with a red feather is said to have belonged to a Knight of Sunlight in a previous age."
+	icon_state = "sunlightwarrior"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	armor_type = /datum/armor/sunlightwarrior
+
+/datum/armor/sunlightwarrior
+	melee = 10
+	laser = 10
+	bomb = 10
+	fire = 10
+	acid = 10
+	stamina = 30
