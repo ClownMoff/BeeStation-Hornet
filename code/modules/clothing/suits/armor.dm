@@ -516,3 +516,26 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon)
 	allowed = GLOB.security_wintercoat_allowed
+
+/obj/item/clothing/suit/armor/sunlightwarrior
+	name = "Armor of the Sun"
+	desc = "The choice attire of a singular Knight of Sunlight from a previous age. The symbol was painted by the knight himself, but the armor never bore any special power, sacred or otherwise."
+	icon_state = "sunlightwarrior"
+	item_state = null
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	armor_type = /datum/armor/sunlightwarrior
+	dog_fashion = null
+
+/datum/armor/sunlightwarrior
+	melee = 25
+	bullet = 20
+	laser = 20
+	energy = 30
+	bomb = 20
+	bio = 50
+	rad = 20
+	fire = -10
+	acid = 50
+	stamina = 30
+	bleed = 20

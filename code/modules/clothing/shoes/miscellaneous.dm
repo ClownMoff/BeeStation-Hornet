@@ -412,3 +412,15 @@
 	desc = "They got me for my foams!"
 	icon_state = "SwagShoes"
 	item_state = "SwagShoes"
+
+/obj/item/clothing/shoes/sunlightwarrior
+	desc = "Said to be the leggings of a Knight of Sunlight from a previous age."
+	name = "Iron leggins"
+	icon_state = "sunlightwarrior"
+	resistance_flags = NONE
+	armor_type = /datum/armor/sunlightwarrior
+
+/datum/armor/sunlightwarrior
+	bio = 100
+	fire = 40
+	acid = 75
