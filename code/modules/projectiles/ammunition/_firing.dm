@@ -36,6 +36,11 @@
 		BB.def_zone = user.get_combat_bodyzone(target)
 	BB.suppressed = quiet
 
+	if(isgun(fired_from))
+		var/obj/item/gun/G = fired_from
+		BB.damage *= G.projectile_damage_multiplier
+		BB.stamina *= G.projectile_damage_multiplier
+
 	if(reagents && BB.reagents)
 		reagents.trans_to(BB, reagents.total_volume, transfered_by = user) //For chemical darts/bullets
 		qdel(reagents)
@@ -56,7 +61,8 @@
 		if(target) //if the target is right on our location we'll skip the travelling code in the proj's fire()
 			direct_target = target
 	if(!direct_target)
-		BB.preparePixelProjectile(target, user, params, spread)
+		var/modifiers = params2list(params)
+		BB.preparePixelProjectile(target, user, modifiers, spread)
 	BB.fire(null, direct_target)
 	BB = null
 	return TRUE

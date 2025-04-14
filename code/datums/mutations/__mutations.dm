@@ -98,14 +98,14 @@
 /datum/mutation/proc/on_attack_hand(atom/target, proximity)
 	return
 
-/datum/mutation/proc/on_ranged_attack(atom/target)
+/datum/mutation/proc/on_ranged_attack(mob/living/carbon/human/source, atom/target, modifiers)
 	return
 
 /datum/mutation/proc/on_move(new_loc)
 	SIGNAL_HANDLER
 	return
 
-/datum/mutation/proc/on_life()
+/datum/mutation/proc/on_life(delta_time, times_fired)
 	return
 
 /datum/mutation/proc/on_losing(mob/living/carbon/owner)

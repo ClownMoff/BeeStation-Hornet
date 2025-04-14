@@ -24,7 +24,7 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	resistance_flags = NONE
 	dog_fashion = null
-
+	var/obj/item/clothing/head/attached_hat
 
 /datum/armor/helmet_space
 	bio = 100
@@ -33,6 +33,79 @@
 	acid = 70
 	stamina = 10
 	bleed = 50
+
+/obj/item/clothing/head/helmet/space/Initialize(mapload)
+	. = ..()
+	remove_verb(/obj/item/clothing/head/helmet/space/verb/unattach_hat)
+
+/obj/item/clothing/head/helmet/space/Destroy()
+	if (attached_hat)
+		if (attached_hat.resistance_flags & INDESTRUCTIBLE)
+			attached_hat.forceMove(get_turf(src))
+		else
+			QDEL_NULL(attached_hat)
+	..()
+
+/obj/item/clothing/head/helmet/space/attackby(obj/item/item, mob/living/user)
+	. = ..()
+	if(istype(item, /obj/item/clothing/head) \
+		// i know someone is gonna do it after i thought about it
+		&& !istype(item, /obj/item/clothing/head/helmet/space) \
+		// messy and icon can't be seen before putting on
+		&& !istype(item, /obj/item/clothing/head/costume/foilhat))
+		var/obj/item/clothing/head/hat = item
+		if(attached_hat)
+			to_chat(user, span_notice("There's already a hat on the helmet!"))
+			return
+		attached_hat = hat
+		hat.forceMove(src)
+		if (user.get_item_by_slot(ITEM_SLOT_HEAD) == src)
+			hat.equipped(user, ITEM_SLOT_HEAD)
+		update_icon()
+		update_button_icons(user)
+		add_verb(/obj/item/clothing/head/helmet/space/verb/unattach_hat)
+
+/obj/item/clothing/head/helmet/space/proc/update_button_icons(mob/user)
+	if(!user)
+		return
+
+	//The icon's may look differently due to overlays being applied asynchronously
+	for(var/X in actions)
+		var/datum/action/A=X
+		A.update_buttons()
+
+/obj/item/clothing/head/helmet/space/equipped(mob/user, slot)
+	. = ..()
+	attached_hat?.equipped(user, slot)
+
+/obj/item/clothing/head/helmet/space/dropped(mob/user)
+	. = ..()
+	attached_hat?.dropped(user)
+
+/obj/item/clothing/head/helmet/space/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, item_layer, atom/origin)
+	. = ..()
+	if(!isinhands)
+		if(attached_hat)
+			. += attached_hat.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/default.dmi')
+
+/obj/item/clothing/head/helmet/space/verb/unattach_hat()
+	set name = "Remove Hat"
+	set category = "Object"
+	set src in usr
+
+	usr.put_in_hands(attached_hat)
+	if (usr.get_item_by_slot(ITEM_SLOT_HEAD) == src)
+		attached_hat.dropped(usr)
+	attached_hat = null
+	update_icon()
+	remove_verb(/obj/item/clothing/head/helmet/space/verb/unattach_hat)
+
+/obj/item/clothing/head/helmet/space/examine(mob/user)
+	. = ..()
+	if(attached_hat)
+		. += span_notice("There's \a [attached_hat.name] on the helmet which can be removed through the context menu.")
+	else
+		. += span_notice("A hat can be placed on the helmet.")
 
 /obj/item/clothing/suit/space
 	name = "space suit"
@@ -60,6 +133,7 @@
 	equip_delay_other = 80
 	resistance_flags = NONE
 	actions_types = list(/datum/action/item_action/toggle_spacesuit)
+	pockets = FALSE
 	var/temperature_setting = BODYTEMP_NORMAL /// The default temperature setting
 	var/obj/item/stock_parts/cell/cell = /obj/item/stock_parts/cell/high /// If this is a path, this gets created as an object in Initialize.
 	var/cell_cover_open = FALSE /// Status of the cell cover on the suit
@@ -96,9 +170,9 @@
 		human.update_spacesuit_hud_icon("0")
 
 // Space Suit temperature regulation and power usage
-/obj/item/clothing/suit/space/process()
-	var/mob/living/carbon/human/user = loc
-	if(!user || !ishuman(user) || user.wear_suit != src)
+/obj/item/clothing/suit/space/process(delta_time)
+	var/mob/living/carbon/human/user = src.loc
+	if(!user || !ishuman(user) || !(user.wear_suit == src))
 		return
 
 	// Do nothing if thermal regulators are off
@@ -120,7 +194,7 @@
 
 	// If we got here, it means thermals are on, the cell is in and the cell has
 	// just had enough charge subtracted from it to power the thermal regulator
-	user.adjust_bodytemperature(get_temp_change_amount((temperature_setting - user.bodytemperature), 0.16))
+	user.adjust_bodytemperature(get_temp_change_amount((temperature_setting - user.bodytemperature), 0.08 * delta_time))
 	update_hud_icon(user)
 
 // Clean up the cell on destroy
@@ -188,13 +262,13 @@
 
 /// Open the cell cover when ALT+Click on the suit
 /obj/item/clothing/suit/space/AltClick(mob/living/user)
-	if(!user || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return ..()
 	toggle_spacesuit_cell(user)
 
 /// Remove the cell whent he cover is open on CTRL+Click
 /obj/item/clothing/suit/space/CtrlClick(mob/living/user)
-	if(user && user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		if(cell_cover_open && cell)
 			remove_cell(user)
 			return

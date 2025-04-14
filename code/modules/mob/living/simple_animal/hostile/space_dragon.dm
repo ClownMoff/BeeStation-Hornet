@@ -26,7 +26,7 @@
 	maxHealth = 350
 	health = 350
 	spacewalk = TRUE
-	a_intent = INTENT_HARM
+	combat_mode = TRUE
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
 	speed = 0
 	attack_verb_continuous = "chomps"
@@ -111,9 +111,9 @@
 		//dragon_name()
 		color_selection()
 
-/mob/living/simple_animal/hostile/space_dragon/Life(seconds, times_fired)
+/mob/living/simple_animal/hostile/space_dragon/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
-	tiredness = max(tiredness - 1, 0)
+	tiredness = max(tiredness - (0.5 * delta_time), 0)
 
 /mob/living/simple_animal/hostile/space_dragon/AttackingTarget()
 	if(using_special)
