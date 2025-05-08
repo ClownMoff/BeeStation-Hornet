@@ -297,8 +297,15 @@
 	glass_desc = "Warm white and nutritious goodness!"
 	overdose_threshold = 500
 
-/datum/reagent/consumable/warm_milk/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	to_chat(owner, span_userdanger("You could use some well deserved rest, in some good sheets, a bed, and some PJs."))
+/datum/reagent/consumable/warm_milk/on_mob_metabolize(mob/living/sleepy)
+	. = ..()
+	to_chat(F, "<span class=You could use some well deserved rest, in some warm sheets, a bed, and some PJs.</span>")
+	ADD_TRAIT(sleepy, TRAIT_EEPY)
+
+/datum/reagent/consumable/warm_milk/on_mob_metabolize(mob/living/awaken)
+	to_chat(awaken, "<span class='You no longer feel sleepy.</span>")
+	REMOVE_TRAIT(awaken, TRAIT_EEPY)
+	return ..()
 
 /datum/reagent/consumable/cream
 	name = "Cream"
