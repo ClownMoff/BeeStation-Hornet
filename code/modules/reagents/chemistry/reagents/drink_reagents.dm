@@ -286,6 +286,20 @@
 		. = TRUE
 	..()
 
+/datum/reagent/consumable/warm_milk
+	name = "Warm milk"
+	description = "A warm glass of fresh milk, ready to consume before going to sleep."
+	color = "#DFDFDF"
+	chem_flags = CHEMICAL_BASIC_DRINK
+	taste_description = "warm milk"
+	glass_icon_state = "glass_white"
+	glass_name = "glass of milk"
+	glass_desc = "Warm white and nutritious goodness!"
+	overdose_threshold = 500
+
+/datum/reagent/consumable/warm_milk/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	to_chat(owner, span_userdanger("You could use some well deserved rest, in some good sheets, a bed, and some PJs."))
+
 /datum/reagent/consumable/cream
 	name = "Cream"
 	description = "The fatty, still liquid part of milk. Why don't you mix this with sum scotch, eh?"

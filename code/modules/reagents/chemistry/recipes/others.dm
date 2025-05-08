@@ -947,3 +947,9 @@
 	for(var/i in rand(1, created_volume) to created_volume)
 		new /mob/living/simple_animal/hostile/ant(location)
 	..()
+
+/datum/chemical_reaction/warm_milk
+	name = /datum/reagent/consumable/warm_milk
+	results = list(/datum/reagent/consumable/milk = 1)
+	required_reagents = list(/datum/reagent/consumable/milk = 1)
+	required_temp = 200
