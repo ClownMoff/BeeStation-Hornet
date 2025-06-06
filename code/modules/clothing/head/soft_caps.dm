@@ -126,6 +126,13 @@
 	soft_color = "paramedic"
 	dog_fashion = null
 
+/obj/item/clothing/head/soft/paramedic_alt
+	name = "White paramedic cap"
+	desc = "A white baseball hat with a turquoise cross on the top."
+	icon_state = "paramedic_alt"
+	soft_color = "paramedic"
+	dog_fashion = null
+
 /obj/item/clothing/head/soft/cargo
 	name = "cargo cap"
 	desc = "It's a baseball hat in a tasteless yellow colour."

@@ -75,6 +75,12 @@
 	supports_variations = DIGITIGRADE_VARIATION_NO_NEW_ICON
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 
+/obj/item/clothing/under/rank/medical/paramedic_alt
+	name = "paramedic's white jumpsuit"
+	desc = "A standard white jumpsuit used by paramedics onboard space stations. It's made of a special fiber that gives special protection against biohazards."
+	icon_state = "paramedic_alt"
+	can_adjust = FALSE
+
 /obj/item/clothing/under/rank/medical/doctor/nurse
 	desc = "It's a jumpsuit commonly worn by nursing staff in the medical department."
 	name = "nurse's suit"

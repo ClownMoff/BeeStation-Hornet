@@ -50,6 +50,12 @@
 	icon_state = "labcoat_emt"
 	item_state = "labcoat_cmo"
 
+/obj/item/clothing/suit/toggle/labcoat/paramedic_alt
+	name = "EMT's white jacket"
+	desc = "A white jacket with turquoise strips for emergency medical technicians."
+	icon_state = "paramedic_alt"
+	item_state = "labcoat_cmo"
+
 /obj/item/clothing/suit/toggle/labcoat/brig_physician
 	name = "security medic's labcoat"
 	icon_state = "labcoat_sec"
