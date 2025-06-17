@@ -1785,37 +1785,6 @@
 			H.facial_hair_style = picked_beard
 			H.update_hair()
 
-/datum/reagent/concentrated_barbers_aid
-	name = "Concentrated Barber's Aid"
-	description = "A concentrated solution to hair loss across the world."
-	reagent_state = LIQUID
-	color = "#C8A5DC"
-	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_FUN | CHEMICAL_RNG_BOTANY | CHEMICAL_GOAL_BOTANIST_HARVEST
-	taste_description = "sourness"
-
-/datum/reagent/concentrated_barbers_aid/expose_mob(mob/living/M, method=TOUCH, reac_volume)
-	if(method == TOUCH || method == VAPOR)
-		if(M && ishuman(M))
-			var/mob/living/carbon/human/H = M
-			H.hair_style = "Very Long Hair"
-			H.facial_hair_style = "Beard (Very Long)"
-			H.update_hair()
-
-/datum/reagent/barbers_afro_mania
-	name = "Barber's Afro Mania"
-	description = "Unleash the funk within you."
-	reagent_state = LIQUID
-	color = "#FF8800"
-	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_FUN | CHEMICAL_RNG_BOTANY
-	taste_description = "funky sugar"
-
-/datum/reagent/barbers_afro_mania/expose_mob(mob/living/M, method=TOUCH, reac_volume)
-	if(method == TOUCH || method == VAPOR)
-		if(M && ishuman(M))
-			var/mob/living/carbon/human/H = M
-			H.hair_style = "Afro (Large)"
-			H.update_hair()
-
 /datum/reagent/barbers_shaving_aid
 	name = "Barber's Shaving Aid"
 	description = "It seems I messed up. Time to go bald."

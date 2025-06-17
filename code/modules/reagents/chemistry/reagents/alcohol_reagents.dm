@@ -3081,3 +3081,52 @@
 
 /datum/reagent/consumable/ethanol/ftliver/proc/Recover(mob/living/M)
 	M.cure_nearsighted("ftliver")
+
+//These used to be chemistry reagents
+
+/datum/reagent/consumable/ethanol/follicleshock
+	name = "Follicle Shock"
+	description = "A soft drink preferred by those who want a solution for a clean dome of a head."
+	reagent_state = LIQUID
+	color = "#C8A5DC"
+	taste_description = "the best hair growth solution in the galaxy"
+	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_BOTANY | CHEMICAL_GOAL_BARTENDER_SERVING
+	boozepwr = 10 //low boozepower so you can prank people with these and not destroy their liver in the process
+	quality = DRINK_VERYGOOD
+
+/datum/reagent/consumable/ethanol/follicleshock/expose_mob(mob/living/M, method=TOUCH, reac_volume)
+	if(method == INGEST || method == VAPOR || method == TOUCH) //I am incredibly biased leaving the 'touch' one but giving people hair with a sprayer is fun u//u
+		if(M && ishuman(M))
+			var/mob/living/carbon/human/H = M
+			H.hair_style = "Very Long Hair"
+			H.facial_hair_style = "Beard (Very Long)"
+			H.update_hair()
+
+/datum/glass_style/drinking_glass/follicleshock
+	required_drink_type = /datum/reagent/consumable/ethanol/follicleshock
+	name = "Follicle shock"
+	desc = "A soft drink preferred by those who want a solution for a clean dome of a head."
+	icon = 'icons/obj/drinks/mixed_drinks.dmi'
+	icon_state = "follicleshock"
+
+/datum/reagent/consumable/ethanol/afropunch
+	name = "Afro Punch"
+	description = "Unleash the funk within you."
+	color = "#FF8800"
+	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_BOTANY | CHEMICAL_GOAL_BARTENDER_SERVING
+	boozepwr = 10
+	quality = DRINK_VERYGOOD
+
+/datum/reagent/consumable/ethanol/afropunch/expose_mob(mob/living/M, method=TOUCH, reac_volume)
+	if(method == INGEST || method == VAPOR || method == TOUCH)
+		if(M && ishuman(M))
+			var/mob/living/carbon/human/H = M
+			H.hair_style = "Afro (Large)"
+			H.update_hair()
+
+/datum/glass_style/drinking_glass/afropunch
+	required_drink_type = /datum/reagent/consumable/ethanol/afropunch
+	name = "Afro punch"
+	desc = "Unleash the funk within you."
+	icon = 'icons/obj/drinks/mixed_drinks.dmi'
+	icon_state = "afropunch"

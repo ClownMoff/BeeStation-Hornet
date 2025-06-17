@@ -223,7 +223,8 @@
 	taste_description = "laughter"
 
 
-/datum/reagent/consumable/laughter/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+/datum/reagent/consumable/laughter/expose_mob(mob/living/M, method=TOUCH, reac_volume)
+	if(method == INGEST || method == VAPOR || method == TOUCH)
 	M.emote("laugh")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "chemical_laughter", /datum/mood_event/chemical_laughter)
 	..()
@@ -236,6 +237,12 @@
 			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "laughter", /datum/mood_event/funny_prank)
 			SEND_SIGNAL(M, COMSIG_CLEAR_MOOD_EVENT, "slipped")
 			reactor.AdjustKnockdown(-20)
+
+/datum/glass_style/drinking_glass/laughter
+	required_drink_type = /datum/reagent/consumable/laughter
+	name = "Laughter"
+	desc = "Some say that this is the best medicine, but recent studies have proven that to be untrue."
+	icon_state = "laughter"
 
 /datum/reagent/consumable/superlaughter
 	name = "Super Laughter"
@@ -1390,3 +1397,21 @@
 	name = "glass of coconut juice"
 	desc = "a glass of coconut juice"
 	icon_state = "glass_white"
+
+/datum/reagent/consumable/pain
+	name = "Pain"
+	description = "The beverage of suffering and anguish."
+	color = "#DFC7AB"
+	chem_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_BOTANY | CHEMICAL_GOAL_BARTENDER_SERVING
+	quality = DRINK_VERYGOOD
+	taste_description = "pain, anguish and suffering with a surprising sweet taste."
+
+/expose_mob(mob/living/M, method=TOUCH, reac_volume)
+	if(method == INGEST || method == VAPOR)
+	M.emote("scream")
+
+/datum/glass_style/drinking_glass/pain
+	required_drink_type = /datum/reagent/consumable/pain
+	name = "Pain"
+	desc = "The beverage of suffering and anguish."
+	icon_state = "pain"
