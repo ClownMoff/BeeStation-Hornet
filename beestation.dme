@@ -2827,6 +2827,7 @@
 #include "code\modules\events\anomaly_vortex.dm"
 #include "code\modules\events\asteroid_impact.dm"
 #include "code\modules\events\aurora_caelus.dm"
+#include "code\modules\events\beekart.dm"
 #include "code\modules\events\beer_clog.dm"
 #include "code\modules\events\brain_trauma.dm"
 #include "code\modules\events\brand_intelligence.dm"

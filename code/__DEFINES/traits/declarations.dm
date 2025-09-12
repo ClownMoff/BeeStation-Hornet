@@ -455,4 +455,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Prevents items from being speed potion-ed, but allows their speed to be altered in other ways
 #define TRAIT_NO_SPEED_POTION "no_speed_potion"
 
-// END TRAIT DEFINES
+/// For BeeStation Kart
+#define TRAIT_RACER "racer" //The temptation to call this 'RACIST' trait instead.
+
+// END TRAIT DEFINESw

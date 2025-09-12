@@ -223,3 +223,12 @@
 	icon_state = "purple"
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | HIDDEN_AREA
 	var/playing_ambience = FALSE
+
+//BEESTATION KART
+/area/beekart
+	name = "BeeKart"
+	icon_state = "BeeKart"
+	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	requires_power = FALSE
+	default_gravity = STANDARD_GRAVITY
+	flags_1 = NONE
