@@ -15331,9 +15331,14 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "cOn" = (
+/obj/item/radio/intercom/directional/north{
+	pixel_y = 20
+	},
+/obj/structure/sign/plaques/deempisi{
+	pixel_y = 35
+	},
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer,
-/obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron/cafeteria_red,
 /area/crew_quarters/bar)
 "cOp" = (
@@ -21752,10 +21757,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -5;
-	pixel_y = 30
-	},
 /turf/open/floor/iron/cafeteria_red,
 /area/crew_quarters/bar)
 "fhF" = (
@@ -26962,8 +26963,9 @@
 /obj/item/storage/box/beanbag{
 	pixel_y = 4
 	},
-/obj/machinery/airalarm/directional/north,
 /obj/effect/turf_decal/siding/wood/corner,
+/obj/machinery/airalarm/directional/west,
+/obj/structure/shotgun_mount/directional/north,
 /turf/open/floor/wood/big,
 /area/crew_quarters/bar)
 "hkJ" = (
@@ -27026,6 +27028,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
+/obj/structure/noticeboard/directional/south,
 /turf/open/floor/wood/big,
 /area/crew_quarters/bar/atrium)
 "hmR" = (
@@ -45686,8 +45689,8 @@
 /obj/item/reagent_containers/cup/glass/shaker,
 /obj/item/book/manual/wiki/barman_recipes,
 /obj/item/reagent_containers/cup/rag,
-/obj/structure/noticeboard{
-	pixel_y = 29
+/obj/structure/sign/barsign{
+	pixel_y = 32
 	},
 /turf/open/floor/iron/cafeteria_red,
 /area/crew_quarters/bar)
@@ -50613,9 +50616,7 @@
 /turf/open/floor/iron/white,
 /area/medical/apothecary)
 "qCR" = (
-/obj/structure/sign/plaques/deempisi{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/cafeteria_red,
 /area/crew_quarters/bar)
 "qDb" = (
@@ -53623,6 +53624,12 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/central)
+"rGX" = (
+/obj/structure/sign/barsign{
+	pixel_y = 32
+	},
+/turf/open/floor/iron,
+/area/hallway/primary/starboard)
 "rHj" = (
 /obj/structure/chair{
 	dir = 1
@@ -69105,6 +69112,10 @@
 	},
 /turf/open/floor/carpet,
 /area/vacant_room/office)
+"xBr" = (
+/obj/structure/fireaxecabinet,
+/turf/closed/wall/r_wall,
+/area/crew_quarters/heads/chief)
 "xBA" = (
 /obj/structure/table/glass,
 /obj/item/paper_bin{
@@ -99946,7 +99957,7 @@ cfb
 cfb
 cfb
 cfb
-cfb
+xBr
 ccw
 vmW
 cgR
@@ -105548,7 +105559,7 @@ fyT
 ioy
 tgq
 hUm
-aYV
+rGX
 nTk
 ber
 btZ
