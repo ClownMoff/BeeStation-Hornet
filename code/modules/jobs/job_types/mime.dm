@@ -10,7 +10,10 @@
 
 	outfit = /datum/outfit/job/mime
 
-	base_access = list(ACCESS_THEATRE)
+	base_access = list(
+		ACCESS_THEATRE,
+		ACCESS_SERVICE,
+	)
 	extra_access = list()
 
 	departments = DEPT_BITFLAG_SRV
@@ -40,7 +43,7 @@
 	jobtype = /datum/job/mime
 
 	id = /obj/item/card/id/job/mime
-	belt = /obj/item/modular_computer/tablet/pda/mime
+	belt = /obj/item/modular_computer/tablet/pda/preset/mime
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/civilian/mime
 	mask = /obj/item/clothing/mask/gas/mime

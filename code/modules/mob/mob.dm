@@ -82,6 +82,7 @@
 			continue
 		var/datum/atom_hud/alternate_appearance/AA = v
 		AA.onNewMob(src)
+
 	set_nutrition(rand(NUTRITION_LEVEL_START_MIN, NUTRITION_LEVEL_START_MAX))
 	. = ..()
 	update_config_movespeed()
@@ -790,43 +791,6 @@
 	set hidden = TRUE
 	set category = null
 	return
-/**
-  * Topic call back for any mob
-  *
-  * * Unset machines if "mach_close" sent
-  * * refresh the inventory of machines in range if "refresh" sent
-  * * handles the strip panel equip and unequip as well if "item" sent
-  */
-/mob/Topic(href, href_list)
-	if(href_list["mach_close"])
-		var/t1 = "window=[href_list["mach_close"]]"
-		unset_machine()
-		src << browse(null, t1)
-
-	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
-		var/slot = text2num(href_list["item"])
-		var/hand_index = text2num(href_list["hand_index"])
-		var/obj/item/what
-		if(hand_index)
-			what = get_item_for_held_index(hand_index)
-			slot = list(slot,hand_index)
-		else
-			what = get_item_by_slot(slot)
-		if(what)
-			if(!(what.item_flags & ABSTRACT))
-				usr.stripPanelUnequip(what,src,slot)
-		else
-			usr.stripPanelEquip(what,src,slot)
-
-// The src mob is trying to strip an item from someone
-// Defined in living.dm
-/mob/proc/stripPanelUnequip(obj/item/what, mob/who)
-	return
-
-// The src mob is trying to place an item on someone
-// Defined in living.dm
-/mob/proc/stripPanelEquip(obj/item/what, mob/who)
-	return
 
 /**
   * Controls if a mouse drop succeeds (return null if it doesnt)
@@ -1216,6 +1180,8 @@
 /mob/proc/update_mouse_pointer()
 	if(!client)
 		return
+	if (client.cooldown_cursor_time > world.time)
+		return
 	if(client.mouse_pointer_icon != initial(client.mouse_pointer_icon))//only send changes to the client if theyre needed
 		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 	if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
@@ -1226,6 +1192,55 @@
 			client.mouse_pointer_icon = E.mouse_pointer
 	if(client.mouse_override_icon)
 		client.mouse_pointer_icon = client.mouse_override_icon
+
+GLOBAL_LIST_INIT(mouse_cooldowns, list(
+	'icons/effects/cooldown_cursors/cooldown_1.dmi',
+	'icons/effects/cooldown_cursors/cooldown_2.dmi',
+	'icons/effects/cooldown_cursors/cooldown_3.dmi',
+	'icons/effects/cooldown_cursors/cooldown_4.dmi',
+	'icons/effects/cooldown_cursors/cooldown_5.dmi',
+	'icons/effects/cooldown_cursors/cooldown_6.dmi',
+	'icons/effects/cooldown_cursors/cooldown_7.dmi',
+	'icons/effects/cooldown_cursors/cooldown_8.dmi',
+	'icons/effects/cooldown_cursors/cooldown_9.dmi',
+))
+
+/client/var/cooldown_cursor_time
+
+/client/proc/give_cooldown_cursor(time, override = FALSE)
+	set waitfor = FALSE
+	// Ignore the cooldown cursor if we have a longer one already applied
+	if (world.time + time < cooldown_cursor_time && !override)
+		return
+	cooldown_cursor_time = world.time + time
+	var/end_time = cooldown_cursor_time
+	var/start_time = world.time
+	var/current_cursor = 1
+	for (var/cursor_icon in GLOB.mouse_cooldowns)
+		// Set the cursor and wait
+		mouse_pointer_icon = cursor_icon
+		// Sleep until we are where we should be
+		var/next_cursor_time = start_time + current_cursor * time / length(GLOB.mouse_cooldowns)
+		sleep(next_cursor_time - world.time)
+		// Someone else is managing the cursor
+		// Someone else is managing a cooldown timer, allow them since they overrode us
+		if (mouse_pointer_icon != cursor_icon || cooldown_cursor_time != end_time)
+			return
+		current_cursor ++
+	// Somehow we finished a bit early
+	if (world.time < end_time)
+		sleep(end_time - world.time)
+		if (mouse_pointer_icon != GLOB.mouse_cooldowns[length(GLOB.mouse_cooldowns)] || cooldown_cursor_time != end_time)
+			return
+	cooldown_cursor_time = null
+	mob.update_mouse_pointer()
+
+/client/proc/clear_cooldown_cursor(time)
+	if (!(mouse_pointer_icon in GLOB.mouse_cooldowns))
+		return
+	mouse_pointer_icon = initial(mouse_pointer_icon)
+	cooldown_cursor_time = 0
+
 
 /// This mob can read
 /mob/proc/is_literate()
@@ -1300,11 +1315,11 @@
 	if(href_list[VV_HK_PLAYER_PANEL] && check_rights(R_ADMIN))
 		usr.client.holder.show_player_panel(src)
 
-	if(href_list[VV_HK_GODMODE] && check_rights(R_FUN))
-		usr.client.cmd_admin_godmode(src)
-
 	if(href_list[VV_HK_GIVE_SPELL] && check_rights(R_FUN))
 		usr.client.give_spell(src)
+
+	if(href_list[VV_HK_GODMODE] && check_rights(R_FUN))
+		usr.client.cmd_admin_godmode(src)
 
 	if(href_list[VV_HK_REMOVE_SPELL] && check_rights(R_FUN))
 		usr.client.remove_spell(src)
@@ -1384,5 +1399,9 @@
 	. = stat
 	stat = new_stat
 	update_action_buttons_icon(TRUE)
+
+/mob/key_down(key, client/client, full_key)
+	..()
+	SEND_SIGNAL(src, COMSIG_MOB_KEYDOWN, key, client, full_key)
 
 #undef MOB_FACE_DIRECTION_DELAY

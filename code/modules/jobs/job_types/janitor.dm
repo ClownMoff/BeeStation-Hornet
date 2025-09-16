@@ -10,7 +10,12 @@
 
 	outfit = /datum/outfit/job/janitor
 
-	base_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_MINERAL_STOREROOM)
+	base_access = list(
+		ACCESS_JANITOR,
+		ACCESS_MAINT_TUNNELS,
+		ACCESS_MINERAL_STOREROOM,
+		ACCESS_SERVICE,
+	)
 	extra_access = list()
 
 	departments = DEPT_BITFLAG_SRV
@@ -32,7 +37,7 @@
 	jobtype = /datum/job/janitor
 
 	id = /obj/item/card/id/job/janitor
-	belt = /obj/item/modular_computer/tablet/pda/janitor
+	belt = /obj/item/modular_computer/tablet/pda/preset/janitor
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/civilian/janitor
 

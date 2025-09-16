@@ -2,6 +2,35 @@
 ///////////Computer Parts///////////////
 ////////////////////////////////////////
 
+/// Shells
+/datum/design/computer_shell/pda
+	name = "PDA shell"
+	id = "shell_pda"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/copper = 150)
+	build_path = /obj/item/modular_computer/tablet/pda
+	category = list("Equipment")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/computer_shell/tablet
+	name = "Tablet Shell"
+	id = "shell_tablet"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 1500, /datum/material/glass = 1000, /datum/material/copper = 150)
+	build_path = /obj/item/modular_computer/tablet
+	category = list("Equipment")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/computer_shell/laptop
+	name = "Laptop Shell"
+	id = "shell_laptop"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000, /datum/material/copper = 150)
+	build_path = /obj/item/modular_computer/laptop
+	category = list("Equipment")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/// HDDs
 /datum/design/disk/normal
 	name = "Hard Disk Drive"
 	id = "hdd_basic"
@@ -192,57 +221,48 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 // Batteries
-/datum/design/battery/controller
-	name = "Power Cell Controller"
-	id = "bat_control"
-	build_type = IMPRINTER
-	materials = list(/datum/material/iron = 400)
-	build_path = /obj/item/computer_hardware/battery
-	category = list("Computer Parts")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-
-/datum/design/battery/normal
-	name = "Battery Module"
-	id = "bat_normal"
-	build_type = IMPRINTER
-	materials = list(/datum/material/iron = 400)
-	build_path = /obj/item/stock_parts/cell/computer
-	category = list("Computer Parts")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-
-/datum/design/battery/advanced
-	name = "Advanced Battery Module"
-	id = "bat_advanced"
-	build_type = IMPRINTER
-	materials = list(/datum/material/iron = 800)
-	build_path = /obj/item/stock_parts/cell/computer/advanced
-	category = list("Computer Parts")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-
-/datum/design/battery/super
-	name = "Super Battery Module"
-	id = "bat_super"
-	build_type = IMPRINTER
-	materials = list(/datum/material/iron = 1600)
-	build_path = /obj/item/stock_parts/cell/computer/super
-	category = list("Computer Parts")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
-
 /datum/design/battery/nano
-	name = "Nano Battery Module"
+	name = "Tiny Battery"
 	id = "bat_nano"
 	build_type = IMPRINTER
 	materials = list(/datum/material/iron = 200)
-	build_path = /obj/item/stock_parts/cell/computer/nano
+	build_path = /obj/item/computer_hardware/battery/tiny
 	category = list("Computer Parts")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/battery/micro
-	name = "Micro Battery Module"
+	name = "Small Battery"
 	id = "bat_micro"
 	build_type = IMPRINTER
 	materials = list(/datum/material/iron = 400)
-	build_path = /obj/item/stock_parts/cell/computer/micro
+	build_path = /obj/item/computer_hardware/battery/small
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/battery/standard
+	name = "Standard Battery"
+	id = "bat_normal"
+	build_type = IMPRINTER
+	materials = list(/datum/material/iron = 400)
+	build_path = /obj/item/computer_hardware/battery/standard
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/battery/large
+	name = "Large Battery"
+	id = "bat_advanced"
+	build_type = IMPRINTER
+	materials = list(/datum/material/iron = 800)
+	build_path = /obj/item/computer_hardware/battery/large
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/battery/huge
+	name = "Extra Large Battery"
+	id = "bat_super"
+	build_type = IMPRINTER
+	materials = list(/datum/material/iron = 1600)
+	build_path = /obj/item/computer_hardware/battery/huge
 	category = list("Computer Parts")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
