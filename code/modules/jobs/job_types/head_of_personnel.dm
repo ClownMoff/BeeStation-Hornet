@@ -100,3 +100,60 @@
 	)
 
 	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/head_of_personnel)
+
+/obj/item/gun/magic/idgrabber
+	name = "Head Of Personnel ID Grabber"
+	desc = "For those demotions that require an extra hand."
+	ammo_type = /obj/item/ammo_casing/magic/idgrabber
+	icon = 'icons/obj/guns/magic.dmi'
+	icon_state = "hook"
+	item_state = "chain"
+	fire_sound = 'sound/weapons/batonextend.ogg'
+	max_charges = 1
+	item_flags =  ISWEAPON
+	sharpness = BLUNT
+	force = 15
+	attack_weight = 2
+
+/obj/item/gun/magic/hook/shoot_with_empty_chamber(mob/living/user)
+	to_chat(user, "<span class='warning'>[src] isn't ready to fire yet!</span>")
+
+/obj/item/ammo_casing/magic/idgrabber
+	name = "Id Grabber"
+	desc = "An Id Grabber."
+	projectile_type = /obj/projectile/idgrabber
+	caliber = "idgrabber"
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
+
+/obj/projectile/idgrabber
+	name = "ID Grabber"
+	icon_state = "ID Grabber"
+	icon = 'icons/obj/lavaland/artefacts.dmi'
+	pass_flags = PASSTABLE
+	damage = 10
+	armour_penetration = 100
+	damage_type = BRUTE
+	hitsound = 'sound/effects/splat.ogg'
+	knockdown = 30
+	var/idgrabber
+
+/obj/projectile/idgrabber/fire(setAngle)
+	if(firer)
+		idgrabber = firer.Beam(src, icon_state = "idgrabber")
+	..()
+
+/obj/projectile/idgrabber/on_hit(mob/living/target)
+	. = ..()
+	if(ishuman(target))
+		var/obj/item/pda_or_id = target.get_item_by_slot(ITEM_SLOT_ID)
+		if(istype(pda_or_id, /obj/item/modular_computer/tablet/pda/preset) || istype(pda_or_id, /obj/item/card/id))
+			pda_or_id.forceMove(get_turf(firer))
+			to_chat(target, "<span class='danger'>Your PDA has been snatched!</span>")
+			if(firer)
+				to_chat(firer, "<span class='notice'>You snatched [target]'s PDA!</span>")
+	else
+		return
+
+//obj/projectile/idgrabber/Destroy()
+	//qdel(chain)
+	//return ..()
