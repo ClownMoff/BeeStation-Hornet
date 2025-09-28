@@ -310,6 +310,16 @@
 		update_matching_security_huds(name)
 		return TRUE
 
+	if(fine_amount == 0)
+		var/datum/crime_record/new_crime = new(name = input_name, details = input_details, author = user)
+		crimes += new_crime
+		wanted_status = WANTED_DEMOTION
+		user.investigate_log("New Crime: <strong>[input_name]</strong> | Added to [name] by [key_name(user)]", INVESTIGATE_RECORDS)
+		new_crime.alert_owner(user, crime_console, name, "A warrant for your arrest has been filed. Please appear before security immediately to discuss this matter. Failure to comply may result in increased punitive action.")
+
+		update_matching_security_huds(name)
+		return TRUE
+
 	var/datum/crime_record/citation/new_citation = new(name = input_name, details = input_details, author = user, fine = fine_amount)
 
 	citations += new_citation

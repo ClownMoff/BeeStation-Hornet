@@ -105,9 +105,8 @@
 	name = "Head Of Personnel ID Grabber"
 	desc = "For those demotions that require an extra hand."
 	ammo_type = /obj/item/ammo_casing/magic/idgrabber
-	icon = 'icons/obj/guns/magic.dmi'
-	icon_state = "hook"
-	item_state = "chain"
+	icon = 'icons/obj/guns/projectile.dmi'
+	icon_state = "idgrabber"
 	fire_sound = 'sound/weapons/batonextend.ogg'
 	max_charges = 1
 	item_flags =  ISWEAPON
@@ -130,11 +129,8 @@
 	icon_state = "ID Grabber"
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	pass_flags = PASSTABLE
-	damage = 10
-	armour_penetration = 100
-	damage_type = BRUTE
+	damage = 00
 	hitsound = 'sound/effects/splat.ogg'
-	knockdown = 30
 	var/idgrabber
 
 /obj/projectile/idgrabber/fire(setAngle)
