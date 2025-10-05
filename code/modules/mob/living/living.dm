@@ -67,9 +67,9 @@
 			visible_message(span_warning("[src] [pick("ran", "slammed")] into \the [A]!"))
 			apply_damage(5, BRUTE)
 			Paralyze(40)
-			addtimer(CALLBACK(src, PROC_REF(can_bumpslam)), 200)
+			addtimer(CALLBACK(src, PROC_REF(can_bumpslam)), 20 SECONDS)
 		else
-			addtimer(CALLBACK(src, PROC_REF(can_bumpslam)), 50)
+			addtimer(CALLBACK(src, PROC_REF(can_bumpslam)), 5 SECONDS)
 
 
 	if(ismob(A))
@@ -1232,11 +1232,6 @@
 /mob/living/carbon/alien/update_stamina()
 	return
 
-/mob/living/proc/owns_soul()
-	if(mind)
-		return mind.soulOwner == mind
-	return TRUE
-
 /mob/living/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
 	stop_pulling()
 	. = ..()
@@ -1527,7 +1522,7 @@
 //Mobs on Fire end
 
 // used by secbot and monkeys Crossed
-/mob/living/proc/knockOver(var/mob/living/carbon/C)
+/mob/living/proc/knockOver(mob/living/carbon/C)
 	if(C.key) //save us from monkey hordes
 		C.visible_message(span_warning(pick("[C] dives out of [src]'s way!", "[C] stumbles over [src]!", "[C] jumps out of [src]'s path!", "[C] trips over [src] and falls!", "[C] topples over [src]!", "[C] leaps out of [src]'s way!")))
 	C.Paralyze(40)
@@ -1985,8 +1980,8 @@
 
 		REMOVE_TRAIT(src, TRAIT_FAT, OBESITY)
 		remove_movespeed_modifier(/datum/movespeed_modifier/obesity)
-		update_inv_w_uniform()
-		update_inv_wear_suit()
+		update_worn_undersuit()
+		update_worn_oversuit()
 
 	// Reset overeat duration.
 	overeatduration = 0
@@ -2122,7 +2117,7 @@
 /// Proc called when targetted by a lazarus injector
 /mob/living/proc/lazarus_revive(mob/living/reviver, malfunctioning)
 	if(mind)
-		if(suiciding || ishellbound())
+		if(suiciding)
 			reviver.visible_message(span_notice("[reviver] injects [src], but nothing happened."))
 			return
 		process_revival(src)
