@@ -55,8 +55,14 @@ map echostation
 	votable
 endmap
 
+
 map novemberstation
 default
+	maxplayers 28
+	votable
+endmap
+
+map cardinalstation
 	minplayers 25
 	votable
 endmap
