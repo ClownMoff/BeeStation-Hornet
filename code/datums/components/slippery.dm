@@ -40,6 +40,7 @@
 	add_connect_loc_behalf_to_parent()
 	if(ismovable(parent))
 		if(isitem(parent))
+			src.lube_flags |= SLIPPERY_WHEN_LYING_DOWN
 			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
 			RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
 	else
@@ -132,6 +133,18 @@
 	SIGNAL_HANDLER
 
 	if(holder.body_position == LYING_DOWN && !holder.buckled)
+		Slip(source, arrived)
+
+/datum/component/slippery/UnregisterFromParent()
+	. = ..()
+	qdel(GetComponent(/datum/component/connect_loc_behalf))
+
+// The slip proc, but for equipped items, slips the person who crossed us if we're lying down and unbuckled.
+/datum/component/slippery/proc/slip_on_mob(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	var/mob/living/living = holder || parent
+	if(!(lube_flags & SLIPPERY_WHEN_LYING_DOWN) || (living.body_position == LYING_DOWN && !living.buckled))
 		Slip(source, arrived)
 
 /datum/component/slippery/UnregisterFromParent()

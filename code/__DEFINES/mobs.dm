@@ -350,6 +350,7 @@ GLOBAL_LIST_INIT(available_random_trauma_list, list(
 #define SLIDE_ICE				(1<<3)
 #define SLIP_WHEN_CRAWLING		(1<<4) //clown planet ruin
 #define NO_SLIP_ON_CATWALK      (1<<5)
+#define SLIPPERY_WHEN_LYING_DOWN (1<<6) /// for mobs who are slippery, this requires the mob holding it to be lying down.
 
 ///Flags used by the flags parameter of electrocute act.
 ///Makes it so that the shock doesn't take gloves into account.
