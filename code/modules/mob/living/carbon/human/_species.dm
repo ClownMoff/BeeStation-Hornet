@@ -2,6 +2,8 @@
 
 GLOBAL_LIST_EMPTY(roundstart_races)
 GLOBAL_LIST_EMPTY(accepatable_no_hard_check_races)
+///List of all roundstart languages by path except common
+GLOBAL_LIST_EMPTY(uncommon_roundstart_languages)
 
 /// An assoc list of species types to their features (from get_features())
 GLOBAL_LIST_EMPTY(features_by_species)
@@ -110,13 +112,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// The body temperature limit the body can take before it starts taking damage from cold.
 	var/bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT
 
-	///Does our species have colors for its' damage overlays?
+	///Does our species have colors for its damage overlays?
 	var/use_damage_color = TRUE
 
 	// species-only traits. Can be found in DNA.dm
 	var/list/species_traits = list()
-	// generic traits tied to having the species
+	/// Generic traits tied to having the species.
 	var/list/inherent_traits = list()
+	/// List of biotypes the mob belongs to. Used by diseases.
 	var/inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	///List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
@@ -171,9 +174,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// What bleed status effect should we apply?
 	var/bleed_effect = /datum/status_effect/bleeding
 
-	// Species specific bitflags. Used for things like if the race is unable to become a changeling.
-	var/species_bitflags = NONE
-
 	/// Do we try to prevent reset_perspective() from working?
 	var/prevent_perspective_change = FALSE
 
@@ -200,19 +200,28 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	RETURN_TYPE(/list)
 
 	if (!GLOB.roundstart_races.len)
-		GLOB.roundstart_races = generate_selectable_species()
+		GLOB.roundstart_races = generate_selectable_species_and_languages()
 
 	return GLOB.roundstart_races
 
-/proc/generate_selectable_species()
+/**
+ * Generates species available to choose in character setup at roundstart
+ *
+ * This proc generates which species are available to pick from in character setup.
+ * If there are no available roundstart species, defaults to human.
+ */
+/proc/generate_selectable_species_and_languages()
 	var/list/selectable_species = list()
 
 	for(var/species_type in subtypesof(/datum/species))
-		var/datum/species/species = new species_type
+		var/datum/species/species = GLOB.species_prototypes[species_type]
 		if(species.check_roundstart_eligible())
 			selectable_species += species.id
-			qdel(species)
+			var/datum/language_holder/temp_holder = GLOB.prototype_language_holders[species.species_language_holder]
+			for(var/datum/language/spoken_language as anything in temp_holder.understood_languages)
+				GLOB.uncommon_roundstart_languages |= spoken_language
 
+	GLOB.uncommon_roundstart_languages -= /datum/language/common
 	if(!selectable_species.len)
 		selectable_species += get_fallback_species_id()
 
@@ -261,23 +270,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(id in (CONFIG_GET(keyed_list/roundstart_no_hard_check)))
 		return TRUE
 	return FALSE
-
-/datum/species/proc/random_name(gender, unique, lastname, attempts)
-
-	if(gender == MALE)
-		. = pick(GLOB.first_names_male)
-	else
-		. = pick(GLOB.first_names_female)
-
-	if(lastname)
-		. += " [lastname]"
-	else
-		. += " [pick(GLOB.last_names)]"
-
-	if(unique && attempts < 10)
-		. = .(gender, TRUE, lastname, ++attempts)
-
-
 
 //Called when cloning, copies some vars that should be kept
 /datum/species/proc/copy_properties_from(datum/species/old_species)
@@ -447,9 +439,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			replacement.Insert(organ_holder, special=TRUE, drop_if_replaced=FALSE)
 
 /datum/species/proc/worn_items_fit_body_check(mob/living/carbon/wearer)
-	for(var/obj/item/equipped_item in wearer.get_equipped_items(include_pockets = TRUE))
+	for(var/obj/item/equipped_item in wearer.get_equipped_items(INCLUDE_POCKETS))
 		var/equipped_item_slot = wearer.get_slot_by_item(equipped_item)
-		if(!equipped_item.mob_can_equip(wearer, equipped_item_slot, bypass_equip_delay_self = TRUE))
+		if(!equipped_item.mob_can_equip(wearer, slot = equipped_item_slot, bypass_equip_delay_self = TRUE, ignore_occupancy = TRUE))
 			wearer.dropItemToGround(equipped_item, force = TRUE)
 
 ///Handles replacing all of the bodyparts with their species version during set_species()
@@ -1259,7 +1251,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// handles the equipping of species-specific gear
 	return
 
-/datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE)
+/datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_occupancy = FALSE)
 	if(no_equip_flags & slot)
 		if(!I.species_exception || !is_type_in_list(src, I.species_exception))
 			return FALSE
@@ -1273,7 +1265,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_MASK)
-			if(H.wear_mask)
+			if(H.wear_mask && !ignore_occupancy)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_MASK))
 				return FALSE
@@ -1281,25 +1273,25 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_NECK)
-			if(H.wear_neck)
+			if(H.wear_neck && !ignore_occupancy)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_NECK) )
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_BACK)
-			if(H.back)
+			if(H.back && !ignore_occupancy)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_BACK) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_OCLOTHING)
-			if(H.wear_suit)
+			if(H.wear_suit && !ignore_occupancy)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_OCLOTHING) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_GLOVES)
-			if(H.gloves)
+			if(H.gloves && !ignore_occupancy)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_GLOVES) )
 				return FALSE
@@ -1307,7 +1299,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_FEET)
-			if(H.shoes)
+			if(H.shoes && !ignore_occupancy)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_FEET) )
 				return FALSE
@@ -1319,7 +1311,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
-			if(H.belt)
+			if(H.belt && !ignore_occupancy)
 				return FALSE
 
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
@@ -1332,7 +1324,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_EYES)
-			if(H.glasses)
+			if(H.glasses && !ignore_occupancy)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_EYES))
 				return FALSE
@@ -1343,7 +1335,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_HEAD)
-			if(H.head)
+			if(H.head && !ignore_occupancy)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_HEAD))
 				return FALSE
@@ -1351,7 +1343,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_EARS)
-			if(H.ears)
+			if(H.ears && !ignore_occupancy)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_EARS))
 				return FALSE
@@ -1359,13 +1351,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_ICLOTHING)
-			if(H.w_uniform)
+			if(H.w_uniform && !ignore_occupancy)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_ICLOTHING) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_ID)
-			if(H.wear_id)
+			if(H.wear_id && !ignore_occupancy)
 				return FALSE
 
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
@@ -1379,7 +1371,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_LPOCKET)
 			if(HAS_TRAIT(I, TRAIT_NODROP)) //Pockets aren't visible, so you can't move TRAIT_NODROP items into them.
 				return FALSE
-			if(H.l_store)
+			if(H.l_store && !ignore_occupancy)
 				return FALSE
 
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_L_LEG)
@@ -1390,10 +1382,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			if( I.w_class <= WEIGHT_CLASS_SMALL || (I.slot_flags & ITEM_SLOT_LPOCKET) )
 				return TRUE
+			return FALSE
 		if(ITEM_SLOT_RPOCKET)
 			if(HAS_TRAIT(I, TRAIT_NODROP))
 				return FALSE
-			if(H.r_store)
+			if(H.r_store && !ignore_occupancy)
 				return FALSE
 
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_LEG)
@@ -1408,7 +1401,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_SUITSTORE)
 			if(HAS_TRAIT(I, TRAIT_NODROP))
 				return FALSE
-			if(H.s_store)
+			if(H.s_store && !ignore_occupancy)
 				return FALSE
 			if(!H.wear_suit)
 				if(!disable_warning)
@@ -1426,7 +1419,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_HANDCUFFED)
-			if(H.handcuffed)
+			if(H.handcuffed && !ignore_occupancy)
 				return FALSE
 			if(!istype(I, /obj/item/restraints/handcuffs))
 				return FALSE
@@ -1434,7 +1427,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_LEGCUFFED)
-			if(H.legcuffed)
+			if(H.legcuffed && !ignore_occupancy)
 				return FALSE
 			if(!istype(I, /obj/item/restraints/legcuffs))
 				return FALSE
@@ -2132,11 +2125,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// display alerts based on how hot it is
 		// Can't be a switch due to http://www.byond.com/forum/post/2750423
 		if(bodytemp in bodytemp_heat_damage_limit to BODYTEMP_HEAT_WARNING_2)
-			humi.throw_alert("temp", /atom/movable/screen/alert/hot, 1)
+			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 1)
 		else if(bodytemp in BODYTEMP_HEAT_WARNING_2 to BODYTEMP_HEAT_WARNING_3)
-			humi.throw_alert("temp", /atom/movable/screen/alert/hot, 2)
+			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 2)
 		else
-			humi.throw_alert("temp", /atom/movable/screen/alert/hot, 3)
+			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 3)
 
 	// Body temperature is too cold, and we do not have resist traits
 	else if(humi.bodytemperature < bodytemp_cold_damage_limit && !HAS_TRAIT(humi, TRAIT_RESISTCOLD))
@@ -2148,17 +2141,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// Display alerts based how cold it is
 		// Can't be a switch due to http://www.byond.com/forum/post/2750423
 		if(bodytemp in BODYTEMP_COLD_WARNING_2 to bodytemp_cold_damage_limit)
-			humi.throw_alert("temp", /atom/movable/screen/alert/cold, 1)
+			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 1)
 		else if(bodytemp in BODYTEMP_COLD_WARNING_3 to BODYTEMP_COLD_WARNING_2)
-			humi.throw_alert("temp", /atom/movable/screen/alert/cold, 2)
+			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 2)
 		else
-			humi.throw_alert("temp", /atom/movable/screen/alert/cold, 3)
+			humi.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 3)
 
 	// We are not to hot or cold, remove status and moods
 	// Optimization here, we check these things based off the old temperature to avoid unneeded work
 	// We're not perfect about this, because it'd just add more work to the base case, and resistances are rare
 	else if (old_bodytemp > bodytemp_heat_damage_limit || old_bodytemp < bodytemp_cold_damage_limit)
-		humi.clear_alert("temp")
+		humi.clear_alert(ALERT_TEMPERATURE)
 		humi.remove_movespeed_modifier(/datum/movespeed_modifier/cold)
 		SEND_SIGNAL(humi, COMSIG_CLEAR_MOOD_EVENT, "cold")
 		SEND_SIGNAL(humi, COMSIG_CLEAR_MOOD_EVENT, "hot")
@@ -2306,73 +2299,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 //////////
 
 /datum/species/proc/handle_fire(mob/living/carbon/human/H, delta_time, times_fired, no_protection = FALSE)
-	if(!CanIgniteMob(H))
-		return TRUE
-	if(H.on_fire)
-		//the fire tries to damage the exposed clothes and items
-		var/list/burning_items = list()
-		var/obscured = H.check_obscured_slots(TRUE)
-		//HEAD//
-
-		if(H.glasses && !(obscured & ITEM_SLOT_EYES))
-			burning_items += H.glasses
-		if(H.wear_mask && !(obscured & ITEM_SLOT_MASK))
-			burning_items += H.wear_mask
-		if(H.wear_neck && !(obscured & ITEM_SLOT_NECK))
-			burning_items += H.wear_neck
-		if(H.ears && !(obscured & ITEM_SLOT_EARS))
-			burning_items += H.ears
-		if(H.head)
-			burning_items += H.head
-
-		//CHEST//
-		if(H.w_uniform && !(obscured & ITEM_SLOT_ICLOTHING))
-			burning_items += H.w_uniform
-		if(H.wear_suit)
-			burning_items += H.wear_suit
-
-		//ARMS & HANDS//
-		var/obj/item/clothing/arm_clothes = null
-		if(H.gloves && !(obscured & ITEM_SLOT_GLOVES))
-			arm_clothes = H.gloves
-		else if(H.wear_suit && ((H.wear_suit.body_parts_covered & HANDS) || (H.wear_suit.body_parts_covered & ARMS)))
-			arm_clothes = H.wear_suit
-		else if(H.w_uniform && ((H.w_uniform.body_parts_covered & HANDS) || (H.w_uniform.body_parts_covered & ARMS)))
-			arm_clothes = H.w_uniform
-		if(arm_clothes)
-			burning_items |= arm_clothes
-
-		//LEGS & FEET//
-		var/obj/item/clothing/leg_clothes = null
-		if(H.shoes && !(obscured & ITEM_SLOT_FEET))
-			leg_clothes = H.shoes
-		else if(H.wear_suit && ((H.wear_suit.body_parts_covered & FEET) || (H.wear_suit.body_parts_covered & LEGS)))
-			leg_clothes = H.wear_suit
-		else if(H.w_uniform && ((H.w_uniform.body_parts_covered & FEET) || (H.w_uniform.body_parts_covered & LEGS)))
-			leg_clothes = H.w_uniform
-		if(leg_clothes)
-			burning_items |= leg_clothes
-
-		for(var/obj/item/I as() in burning_items)
-			I.fire_act((H.fire_stacks * 50)) //damage taken is reduced to 2% of this value by fire_act()
-
-		var/thermal_protection = H.get_thermal_protection()
-
-		if(thermal_protection >= FIRE_IMMUNITY_MAX_TEMP_PROTECT && !no_protection)
-			return
-		if(thermal_protection >= FIRE_SUIT_MAX_TEMP_PROTECT && !no_protection)
-			H.adjust_bodytemperature(5.5 * delta_time)
-		else
-			H.adjust_bodytemperature((BODYTEMP_HEATING_MAX + (H.fire_stacks * 12)) * 0.5 * delta_time)
-			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
-
-/datum/species/proc/CanIgniteMob(mob/living/carbon/human/H)
-	if(HAS_TRAIT(H, TRAIT_NOFIRE))
-		return FALSE
-	return TRUE
-
-/datum/species/proc/ExtinguishMob(mob/living/carbon/human/H)
-	return
+	return no_protection
 
 
 ////////////
@@ -2694,9 +2621,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/list/food_flags = FOOD_FLAGS
 
 	return list(
-		"liked_food" = bitfield_to_list(initial(mutanttongue.liked_food), food_flags),
-		"disliked_food" = bitfield_to_list(initial(mutanttongue.disliked_food), food_flags),
-		"toxic_food" = bitfield_to_list(initial(mutanttongue.toxic_food), food_flags),
+		"liked_food" = bitfield_to_list(initial(mutanttongue.liked_foodtypes), food_flags),
+		"disliked_food" = bitfield_to_list(initial(mutanttongue.disliked_foodtypes), food_flags),
+		"toxic_food" = bitfield_to_list(initial(mutanttongue.toxic_foodtypes), food_flags),
 	)
 
 /**
@@ -3090,14 +3017,15 @@ GLOBAL_LIST_EMPTY(features_by_species)
  */
 /datum/species/proc/create_pref_language_perk()
 
-	// Grab galactic common as a path, for comparisons
+	// Grab galactic common and metalanguage as paths, for comparisons
 	var/datum/language/common_language = /datum/language/common
+	var/datum/language/metalanguage = /datum/language/metalanguage
 
-	// Now let's find all the languages they can speak that aren't common
+	// Now let's find all the languages they can speak that aren't common or metalanguage
 	var/list/bonus_languages = list()
 	var/datum/language_holder/basic_holder = GLOB.prototype_language_holders[species_language_holder]
 	for(var/datum/language/language_type as anything in basic_holder.spoken_languages)
-		if(ispath(language_type, common_language))
+		if(ispath(language_type, common_language) || ispath(language_type, metalanguage))
 			continue
 		bonus_languages += initial(language_type.name)
 

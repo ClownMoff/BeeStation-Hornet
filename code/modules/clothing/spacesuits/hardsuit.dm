@@ -664,7 +664,6 @@
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/syndi
 	jetpack = /obj/item/tank/jetpack/suit
 	cell = /obj/item/stock_parts/cell/super
-	item_flags = ILLEGAL	//Syndicate only and difficult to obtain outside of uplink anyway. Nukie hardsuits on the ship are illegal.
 	slowdown = 0.5
 	actions_types = list(
 		/datum/action/item_action/toggle_spacesuit,
@@ -1213,7 +1212,7 @@
 	stamina = 20
 	bleed = 70
 
-/obj/item/clothing/suit/space/hardsuit/clown/mob_can_equip(mob/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+/obj/item/clothing/suit/space/hardsuit/clown/mob_can_equip(mob/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_occupancy = FALSE)
 	if(!..() || !ishuman(M))
 		return FALSE
 	var/mob/living/carbon/human/H = M
