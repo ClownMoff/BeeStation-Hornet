@@ -240,3 +240,8 @@
 	icon_state = "railing_wood_end"
 	reverse = TRUE
 	diagonals_possible = FALSE
+
+/obj/structure/railing/perspective/boxing
+	name = "boxing ropes"
+	desc = "ropes designed for boxing rings."
+	icon_state = "boxing_ropes"

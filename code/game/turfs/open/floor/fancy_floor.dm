@@ -5,6 +5,7 @@
  * Carpet floor
  * Fake pits
  * Fake space
+ * Boxing canvas
  */
 
 /turf/open/floor/bamboo
@@ -530,3 +531,20 @@
 
 /turf/open/floor/concrete/tile
 	icon_state = "conc_tiles"
+
+/turf/open/floor/boxing
+	name = "boxing canvas"
+	icon = 'icons/turf/floors/boxing_canvas.dmi'
+	icon_state = "boxing_canvas"
+	desc = "A wood floor covered by a soft canvas designed for boxing rings."
+	bullet_bounce_sound = null
+	footstep = FOOTSTEP_CARPET
+	barefootstep = FOOTSTEP_CARPET_BAREFOOT
+	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	layer = EDGED_TURF_LAYER
+	max_integrity = 150
+
+/turf/open/floor/boxing/logo
+	icon_state = "boxing_canvas_logo"
