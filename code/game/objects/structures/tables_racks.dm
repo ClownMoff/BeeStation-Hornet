@@ -582,6 +582,27 @@ CREATION_TEST_IGNORE_SUBTYPES(/obj/structure/table)
 	..()
 	playsound(src, 'sound/magic/clockwork/fellowship_armory.ogg', 50, TRUE)
 
+/obj/structure/table/reinforced/kitchen_counter
+	name = "kitchen counter"
+	desc = "A tough, marble counter for cooking. Beware not to fall head first into a corner"
+	icon = 'icons/obj/smooth_structures/tables/kitchen_counter.dmi'
+	icon_state = "kitchen_counter-0"
+	base_icon_state = "kitchen_counter"
+	deconstruction_ready = 0
+	buildstack = /obj/item/stack/sheet/plasteel
+	max_integrity = 200
+	integrity_failure = 0.25
+	armor_type = /datum/armor/kitchen_counter
+
+/datum/armor/kitchen_counter
+	melee = 5
+	bullet = 10
+	laser = 10
+	energy = 20
+	bomb = 5
+	fire = 80
+	acid = 20
+
 /*
  * Surgery Tables
  */

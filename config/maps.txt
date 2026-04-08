@@ -27,7 +27,6 @@ map boxstation
 endmap
 
 map metastation
-	default
 	votable
 endmap
 
@@ -57,6 +56,12 @@ map echostation
 endmap
 
 map cardinalstation
+	minplayers 25
+	votable
+endmap
+
+map stationstation
+	default
 	minplayers 25
 	votable
 endmap

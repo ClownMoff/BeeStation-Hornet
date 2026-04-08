@@ -357,6 +357,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	name = "kitchen sink"
 	icon_state = "sink_alt"
 
+/obj/structure/sink/kitchen_table
+	name = "kitchen sink"
+	icon_state = "sink_table"
+
 
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"
