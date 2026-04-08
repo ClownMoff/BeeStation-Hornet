@@ -37,6 +37,7 @@
 "bq" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/wiki/barman_recipes,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/crew_quarters/bar)
