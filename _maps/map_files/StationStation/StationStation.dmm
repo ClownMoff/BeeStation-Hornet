@@ -274,6 +274,9 @@
 /obj/structure/platform/black/corner{
 	dir = 4
 	},
+/obj/structure/sign/poster/random{
+	pixel_x = -32
+	},
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "ef" = (
@@ -700,9 +703,6 @@
 /area/station/service/bar)
 "jk" = (
 /obj/structure/platform/black,
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
 /obj/structure/table/wood,
 /turf/open/floor/iron,
 /area/station/commons/fitness)
@@ -829,6 +829,15 @@
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/service/kitchen)
+"lx" = (
+/obj/structure/platform/black{
+	dir = 4
+	},
+/obj/structure/sign/poster/random{
+	pixel_x = -32
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
 "lA" = (
 /obj/machinery/light/dim/directional/east,
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -918,14 +927,6 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/open/floor/iron,
-/area/station/commons/fitness)
-"nb" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/chair/office,
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "nf" = (
@@ -2356,7 +2357,7 @@
 "GG" = (
 /obj/structure/platform/black,
 /obj/structure/cable/yellow{
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness)
@@ -2672,19 +2673,6 @@
 /obj/structure/table,
 /turf/open/floor/wood,
 /area/station/service/bar/lounge)
-"Ll" = (
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/tile/green/half/contrasted{
-	dir = 8
-	},
-/obj/machinery/vending/custom,
-/turf/open/floor/iron/dark/side,
-/area/station/hallway/primary/fore)
 "Lv" = (
 /obj/structure/railing/perspective/black{
 	dir = 4
@@ -3078,8 +3066,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/locker)
 "Pw" = (
-/obj/structure/sign/poster/random{
-	pixel_y = 32
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness)
@@ -3449,6 +3438,7 @@
 	pixel_y = 32
 	},
 /obj/effect/turf_decal/trimline/green/filled/line,
+/obj/machinery/vending/custom,
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "Un" = (
@@ -22936,7 +22926,7 @@ Sb
 Gc
 nf
 sL
-Iy
+lx
 Iy
 Iy
 Iy
@@ -23185,7 +23175,7 @@ hH
 ln
 VS
 qx
-Gc
+hW
 kK
 BN
 RQ
@@ -23689,8 +23679,8 @@ GX
 ln
 VS
 qx
-Gc
-nb
+hW
+dE
 jk
 vA
 Fr
@@ -28978,7 +28968,7 @@ Yg
 CH
 tu
 Um
-Ll
+up
 VS
 qx
 fy
@@ -29246,7 +29236,7 @@ ML
 bB
 GB
 YK
-Mz
+YK
 Mz
 Mz
 Mz
@@ -29498,7 +29488,7 @@ oJ
 oJ
 UQ
 df
-Mz
+YK
 Mz
 Mz
 Mz
@@ -29750,7 +29740,7 @@ It
 It
 It
 sc
-Mz
+YK
 Mz
 Mz
 Mz
@@ -30002,7 +29992,7 @@ YE
 YE
 YE
 Op
-Mz
+YK
 Mz
 Mz
 Mz
@@ -30254,7 +30244,7 @@ qR
 qR
 hf
 df
-Mz
+YK
 Mz
 Mz
 Mz
@@ -30506,7 +30496,7 @@ GB
 YK
 YK
 YK
-Mz
+YK
 Mz
 Mz
 Mz
