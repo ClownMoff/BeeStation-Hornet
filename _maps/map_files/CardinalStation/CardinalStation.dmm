@@ -109566,11 +109566,6 @@
 	},
 /turf/open/floor/engine/vacuum,
 /area/station/maintenance/disposal/incinerator)
-"xVq" = (
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/structure/closet/crate,
-/turf/open/floor/iron/white,
-/area/station/medical/medbay/aft)
 "xVC" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -159150,7 +159145,7 @@ rSC
 qhb
 xpl
 sVm
-xVq
+qxN
 wuP
 pIG
 sdP
